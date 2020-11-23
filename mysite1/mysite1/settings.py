@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'users',
+    'orders',
+    'download',
+    'uploads',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +140,5 @@ CACHES = {
     }
 }
 SESSION_COOKIE_AGE = 60 * 60
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

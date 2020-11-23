@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list note</title>
+</head>
+<body>
+
+<table>
+    <tr>
+    <th>编号</th>
+    <th>名称</th>
+    <th>content</th>
+    <th>time</th>
+    <th>user</th>
+    <th>操作</th>
+    </tr>
+    <tr>
+{% for b in order %}
+            <tr>
+    <td>{{ b.id }}</td>
+    <td>{{ b.title }}</td>
+    <td>{{ b.content }}</td>
+    <td>{{ b.updated_time }}</td>
+    <td>{{ b.user_id }}</td>
+    <td><a href="/orders/update_order/{{b.id}}">update</a>
+        <a href="/orders/delete_order?id={{b.id}}">delete</a>
+    </td>
+</tr>
+
+{% endfor %}
+    </table>
+</body>
+</html>

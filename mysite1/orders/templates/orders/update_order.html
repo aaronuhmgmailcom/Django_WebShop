@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更新</title>
+</head>
+<body>
+<form action="/orders/update_order/{{ order.id }}" method="post">
+    <input type="text" name="title" value="{{ order.title }}" >
+    <input type="text" name="content" value=" {{ order.content }} ">
+
+    <input type="submit" value="submit">
+
+</form>
+</body>
+</html>
