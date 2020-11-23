@@ -1,4 +1,6 @@
 # Create your views here.
+from django.core import mail
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 import hashlib
@@ -37,6 +39,13 @@ def add_view(request):
 @login_check
 def list_view(request):
     order = Order.objects.all()
+    # mail.send_mail('mail test', 'hello world', '54778723@qq.com', ['82780270@qq.com'])
+    paginator = Paginator(order, 2)
+    cur_page = request.GET.get('page', 1)  # 得到默认的当前页
+    page = paginator.page(cur_page)
+    # return render(request, 'bookstore/book.html', locals())
+    # return render(request, 'bookstore/all_book.html', locals())
+
     return render(request, 'orders/list_order.html', locals())
     # return render(request,'note/list_note.html')
 

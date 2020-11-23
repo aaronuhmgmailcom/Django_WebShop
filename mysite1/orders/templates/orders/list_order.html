@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>list note</title>
+    <title>list order</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
     <th>操作</th>
     </tr>
     <tr>
-{% for b in order %}
+{% for b in page %}
             <tr>
     <td>{{ b.id }}</td>
     <td>{{ b.title }}</td>
@@ -30,5 +30,25 @@
 
 {% endfor %}
     </table>
+
+{% if page.has_previous %}
+<a href="{% url 'list' %}?page={{ page.previous_page_number }}">上一页</a>
+{% else %}
+上一页
+{% endif %}
+
+{% for p in paginator.page_range %}
+    {% if p == page.number %}
+        {{ p }}
+    {% else %}
+        <a href="{% url 'list' %}?page={{ p }}">{{ p }}</a>
+    {% endif %}
+{% endfor %}
+
+{% if page.has_next %}
+<a href="{% url 'list' %}?page={{ page.next_page_number }}">下一页</a>
+{% else %}
+下一页
+{% endif %}
 </body>
 </html>
