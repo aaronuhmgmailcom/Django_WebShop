@@ -151,5 +151,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # EMAIL_USE_TLS = True  # 与SMTP服务器通信时，是否启动TLS链接(安全链接)默认false
 
 STATIC_ROOT = '/home/tarena/PycharmProjects/Django_WebShop/mysite1_static'
-ADMINS = [('peter', '54778723@qq.com')]
-SERVER_EMAIL = '54778723@qq.com'
+ADMINS = [('peter', '**@qq.com')]
+SERVER_EMAIL = '**@qq.com'

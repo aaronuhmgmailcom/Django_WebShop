@@ -12,9 +12,9 @@ class MyMiddleWare(MiddlewareMixin):
             request.session['dict']=[]
 
         request.session['dict'].append({ip:pinf})
-        print(request.session['dict'])
+        # print(request.session['dict'])
         request_num = request.session['dict'].count({ip:pinf})
-        print(request_num)
+        # print(request_num)
         if request_num>5:
             return HttpResponse('not exceed 5')
         print("中间件方法 process_request 被调用")

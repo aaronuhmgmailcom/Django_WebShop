@@ -1,0 +1,56 @@
+<!-- file: index/templates/index/upload.html -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户信息</title>
+</head>
+<body>
+    <h3>上传文件</h3>
+    <form method="post" action="/users/userinfo" enctype="multipart/form-data">
+        <p>
+        username : <input type="text" name="username" value="peter">
+        </p>
+         <p>
+         nickname:   <input type="text" name="nickname" value="peter">
+         </p>
+         <p>
+        lastname: <input type="text" name="lastname" value="simpson">
+         </p>
+         <p>
+       firstname: <input type="text" name="firstname" value="richard">
+         </p>
+         <p>
+       country: <input type="text" name="country" value="china">
+         </p>
+         <p>
+      province:  <input type="text" name="province" value="hubei">
+         </p>
+         <p>
+       city: <input type="text" name="city" value="wuhan">
+         </p>
+         <p>
+       gender: <input type="text" name="gender" value="0">
+         </p>
+         <p>
+       age: <input type="text" name="age" value="18">
+         </p>
+         <p>
+      birthday:  <input type="text" name="birthday" value="1999-01-01">
+         </p>
+         <p>
+      Delivery_address1:  <input type="text" name="Delivery_address1" value="add1">
+         </p>
+         <p>
+      Delivery_address2:  <input type="text" name="Delivery_address2" value="add2">
+         </p>
+         <p>
+       EMAIL: <input type="text" name="EMAIL">
+         </p>
+         <p>
+       TELEPHONE: <input type="text" name="TELEPHONE">
+         </p>
+        <input type="file" name="myfile"/><br>
+        <input type="submit" value="上传">
+    </form>
+</body>
+</html>

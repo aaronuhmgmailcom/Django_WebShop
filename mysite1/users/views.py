@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import *
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 from .models import User
@@ -77,3 +79,38 @@ def logout_view(request):
         resp.delete_cookie('uid')
     return resp
 
+# @csrf_exempt
+def upload_view_dj(request):
+    if request.method == 'GET':
+        return render(request, 'users/upload_userinfo.html')
+    elif request.method == 'POST':
+        title = request.POST['title']
+        a_file = request.FILES['myfile']
+        try:
+            username =request.POST['username']
+            print(username)
+            # password =
+            IMAGE = request.FILES['myfile']
+            nickname =request.POST['nickname']
+            lastname =request.POST['lastname']
+            firstname =request.POST['firstname']
+            country =request.POST['country']
+            province =request.POST['province']
+            city =request.POST['city']
+            print(city)
+            gender =request.POST['gender']
+            age =request.POST['age']
+            birthday =request.POST['birthday']
+            status =0
+            Delivery_address1 =request.POST['Delivery_address1']
+            Delivery_address2 =request.POST['Delivery_address2']
+            EMAIL =request.POST['EMAIL']
+            TELEPHONE =request.POST['TELEPHONE']
+
+            User.objects.create(username=username,IMAGE=IMAGE,nickname=nickname,lastname=lastname,firstname=firstname,country=country,province=province,city=city,gender=gender
+                                ,age=age,birthday=birthday,status=status,Delivery_address1=Delivery_address1,Delivery_address2=Delivery_address2,EMAIL=EMAIL,TELEPHONE=TELEPHONE)
+        except Exception as e:
+            return HttpResponse(e)
+
+
+        return HttpResponse('----upload userinfo is ok-----')

@@ -994,3 +994,81 @@ spawned uWSGI worker 1 (pid: 1735, cores: 2)
 中间件方法 process_request 被调用
 中间件方法 process_response 被调用
 [pid: 1735|app: 0|req: 2/2] 176.215.66.101 () {44 vars in 895 bytes} [Tue Nov 24 11:28:46 2020] GET /asdsad => generated 139 bytes in 15 msecs (HTTP/1.1 404) 4 headers in 130 bytes (1 switches on core 1)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+not in
+[{'176.215.66.101': '/orders/list'}]
+1
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+./orders/views.py:43: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'orders.models.Order'> QuerySet.
+  paginator = Paginator(order, 2)
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 3/3] 176.215.66.101 () {42 vars in 843 bytes} [Tue Nov 24 14:57:21 2020] GET /orders/list?page=1 => generated 991 bytes in 501 msecs (HTTP/1.1 200) 5 headers in 265 bytes (1 switches on core 0)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 4/4] 176.215.66.101 () {44 vars in 943 bytes} [Tue Nov 24 14:57:24 2020] GET /orders/list?page=2 => generated 1017 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 1)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 5/5] 176.215.66.101 () {44 vars in 943 bytes} [Tue Nov 24 14:57:24 2020] GET /orders/list?page=3 => generated 988 bytes in 8 msecs (HTTP/1.1 200) 4 headers in 123 bytes (1 switches on core 0)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 6/6] 176.215.66.101 () {44 vars in 943 bytes} [Tue Nov 24 15:05:30 2020] GET /orders/list?page=1 => generated 991 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 123 bytes (1 switches on core 1)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 7/7] 176.215.66.101 () {44 vars in 943 bytes} [Tue Nov 24 15:05:30 2020] GET /orders/list?page=2 => generated 1017 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 8/8] 176.215.66.101 () {44 vars in 943 bytes} [Tue Nov 24 15:05:31 2020] GET /orders/list?page=3 => generated 988 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 123 bytes (1 switches on core 1)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/update_order/3'}]
+1
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 9/9] 176.215.66.101 () {42 vars in 894 bytes} [Tue Nov 24 15:05:39 2020] GET /orders/update_order/3 => generated 334 bytes in 56 msecs (HTTP/1.1 200) 4 headers in 123 bytes (1 switches on core 0)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/update_order/3'}]
+1
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 10/10] 176.215.66.101 () {52 vars in 1135 bytes} [Tue Nov 24 15:05:43 2020] POST /orders/update_order/3 => generated 0 bytes in 108 msecs (HTTP/1.1 302) 5 headers in 148 bytes (1 switches on core 1)
+[{'176.215.66.101': '/orders/list'}, {'176.215.66.101': '/orders/list'}]
+2
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 11/11] 176.215.66.101 () {46 vars in 964 bytes} [Tue Nov 24 15:05:43 2020] GET /orders/list => generated 993 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 123 bytes (1 switches on core 0)
+not in
+[{'176.215.66.101': '/'}]
+1
+中间件方法 process_request 被调用
+中间件方法 process_view 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 12/12] 176.215.66.101 () {42 vars in 808 bytes} [Tue Nov 24 17:10:51 2020] GET / => generated 510 bytes in 620 msecs (HTTP/1.1 200) 5 headers in 265 bytes (1 switches on core 1)
+[{'176.215.66.101': '/'}, {'176.215.66.101': '/upload_userinfo'}]
+1
+中间件方法 process_request 被调用
+中间件方法 process_response 被调用
+[pid: 1735|app: 0|req: 13/13] 176.215.66.101 () {42 vars in 882 bytes} [Tue Nov 24 17:11:01 2020] GET /upload_userinfo => generated 139 bytes in 28 msecs (HTTP/1.1 404) 4 headers in 130 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
