@@ -23,4 +23,9 @@ class User(models.Model):
     updated_time = models.DateTimeField('更新时间', auto_now=True)
 
     def __str__(self):
-        return "用户" + self.username
+        return "User username: %s, nickname: %s, gender: %s, age: %s, status: %s" % (
+            self.username, self.nickname, self.gender, self.age, self.status)
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'User'

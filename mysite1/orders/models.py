@@ -16,5 +16,5 @@ class Order(models.Model):
         return "order name: %s, content: %s, user: %s" % (self.title, self.content, self.user)
 
     class Meta:
-        verbose_name='order'
-        verbose_name_plural='order'
+        verbose_name='ordertest'
+        verbose_name_plural='ordertest'

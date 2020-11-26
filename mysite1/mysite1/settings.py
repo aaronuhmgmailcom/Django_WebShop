@@ -42,6 +42,16 @@ INSTALLED_APPS = [
     'download',
     'uploads',
     'user_comment',
+    'order',
+    'order_item',
+    'price_history',
+    'product',
+    'product_class',
+    'rotation',
+    'search_history',
+    'shopping_cart',
+    'user_wallet',
+
 ]
 
 MIDDLEWARE = [
@@ -129,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
@@ -151,6 +162,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # EMAIL_HOST_PASSWORD = 'qyijsjqyobdrvbhgdwe'  # 在QQ邮箱->设置->帐户->“POP3/IMAP......服务” 里得到的在第三方登录QQ邮箱授权码
 # EMAIL_USE_TLS = True  # 与SMTP服务器通信时，是否启动TLS链接(安全链接)默认false
 
-STATIC_ROOT = '/home/tarena/PycharmProjects/Django_WebShop/mysite1_static'
+# STATIC_ROOT = '/home/tarena/PycharmProjects/Django_WebShop/mysite1_static'
 ADMINS = [('peter', '**@qq.com')]
 SERVER_EMAIL = '**@qq.com'

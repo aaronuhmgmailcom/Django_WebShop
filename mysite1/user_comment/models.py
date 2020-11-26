@@ -10,3 +10,7 @@ class User_Comment(models.Model):
 
     def __str__(self):
         return "订单评论表: 商品ID "+ str(self.product_id) + " 订单ID " + str(self.order_id)
+
+    class Meta:
+        verbose_name = 'User_Comment'
+        verbose_name_plural = 'User_Comment'
