@@ -79,16 +79,13 @@ def logout_view(request):
         resp.delete_cookie('uid')
     return resp
 
-# @csrf_exempt
+@csrf_exempt
 def upload_view_dj(request):
     if request.method == 'GET':
         return render(request, 'users/upload_userinfo.html')
     elif request.method == 'POST':
-        title = request.POST['title']
-        a_file = request.FILES['myfile']
         try:
             username =request.POST['username']
-            print(username)
             # password =
             IMAGE = request.FILES['myfile']
             nickname =request.POST['nickname']
@@ -97,7 +94,6 @@ def upload_view_dj(request):
             country =request.POST['country']
             province =request.POST['province']
             city =request.POST['city']
-            print(city)
             gender =request.POST['gender']
             age =request.POST['age']
             birthday =request.POST['birthday']
