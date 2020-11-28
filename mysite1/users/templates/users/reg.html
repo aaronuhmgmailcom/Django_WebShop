@@ -6,19 +6,38 @@
 </head>
 <body>
 reg
-<form action="/users/reg" method="post">
+<!--<form action="/users/reg" method="post">-->
     <p>
-        account: <input type="text" name="username">
+        account: <input id="username" type="text" name="username">
     </p>
     <p>
-        password: <input type="text" name="password1">
+        password: <input id="password1" type="text" name="password1">
     </p>
     <p>
-        repeat password: <input type="text" name="password2">
+        repeat password: <input id="password2" type="text" name="password2">
     </p>
-    <input type="submit" value="regsiter">
+    <input id='btn' type="submit" value="regsiter">
+    <div id="show"></div>
 
-
-</form>
+<!--</form>-->
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+ $(function(){
+        $('#btn').click(function(){
+            username= $('#username').val();
+            password1=$('#password1').val();
+            password2=$('#password2').val();
+            data = {username:username,password1:password1,password2:password2}
+           $.ajax({
+           url:'/users/reg',
+           data: data,
+           type:'post',
+           success:function(res){
+                $('#show').html(res)
+           }
+           })
+        })
+    })
+</script>
 </body>
 </html>

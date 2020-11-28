@@ -6,22 +6,38 @@
 </head>
 <body>
 login
-<form action="/users/login" method="post">
+<!--<form action="" method="post">-->
 <p>
-    account :<input type="text" name="username">
+    account :<input type="text" id="username" name="username">
 </p>
     <p>
-        password: <input type="password" name="password">
+        password: <input type="password" id="password" name="password">
     </p>
     <p>
         <input type="checkbox" name="remember">remember me
     </p>
     <p>
-        <input type="submit" value="login">
+        <input id="btn" type="submit" value="login">
+        <div id="show"></div>
     </p>
-
-
-</form>
-
+<!--</form>-->
 </body>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+ $(function(){
+        $('#btn').click(function(){
+           username= $('#username').val();
+            password=$('#password').val();
+            data = {username:username,password:password}
+           $.ajax({
+           url:'/users/login',
+           data: data,
+           type:'post',
+           success:function(res){
+                $('#show').html(res)
+           }
+           })
+        })
+    })
+</script>
 </html>
