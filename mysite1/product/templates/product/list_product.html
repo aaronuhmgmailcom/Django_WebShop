@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list product</title>
+</head>
+<body>
+
+<table>
+    <tr>
+    <th>编号</th>
+    <th>说明</th>
+    <th>name</th>
+    <th>img</th>
+    <th>img2</th>
+    <th>img3</th>
+    <th>img4</th>
+    <th>img5</th>
+    </tr>
+    <tr>
+{% for b in page %}
+            <tr>
+    <td>{{ b.id }}</td>
+    <td>{{ b.description }}</td>
+    <td>{{ b.description }}</td>
+    <td>{{ b.img }}</td>
+    <td>{{ b.img2 }}</td>
+    <td>{{ b.img3 }}</td>
+    <td>{{ b.img4 }}</td>
+    <td>{{ b.img5 }}</td>
+</tr>
+
+{% endfor %}
+    </table>
+
+{% if page.has_previous %}
+<a href="{% url 'list' %}?page={{ page.previous_page_number }}">上一页</a>
+{% else %}
+上一页
+{% endif %}
+
+{% for p in paginator.page_range %}
+    {% if p == page.number %}
+        {{ p }}
+    {% else %}
+        <a href="{% url 'list' %}?page={{ p }}">{{ p }}</a>
+    {% endif %}
+{% endfor %}
+
+{% if page.has_next %}
+<a href="{% url 'list' %}?page={{ page.next_page_number }}">下一页</a>
+{% else %}
+下一页
+{% endif %}
+</body>
+</html>
