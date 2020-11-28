@@ -5,6 +5,10 @@ from django.db import models
 class Product(models.Model):
     class_ids = models.CharField("类别ID", default='', max_length=30)
     img = models.FileField(upload_to='productImages', default='')
+    img2 = models.FileField(upload_to='productImages', default='')
+    img3 = models.FileField(upload_to='productImages', default='')
+    img4 = models.FileField(upload_to='productImages', default='')
+    img5 = models.FileField(upload_to='productImages', default='')
     description = models.TextField('商品描述')
     product_name = models.CharField("商品名称", default='', max_length=128)
     price = models.DecimalField("商品价格", default=0,max_digits=10,decimal_places=2)
