@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cors</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<body>
+<button id="btn">cors working</button>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                url:'http://localhost:8888/cors_server',
+                type:'get',
+                success:function(res){
+                    alert(res);
+
+                }
+
+            })
+        })
+    })
+
+
+
+</script>
+
+</body>
+</html>

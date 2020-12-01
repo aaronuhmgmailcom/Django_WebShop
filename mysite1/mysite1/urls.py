@@ -24,6 +24,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view),
+    path('cors', views.cors),
+    path('cors_server', views.cors_server),
+
     path('users/', include('users.urls')),
     path('product/', include('product.urls')),
     path('orders/', include('orders.urls')),
