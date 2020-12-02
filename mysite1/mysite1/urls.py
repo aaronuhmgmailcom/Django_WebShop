@@ -29,8 +29,8 @@ urlpatterns = [
     path('cors_server', views.cors_server),
     path('v1/users', user_views.UsersView.as_view()),
     path('v1/tokens', btoken_views.TokenView.as_view()),
-
     path('users/', include('users.urls')),
+
     path('product/', include('product.urls')),
     path('orders/', include('orders.urls')),
     path('download/', include('download.urls')),

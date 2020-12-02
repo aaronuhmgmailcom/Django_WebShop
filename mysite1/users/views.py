@@ -12,7 +12,32 @@ import jwt
 from django.conf import settings
 
 class UsersView(View):
-    def get(self,request):
+    def get(self,request,username=None):
+        print(username)
+        if username:
+            try:
+                user=User.objects.get(username=username)
+            except Exception as e:
+                print('-get user error is %s-'% e)
+                result={'code':10104 , 'error':'user not exist'}
+                return JsonResponse(result)
+            #get search data
+            keys= request.GET.keys()
+            if keys:
+                data={}
+                for key in keys:
+                    if key =='password':
+                        continue
+                    if hasattr(user,key):
+                        data[key]= getattr(user,key)
+                result={'code':200,'username':username,'data':data}
+            else:
+            #get all data
+                result={'code':200,'username':username,'data':{'info':user.Delivery_address1, 'sign':user.sign, 'nickname':user.nickname,'avatar':str(user.IMAGE) }}
+            return JsonResponse(result)
+        else:
+            pass
+
         return HttpResponse('--users get--')
 
     def post(self,request):

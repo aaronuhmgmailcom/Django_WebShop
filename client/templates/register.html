@@ -76,6 +76,7 @@
     					alert('注册成功');
     					//本地存储token
     					window.localStorage.setItem('dnblog_token',res.data.token);
+    					window.localStorage.setItem('dnblog_user',res.username);
     				}else{
     					alert('失败');
     				}

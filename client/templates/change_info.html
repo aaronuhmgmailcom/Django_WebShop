@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--
-author:guojunyu
-date:2019-05-19
-desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
-A ny individuals and organizations and not for commercial use, professiona website for customized web site.
--->
 <head>
         <meta charset="utf-8">
         <link href="/static/css/login_reglogin.css" rel='stylesheet' type='text/css' />
@@ -26,7 +20,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
        // 请求方式
        type:"get",
        // url
-       url:"http://127.0.0.1:8000/v1/users/"+ username,
+       url:"http://127.0.0.1:8000/users/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },

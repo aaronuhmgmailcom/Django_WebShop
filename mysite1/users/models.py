@@ -26,6 +26,7 @@ class User(models.Model):
     Delivery_address2= models.CharField("收货地址2",default='', max_length=128,null=True)
     EMAIL= models.EmailField("邮箱",default='', max_length=64,null=True)
     TELEPHONE= models.CharField("电话",default='', max_length=64,null=True)
+    # desc= models.CharField("desc",default='', max_length=256,null=True)
     created_time = models.DateTimeField('创建时间', auto_now_add=True)
     updated_time = models.DateTimeField('更新时间', auto_now=True)
 
