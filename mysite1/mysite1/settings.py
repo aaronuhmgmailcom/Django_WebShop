@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'search_history',
     'shopping_cart',
     'user_wallet',
+    'btoken',
 
 ]
 
@@ -189,3 +190,4 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
+JWT_TOKEN_KEY='123456'

@@ -19,13 +19,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from . import views
-
+from users import views as user_views
+from btoken import views as btoken_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view),
     path('cors', views.cors),
     path('cors_server', views.cors_server),
+    path('v1/users', user_views.UsersView.as_view()),
+    path('v1/tokens', btoken_views.TokenView.as_view()),
 
     path('users/', include('users.urls')),
     path('product/', include('product.urls')),
