@@ -4,18 +4,44 @@
 # from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import HttpResponse, JsonResponse
+from django.utils.decorators import method_decorator
 from django.views import View
 from .models import User
 import hashlib
 import time
 import jwt
 from django.conf import settings
+from tools.login_dec import login_check
 
+@login_check
 def user_avatar(request,username):
-    pass
-
+    if request.method!='POST':
+        result={'code':10105,'error':'必须是POST'}
+        return JsonResponse(result)
+    user=request.myuser
+    user.IMAGE= request.FILES['avatar']
+    user.save()
+    result={'code':200,'username':user.username}
+    return JsonResponse(result)
 
 class UsersView(View):
+    @method_decorator(login_check)
+    def put(self,request,username=None):
+        #获取用户提交数据
+        if request.method!='PUT':
+            result = {'code': 10106, 'error': '必须是PUT'}
+            return JsonResponse(result)
+        #从REQUEST.MYUSER获取要修改用户
+        user = User.objects.get(username=username)
+        json_str = request.body
+        json_obj = json.loads(json_str)
+        user.nickname = json_obj['nickname']
+        user.sign = json_obj['sign']
+        user.Delivery_address1 = json_obj['info']
+        user.save()
+        result = {'code': 200, 'username': user.username}
+        return JsonResponse(result)
+
     def get(self,request,username=None):
         print(username)
         if username:
