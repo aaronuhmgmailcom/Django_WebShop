@@ -64,6 +64,7 @@ class UsersView(View):
             else:
             #get all data
                 result={'code':200,'username':username,'data':{'info':user.Delivery_address1, 'sign':user.sign, 'nickname':user.nickname,'avatar':str(user.IMAGE) }}
+
             return JsonResponse(result)
         else:
             pass

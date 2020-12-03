@@ -1,10 +1,5 @@
 <!doctype html>
 <html>
-<!--
-author:guojunyu
-date:2019-05-20
-desc:this demo is about blog.
--->
 <head>
   <meta charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +25,12 @@ desc:this demo is about blog.
          // 请求方式
          type:"get",
          // url
-         url:"http://127.0.0.1:8000/v1/users/"+ blog_username,
+         url:"http://127.0.0.1:8000/users/"+ blog_username,
          beforeSend: function(request) {
              request.setRequestHeader("Authorization", token);
          },
          success:function (result) {
+              console.log(result)
              if (200 == result.code){
                  console.log(result.data.nickname);
                  $(document).attr('title', '关于'+ result.data.nickname+'的博客');

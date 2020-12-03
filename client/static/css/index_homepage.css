@@ -1,0 +1,242 @@
+/* 首页样式文件 */
+@font-face
+{
+    font-family:FZLTSJW;
+    src:url(../images/FZLTSJW.TTF);
+}
+@font-face
+{
+    font-family:SourceHanSansCN-ExtraLight;
+    src:url(../images/SourceHanSansCN-ExtraLight.otf);
+}
+/* 初始化页面元素样式 */
+h1,h2,h3,p,body,ul,li{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;/*取消列表小黑点*/
+}
+a{
+    text-decoration: none;/*取消下划线*/
+    color:black;
+}
+a:hover{
+    color: rgb(231, 50, 50);
+}
+img{
+    display: block;/*取消文字环绕*/
+}
+body{
+    font: 14px;
+    font-family:SourceHanSansCN-ExtraLight;
+}
+
+/****************header****************/
+header{
+    text-align: center;
+}
+.top{
+    width: 1140px;
+    display:inline-block;
+    text-align: left;
+    position: relative;
+}
+#addr{
+    display:inline-block;
+    cursor: pointer;
+}
+#prov_list{
+    position: absolute;
+    z-index:99;
+    background-color: #fff;
+}
+.hide{
+    display:none;
+}
+.tools{
+    float:right;
+}
+.floor0{
+    width: 1140px;
+    display:inline-block;
+    position: relative;
+}
+.logo{
+    position: absolute;
+}
+.search{
+    display:inline-block;
+    line-height:77px;
+}
+.search_text{
+    width: 400px;
+    height:33px;
+    border: rgb(231, 50, 50) solid 2px;
+}
+.search_btn{
+    width: 45px;
+    height: 40px;
+    background-image: url('../images/head_sprite.png');
+    background-repeat: no-repeat;
+    background-position:-4px -347px;
+    border:none;
+    margin-left: -5px;
+}
+.search_btn:hover{
+    cursor: pointer;
+}
+.shopping_cart{
+    width: 92px;
+    height:32px;
+    background-color: rgb(231, 50, 50);
+    color: #fff;
+    position: absolute;
+    right:92px;
+    top:22.5px;
+    line-height: 32px;
+}
+.order_list{
+    width: 90px;
+    height:30px;
+    border: 1px solid #a5a4a486;
+    display: inline-block;
+    position: absolute;
+    right:0;
+    top:23px;
+    line-height:30px;
+}
+.floor1{
+    width: 1140px;
+    display:inline-block;
+    text-align: left;
+}
+.all_classes{
+    display: inline-block;
+    width:150px;
+    height:30px;
+    background-color:  rgb(231, 50, 50);
+    color:white;
+    text-align: center;
+    line-height: 30px;
+}
+.guide{
+    display:inline-block;
+    height: 30px;
+    text-align: left;
+}
+.guide div{
+    display:inline-block;
+    width:100px;
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+}
+/****************主体内容****************/
+main{
+    border-top:3px solid rgb(231, 50, 50);
+    text-align: center;
+}
+.floor2{
+    width: 1140px;
+    height: 315px;
+    display:inline-block;
+}
+.rank{
+    width: 195px;
+    float:left;
+}
+/* 轮播图 */
+.banner{
+    width: 750px;
+    height:315px;
+    float:left;
+}
+.fader{
+    position: relative;
+    width: 750px;
+    height: 315px;
+}
+.slide{
+    position: absolute;
+    width: 750px;
+    height: 315px;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.slide img{
+    width: 750px;
+    height: 315px;
+}
+/* 轮播图页标 */
+.pager_list{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    z-index: 4;
+}
+.pager_list li{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    margin:0 5px;
+    opacity: 0.5;
+    /* 利用文本缩进 隐藏不想要的文本 */
+    text-indent: -9999px;
+}
+.page.active,.page:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.announcement{
+    width: 195px;
+    float:left;
+}
+.productsbox{
+    text-align: left;
+}
+.products{
+    display:inline-block;
+    width:220px;
+    height:200px;
+}
+/***************footer*****************/
+footer{
+    border-top:3px solid  rgb(231, 50, 50);
+    text-align: center;
+}
+footer a{
+    color: #a5a4a4;
+}
+footer a:hover{
+    color: #f09f25;
+}
+.show{
+    background-color: #a5a4a4;
+    text-align: center;
+}
+.show>div{
+    display: inline-block;
+}
+.show a{
+    color:rgb(231, 50, 50);
+}
+.show a:hover{
+    color: rgb(231, 50, 50);
+}
+.help>table{
+    display: inline-block;
+}
+.help th{
+    color:black;
+}
+.popularize{
+    border-top:1px solid #a5a4a4;
+}
