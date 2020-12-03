@@ -11,6 +11,10 @@ import time
 import jwt
 from django.conf import settings
 
+def user_avatar(request,username):
+    pass
+
+
 class UsersView(View):
     def get(self,request,username=None):
         print(username)

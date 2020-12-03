@@ -7,11 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="/static/js/jquery.min.js" type="text/javascript"></script>
 </head>
-
 <body>
 </body>
-
-
 <script>
     token = window.localStorage.getItem('dnblog_token');
     username = window.localStorage.getItem('dnblog_user');
@@ -111,7 +108,7 @@
         var token = window.localStorage.getItem('dnblog_token');
         var username = window.localStorage.getItem('dnblog_user');
         //$('.avatar_form').attr('action', 'http://127.0.0.1/users/avatar')
-        var url = 'http://127.0.0.1:8000/v1/users/' + username + '/avatar'
+        var url = 'http://127.0.0.1:8000/users/' + username + '/avatar'
         formdata = new FormData();
         formdata.append("avatar",$("#avatar")[0].files[0]);
         $.ajax({

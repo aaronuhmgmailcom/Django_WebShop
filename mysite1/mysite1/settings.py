@@ -191,3 +191,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 JWT_TOKEN_KEY='123456'
+
+
