@@ -231,6 +231,9 @@
         text-decoration:none;
         color:rgb(58, 36, 36)
     }
+    .error{
+        color:red;
+    }
     .two .zc{
         font-size: 10px;
         font-weight:bold;
@@ -341,7 +344,9 @@ document.getElementById("div2").style.display="none";
                         <input type="text" id="codes" />
                     </i>
                     <i id="id" class="code"></i>
+                        <i class="error" ></i>
                     </div>
+
                     <div>
                             <input type="checkbox" name="remember" class="memory">
                             <label class="memorys" >记住用户名</label>
@@ -537,7 +542,7 @@ function getGVerify(id)
 		//验证code
 		if(!verifyCode.validate(vcode))
 		{
-			alert('验证码错误')
+		    $('.error').html('验证码错误')
 			return
 		}
 		var post_data={"username":username, "password":password};
@@ -555,7 +560,7 @@ function getGVerify(id)
 					window.location.href = '/index'
 
 				}else{
-					alert(res.error);
+					$('.error').html(res.error)
 				}
 			}
 		})

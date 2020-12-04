@@ -3,6 +3,8 @@
 # from .models import *
 # from django.views.decorators.csrf import csrf_exempt
 import json
+
+from django.core.cache import cache
 from django.http import HttpResponse, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -12,6 +14,8 @@ import time
 import jwt
 from django.conf import settings
 from tools.login_dec import login_check
+import random
+from tools.sms import YunTongXin
 
 @login_check
 def user_avatar(request,username):
@@ -79,6 +83,13 @@ class UsersView(View):
         phone=json_obj['phone']
         password1=json_obj['password1']
         password2=json_obj['password2']
+        code = json_obj['code']
+        redis_code= cache.get('sms_%s'%phone)
+        print(code)
+        print(redis_code)
+        if code!=redis_code:
+            result = {'code': 10103, 'error': '验证码错误！'}
+            return JsonResponse(result)
         # print(username,email,phone,password1,password2)
         if len(username)>11:
             result={'code':10100, 'error':'用户名太长！'}
@@ -108,6 +119,21 @@ def makeToken(username, expire=3600*24):
     payload={'username':username,'exp':now + expire}
     key = settings.JWT_TOKEN_KEY
     return jwt.encode(payload,key,algorithm='HS256')
+
+def sms_view(request):
+    json_str= request.body
+    json_obj= json.loads(json_str)
+    phone =json_obj['phone']
+    code=random.randint(1000,9999)
+    cache_key='sms_%s'%phone
+
+    cache.set(cache_key,code,65)
+    print('--send code -- is %s'%code)
+    x=YunTongXin(settings.SMS_ACCOUNT_ID,settings.SMS_ACCOUNT_TOKEN,settings.SMS_APP_ID,settings.SMS_TEMPLATE_ID)
+    res= x.run(phone,code)
+    print('--send sms result is %s'%res)
+    return JsonResponse({'code':200})
+
 # # Create your views here.
 # from .models import User
 # import hashlib

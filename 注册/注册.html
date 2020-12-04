@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+ <script>  
+    var countdown=60;
+	function settime(obj) {
+    	if (countdown == 0) {
+        	obj.removeAttribute("disabled");
+        	obj.value="免费获取验证码";
+			countdown = 60;
+        	return;
+    	} else {
+        	obj.setAttribute("disabled", true);
+        	obj.value="重新发送(" + countdown + ")";
+        	countdown--;
+    	}
+		setTimeout(function() {
+    		settime(obj) }
+    	,1000)
+    }
+</script>
+<style>
+    
+    .tp{
+        width:15%;
+        height: 5%;
+        margin-left:35%;
+
+    }
+    #there .four{
+        position: absolute;
+        font-weight:normal;
+        font-size: 150%;
+        font-style:italic;
+        margin-top:1.5% ;
+        margin-left:-5%; 
+        
+
+    }
+    #there .color{
+        width: 43%;
+        position: absolute;
+        border-top: solid 1px #ebebeb;
+        border-left: solid 1px #ebebeb;
+        border-right: solid 1px #ebebeb;
+        border-bottom: solid 2px orange;
+        margin-left: 30%;
+    }
+    #there{
+        position: relative;
+    }
+    
+    #one{
+        width: 40%;
+        height: 600px;
+        border: solid 1px #ebebeb;
+        background-color: #ebebeb;
+        margin-top:4%;
+        margin-left: 30%;
+        
+    }
+    #there #two{
+        width: 40%;
+        height: 600px;
+        background-color:white;   
+        position: absolute;
+        margin-top: -33.5%;
+        margin-left: 31%;
+        border: solid 1px #ebebeb;
+        
+    }
+    #there .xing{
+        width: 3%;
+        position: absolute;
+        border-bottom: solid 1px #ebebeb;
+        margin-top: 10%;
+    }
+    #there #xing{
+        width: 80%;
+        position: absolute;
+        border-bottom: solid 1px #ebebeb;
+        margin-top: 10%;
+        margin-left: 19.5%
+    }
+    #there #kuang{
+        position: absolute;
+        font-size: 150%;
+        font-weight:bold;
+        margin-top: 5%;
+        margin-left: 3%;
+        border-top: solid 1px #ebebeb;
+        border-left: solid 1px #ebebeb;
+        border-right: solid 1px #ebebeb;
+        text-decoration:none;
+    }
+    #there .icon-tips{
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        margin-top: 1%;
+        margin-left: -47.5%;
+    }
+    #there .cont-wrapper{
+        width: 90%;
+        font-size: 5px;
+        font-weight:lighter;
+        background: #fff8f0;
+        text-align: center;
+        position: absolute;
+        margin-top: 12%;
+        margin-left: 5%
+    }
+    .zi{
+        font-size: 2px;
+        font-weight:normal;
+        text-align:center;
+        
+        
+    }
+    
+    .names{
+        text-align:center;
+    }
+    .username{
+        width: 30%;
+        margin-top: 18%;
+        margin-left: 5%;
+        height: 30px;
+    }
+    .name{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    #phone{
+        text-align:center;
+    }
+    .phones{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 15%
+    }
+    .phone{
+        width: 30%;
+        margin-top: 5%;
+        margin-left: 5%;
+        height: 30px;
+    }
+    #one #sms{
+        position: absolute;
+        margin-top: 5.5%;
+        margin-left: 1%;
+        height: 30px;
+    }
+    #sms_num,#password_1,#password_2{
+        text-align:center;
+    }
+    .sms_nums,.password{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .sms_num,.password_1,.password_2{
+        width: 30%;
+        margin-top: 5%;
+        margin-left: 5%;
+        height: 30px;
+    }
+    .passwords{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: -2.5%;
+    }
+    .checkbox{
+        text-align:center;
+        margin-top: 2.5%;
+        margin-left: 25%;
+    }
+    #last{
+        text-align:center;
+    }
+    .login{
+        background-color:red;
+        width: 25%;
+        height: 50px;
+        margin-top: 2.5%;
+        border-radius:15px 15px 15px 15px;
+    }
+    .last{
+        margin-top:20px;
+        text-align:center;
+    }
+    .two .ewm{
+        
+        position: absolute;
+        margin-left: 100px;
+        margin-top:50px
+    }
+    .ewms{
+        width: 200px;
+        height: 200px;
+    }
+
+
+</style>  
+</head>
+<body>
+<div id="there" >
+    <div class="ones">
+        <img src="one.gif" class="tp">
+        <i class="four">欢迎注册</i>
+        <div class="color"></div>
+    </div>
+    <div id="one"></div>
+    <div id="two">
+        <div class="kuang">
+            <div class="xing"></div>
+            <div id="xing"></div>
+            <a href="#" id="kuang">新用户注册</a>
+            
+        </div>
+
+        <div id="content">
+            <div class="tips-wrapper">
+                <div class="tips-inner">
+                    <div class="cont-wrapper">
+                        <img src="./登录_files/ones.jpg" class="icon-tips">  
+                        <p class="zi">
+                                贴心提示：请勿设置与邮箱密码相同的账户登录密码或支付密码，防止不法分子窃取您的当当账户信息，
+                                <a href="#" style="text-decoration:none; color:red">谨防诈骗</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="names">
+            <a class="name">用户名:</a>
+            <input type="text" class="username" name="username" placeholder="请输入用户名" required maxlength="11"/>
+        </div>
+        <div id="phone">
+            <a class="phones">手机号:</a>					
+            <input type="phone" class="phone" name="phone" placeholder="请输手机号" required/>
+            <input type="button" id="sms" onclick="settime(this)" value="免费获取验证码">
+        </div>
+        <div id="sms_num">	
+            <a class="sms_nums">验证码:</a>			 
+            <input type="sms_num" class="sms_num" name="sms_num" placeholder="请输入验证码" required />
+        </div>
+        <div id="password_1">
+            <a class="password">密&nbsp&nbsp&nbsp&nbsp码:</a>
+            <input type="password" class="password_1" name="password_1" placeholder="请输入密码" required minlength="6" maxlength="11"/>
+        </div>
+        <div id="password_2"> 
+            <a class="passwords">确认密码:</a>   
+            <input type="password" class="password_2" name="password_2" placeholder="请再次确认密码" required minlength="6" maxlength="11"/>
+        </div>
+        <div class="checkbox">
+                <input type="checkbox" name="remember" class="memory">
+                <label class="memorys" style="font-size: 2%">我已阅读并同意
+                        <a href="#" style="text-decoration:none;">《当当交易条款》</a>
+                        <a href="#" style="text-decoration:none;">《当当社区条款》</a>和 <a href="#" style="text-decoration:none;" >《当当隐私政策》</a>
+                </label>
+        </div>
+        <div  id="last">
+                <input type="submit" name="" value="注册并登录" class="login"> 
+        </div>
+    </div>
+    <div class="last">
+            <div>
+            <a href="#">关于我们</a>
+            <span>|</span>
+            <a href="#">联系我们</a>
+            <span>|</span>
+            <a href="#">招聘人才</a>
+            <span>|</span>
+            <a href="#">友情链接</a>
+            <span>|</span>
+            <a href="#">商家入驻</a>
+            <span>|</span>
+            <a href="#">广告服务</a>
+            </div>
+            <div>当当小组全体成员@武汉市洪山区达内中心</div>
+            <div> 联系电话：183#######&nbsp;&nbsp;&nbsp;邮箱:#####@qq.com</div>
+    </div>
+</div>
+</body>
+</html>

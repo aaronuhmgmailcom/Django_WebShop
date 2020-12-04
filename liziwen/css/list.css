@@ -1,0 +1,241 @@
+.miaosha {
+    position: absolute;
+    top: 40px;
+    left: 185px;
+    height: 32px;
+    padding: 5px 0 0 15px;
+    border-left: 1px solid #c81523;
+    /* background-color: pink; */
+}
+
+
+/* 导航栏 */
+
+
+/* .nav {
+    /* height: 45px; */
+
+
+/* background-color: pink; 
+} */
+
+
+/* 1号左侧盒子 */
+
+.miaosha_list li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 30px;
+}
+
+.miaosha_list li a {
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+}
+
+.miaosha_list li a:hover {
+    font-size: 16px;
+    color: #c81523;
+    font-weight: 700;
+}
+
+
+/* 2号右侧盒子 */
+
+.miaosha_con li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 20px;
+}
+
+.miaosha_con li a {
+    font-family: "icomoon";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.miaosha_con li a:hover {
+    color: #c81523;
+}
+
+
+/*container内容主体部分  */
+
+.container_bd {
+    width: 1200px;
+    margin-top: 25px;
+    /* background-color: pink; */
+}
+
+.container_bd ul {
+    width: 1212px;
+}
+
+
+/* 主体的每个li  */
+
+
+/* 刚开始白色边框，鼠标经过出现红色边框 */
+
+.container_bd_goods {
+    position: relative;
+    float: left;
+    width: 288px;
+    height: 458px;
+    border: 1px solid transparent;
+    margin: 0 12px 10px 0;
+}
+
+.container_bd_goods:hover {
+    border: 1px solid #b1191a;
+    margin-bottom: 10px;
+}
+
+.bd_goods_img {
+    margin: 30px 45px;
+    transition: all 0.5s;
+}
+
+.bd_goods_img:hover {
+    margin: 15px 45px 45px 45px;
+}
+
+
+/* 过渡效果 图片上滑动 */
+
+.bd_goods_img .bd_goods_title {
+    /* padding: 10px 10px 15px; */
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+}
+
+.bd_goods_price {
+    padding: 0 10px;
+}
+
+.bd_goods_price em {
+    font-size: 22px;
+    color: #c81523;
+}
+
+.bd_goods_price del {
+    font-size: 14px;
+    font-weight: 700;
+    color: #c1c1c1;
+}
+
+.bd_goods_progress {
+    padding: 0 10px;
+}
+
+
+/* 进度条 */
+
+
+/* 与文字在一起要转行成行内块 */
+
+.bar {
+    display: inline-block;
+    width: 130px;
+    height: 10px;
+    border: 1px solid #f24349;
+    border-radius: 6px;
+    /* inline-block 行内块居中对齐 */
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.bar_inner {
+    /* 宽度百分比 */
+    width: 87%;
+    height: 12px;
+    background-color: #f24349;
+    border-radius: 5px;
+}
+
+.bd_goods_progress em {
+    color: #f24349;
+}
+
+
+/* 立即购买部分 a */
+
+.bg_goods_btn {
+    position: absolute;
+    bottom: 0;
+    /* display: block; */
+    width: 288px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #b1191a;
+    color: #fff;
+    font-size: 20px;
+}
+
+.bg_goods_btn:hover {
+    color: #fff;
+}
+
+
+/* 底部跳转page */
+
+.page {
+    margin: 40px 0;
+    /* 行内块元素 行内元素 都可以居中对齐 */
+    text-align: center;
+}
+
+.page_num a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+}
+
+.page_num .pn_prev,
+.page_num .pn_next {
+    width: 83px;
+    background-color: #ccc;
+}
+
+.page_num .dotted,
+.page_num .current {
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+
+/* 输入框 */
+
+.page_skip_input {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ccc;
+    text-align: center;
+    /* text-decoration: none; */
+    /* outline: red; */
+    transition: all 0.5s;
+}
+
+.page_skip_input:focus {
+    width: 66px;
+    border: 1px solid skyblue;
+}
+
+
+/* 按钮 */
+
+.page_skip_btn {
+    width: 54px;
+    height: 36px;
+    border: 1px solid #666666;
+    background-color: #ccc;
+}

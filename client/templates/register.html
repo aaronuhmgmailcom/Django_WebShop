@@ -30,8 +30,8 @@
 					</li> 
 
 					<li>
-            <input type="phone" class="phone" name="phone" placeholder="请输手机号" required/>
-						 <input type="button" id="sms" onclick="settime(this)" value="免费获取验证码">
+            <input type="phone" class="phone" name="phone"  placeholder="13426018419" required/>
+						 <input type="button" id="sms" onclick="sendSMS(); settime(this)" value="免费获取验证码">
 						<div class="clear"> </div>
 					</li> 
 					<li>
@@ -61,10 +61,11 @@
     		var password1= $('.password_1').val();
     		var password2= $('.password_2').val();
     		var phone =  $('.phone').val();
-    		var post_data={"username":username,"email":email,"password1":password1,"password2":password2,"phone":phone}
+    		var code = $('.sms_num').val();
+    		var post_data={"username":username,"email":email,"password1":password1,"password2":password2,"phone":phone,"code":code}
     		console.log(post_data)
     		$.ajax({
-    			url:'http://127.0.0.1:8000/v1/users',
+    			url:'http://127.0.0.1:8000/users/',
     			type:'POST',
     			//响应格式,不是请求格式(contentType)
     			dataType:'json',
@@ -94,7 +95,6 @@
             return null;
         }
 
-
 	var countdown=60;
 	function settime(obj) {
     	if (countdown == 0) {
@@ -111,9 +111,23 @@
     		settime(obj) }
     	,1000)
 	}
-
-
+	function sendSMS(){
+		var phone=$('.phone').val();
+		var post_data={"phone":phone };
+		$.ajax({
+			url:'http://127.0.0.1:8000/users/sms',
+			type:'POST',
+			data:JSON.stringify(post_data),
+			contentType:'application/json',
+			dataType:'json',
+			success:function(res){
+				if(res.code==200){
+					alert('短信验证码已发送到您的手机，请查收');
+				}else{
+					alert(res.error);
+				}
+			}
+		})
+	}
     </script>
-
-
 </html>

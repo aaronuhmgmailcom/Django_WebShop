@@ -160,17 +160,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-        'TIMEOUT': 300,  # 缓存保存时间 单位秒，默认值为300,
-        'OPTIONS': {
-            'MAX_ENTRIES': 300,  # 缓存最大数据条数
-            'CULL_FREQUENCY': 2,  # 缓存条数达到最大值时 删除1/x的缓存数据
-        }
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#         'TIMEOUT': 300,  # 缓存保存时间 单位秒，默认值为300,
+#         'OPTIONS': {
+#             'MAX_ENTRIES': 300,  # 缓存最大数据条数
+#             'CULL_FREQUENCY': 2,  # 缓存条数达到最大值时 删除1/x的缓存数据
+#         }
+#     }
+# }
 SESSION_COOKIE_AGE = 60 * 60
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -186,10 +186,33 @@ STATIC_ROOT = '/home/tarena/PycharmProjects/Django_WebShop/mysite1_static'
 ADMINS = [('peter', '**@qq.com')]
 SERVER_EMAIL = '**@qq.com'
 
+# CACHES = {
+#     "default": {
+#             "BACKEND": "django_redis.cache.RedisCache",
+#             "LOCATION": "redis://127.0.0.1:6379",
+#             "OPTIONS": {
+#                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#             }
+#         }
+# }
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 JWT_TOKEN_KEY='123456'
 
-
+SMS_ACCOUNT_ID = '8a216da87380115d017389546bb802f5'
+SMS_ACCOUNT_TOKEN = '12444d5592d247b2af0e5cc10bf666a0'
+SMS_APP_ID = '8a216da87380115d017389546c9e02fb'
+SMS_TEMPLATE_ID = '1'

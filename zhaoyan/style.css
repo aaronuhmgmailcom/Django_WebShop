@@ -1,0 +1,482 @@
+body,
+ul,
+li,
+ol,
+p,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+iframe,
+form,
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.mydnew_break {
+    padding: 12px 0 11px 0;
+    line-height: 18px;
+    background-color: #fff;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.main_frame {
+    width: 960px;
+    margin: auto;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    background-color: #fff;
+}
+
+.mydang_left {
+    width: 170px;
+    height: 850px;
+    float: left;
+    border-top: 4px solid #999;
+}
+
+.mydang_left .my_menu_title {
+    height: 62px;
+    line-height: 62px;
+    margin-bottom: 6px;
+    font-size: 16px;
+    background: url(http://myhome.dangdang.com/static/images/icon_menu.png) 42px 24px no-repeat #fafafa;
+    border: 1px solid #dcdcdc;
+    border-bottom: none 0;
+    padding-left: 64px;
+    font-weight: normal;
+}
+
+.mydang_left dl {
+    border: 1px solid #dcdcdc;
+    border-top: none 0;
+    width: 120px;
+    margin: 0 auto;
+    padding: 16px 0 0 42px;
+}
+
+.mydang_left dt {
+    margin: 8px 0;
+    line-height: 18px;
+    font-size: 16px;
+    padding-left: 20px;
+    background: url(http://myhome.dangdang.com/static/images/icon_menu.png) 0 -35px no-repeat;
+}
+
+.mydang_left dd {
+    line-height: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.my_menu_title {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.account_right {
+    width: 780px;
+    float: left;
+    margin: 10px 0 20px 10px;
+}
+
+.archives_title {
+    height: 17px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-bottom: solid 1px #666;
+    margin-bottom: 1px;
+}
+
+.archives_title h2 {
+    font-size: 14px;
+    color: #666;
+}
+
+.gray666 {
+    color: #666;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.red {
+    color: #c30;
+}
+
+.edit_message {
+    padding-bottom: 15px;
+    border: 3px solid #eeeeee;
+    width: 770px;
+    margin: 6px 0 0 0;
+}
+
+.edit_photo {
+    padding: 20px 0 0 85px;
+    height: 340px;
+}
+
+.photo_prev {
+    height: 260px;
+    float: left;
+    padding-right: 17px;
+}
+
+.photo_prev_head {
+    width: 102px;
+    height: 102px;
+    border: 1px solid #a1a1a1;
+}
+
+.photo_prev_head img {
+    width: 96px;
+    height: 96px;
+    margin: 3px 0 0 3px;
+}
+
+.photo_browse {
+    width: 550px;
+    float: left;
+    padding-top: 0px;
+}
+
+.go_choice2 {
+    padding: 0px 0 3px 0;
+    float: left;
+    width: 240px;
+    font-size: 14px;
+}
+
+.gray_b3 {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.clear {
+    clear: both;
+    line-height: 0px;
+    height: 0px;
+    font-size: 0px;
+    overflow: hidden;
+}
+
+.all_photo_title {
+    width: 447px;
+    position: relative;
+    z-index: 1;
+    margin: 9px 0 0 0;
+}
+
+.all_photo_title_mo {
+    width: 111px;
+    background: url(img/title_mo.gif);
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: url("img/title_mo.gif");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    height: 20px;
+    float: left;
+    text-align: center;
+    line-height: 21px;
+    color: #853200;
+    overflow: hidden;
+}
+
+.all_photo_title_other {
+    width: 111px;
+    background: url(img/title_mo.gif);
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: url("img/title_mo.gif");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    height: 19px;
+    float: left;
+    text-align: center;
+    line-height: 21px;
+    overflow: hidden;
+}
+
+.all_photo {
+    width: 420px;
+    height: 162px;
+    padding: 10px 8px 0 15px;
+    background-color: #f4feff;
+    border: solid 1px #aec7cb;
+    position: relative;
+    top: -1px;
+    z-index: 0;
+}
+
+.all_photo .mouse_active {
+    background-color: #ff7100;
+}
+
+.all_photo div {
+    width: 52px;
+    height: 50px;
+    display: inline;
+    text-align: center;
+    padding-top: 2px;
+    border: solid 1px #cacaca;
+    margin: 10px 7px 14px 20px;
+    float: left;
+}
+
+.all_photo div img {
+    width: 48px;
+    height: 48px;
+}
+
+.save_photo {
+    width: 90px;
+    height: 22px;
+    font-size: 12px;
+    padding-top: 1px;
+    margin: 10px 0 0 0px;
+    cursor: pointer;
+    float: left;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.total_ok_pic_green {
+    height: 13px;
+    color: #406931;
+    background: url(img/icon_14x15_ok.gif) no-repeat 2px 0px #eefddc;
+    background-color: rgb(238, 253, 220);
+    background-position-x: 2px;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-image: url("img/icon_14x15_ok.gif");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    margin-left: 8px;
+    margin-top: 13px;
+    padding: 1px 0 0 20px;
+    border: solid 1px #a8c49b;
+    float: left;
+}
+
+.go_choice {
+    padding: 8px 0 3px 0;
+    font-size: 14px;
+    margin: 18px 0 0 0;
+    width: 446px;
+}
+
+.browse_mypic {
+    height: 22px;
+    margin-bottom: 5px;
+}
+
+.browse_mypic .browse_button {
+    width: 60px;
+    height: 25px;
+    font-size: 16px;
+    margin-left: 2px;
+    padding-top: 1px;
+    cursor: pointer;
+    float: left;
+}
+
+.edit_message1 {
+    padding-bottom: 35px;
+    width: 779px;
+    margin: 30px 0 0 0;
+}
+
+.mesage_list {
+    padding-bottom: 20px;
+}
+
+.list_title {
+    width: 106px;
+    text-align: right;
+    padding-top: 5px;
+    float: left;
+}
+
+.list_edit {
+    width: 500px;
+    padding-left: 7px;
+    float: left;
+}
+
+.list_edit .nickname {
+    width: 140px;
+    height: 17px;
+    padding: 1px 0 0 1px;
+    float: left;
+    margin-right: 7px;
+    border: solid 1px #a1a1a1;
+}
+
+.c_gray {
+    color: #9b9b9b;
+    font-size: 12px;
+}
+
+.now_color {
+    color: #414141;
+}
+
+.list_other {
+    padding-left: 35px;
+    float: left;
+    color: #a6a6a6;
+}
+
+.empty_box_left {
+    clear: left;
+    height: 1px;
+    overflow: hidden;
+}
+
+.list_edit .address {
+    height: 30px;
+}
+
+.list_edit .address select {
+    margin-right: 10px;
+    float: left;
+    font-size: 12px;
+}
+
+.list_edit select {
+    border: solid 1px #a1a1a1;
+}
+
+.c_gray {
+    color: #9b9b9b;
+    font-size: 12px;
+}
+
+.list_edit .choice_city {
+    width: 470px;
+    height: 15px;
+    border: solid 1px #a1a1a1;
+    background-color: #f6f6f6;
+    padding: 3px 0 0 10px;
+    margin-top: 5px;
+}
+
+.list_edit .choice_city ul {
+    list-style: none;
+}
+
+.list_edit .choice_city ul li {
+    padding: 0px 0px 0 0px;
+    margin-right: 7px;
+    float: left;
+}
+
+.list_edit .li_out {
+    background-color: #f6f6f6;
+}
+
+.add_edit_h {
+    height: 28px;
+}
+
+.reduice_other_w {
+    padding-left: 12px;
+}
+
+.radio_button {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.choice_cont {
+    float: left;
+    padding-top: 5px;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+
+.my_work {
+    width: 213px;
+    height: 16px;
+    padding: 1px;
+    border: solid 1px #a1a1a1;
+    margin-right: 5px;
+    float: left;
+}
+
+.list_edit .blog_address {
+    width: 435px;
+    height: 17px;
+    padding: 1px 0 0 1px;
+    border: solid 1px #a1a1a1;
+}
+
+.list_edit .checkbox {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+}
+
+.list_edit .checkbox_cont {
+    float: left;
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+.list_edit .add_textarea_gray {
+    color: #a6a6a6;
+}
+
+.list_edit .text_interest {
+    width: 435px;
+    height: 40px;
+    font-size: 12px;
+    padding: 2px 1px;
+}
+
+.list_edit textarea {
+    border: solid 1px #a1a1a1;
+}
+
+.list_edit .text_intro {
+    width: 435px;
+    height: 100px;
+    font-size: 12px;
+    padding: 2px 1px;
+}
+
+.save_mess {
+    width: 90px;
+    height: 22px;
+    font-size: 12px;
+    padding-top: 1px;
+    margin-left: 110px;
+    cursor: pointer;
+    float: left;
+}

@@ -86,5 +86,5 @@ if __name__ == '__main__':
     appid = '8a216da87380115d017389546c9e02fb'
     tid = '1'
     x = YunTongXin(aid, atoken, appid, tid)
-    res = x.run('15827654489', '123456')
+    res = x.run('13426018419', '123456')
     print(res)

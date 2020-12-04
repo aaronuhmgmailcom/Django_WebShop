@@ -1,0 +1,424 @@
+/* 公共样式 */
+
+.fl{float: left;}
+.fr{float: right;}
+
+main{
+    width: 1200px;
+    margin: 15px auto 50px;
+    overflow: hidden;
+}
+
+
+.top{
+    margin-bottom: 15px;
+}
+
+.left{
+    width: 200px;
+}
+.c{
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #dcdcdc;
+    background-color:#f5f5f5 ;
+    border-bottom: none 0;
+    /* margin-bottom: 6px; */
+}
+
+.left span{
+    width: 12px;
+    height: 10px;
+    background-image: url("/static/image/icon_menu.png");
+    /* 清除背景重复铺满 */
+    background-repeat: no-repeat;
+    /* 给图片元素添加内边距 ，将他与文字隔开 */
+    padding-left: 18px;
+    font-size: 16px;
+   
+}
+
+.left ul{
+    border:1px solid #f5f5f5;
+    border-top: none 0;
+    width: 140px;
+    margin: 0 auto;
+    padding: 16px 0 0 42px;
+}
+
+.left ul dd{
+    background-image: url("/static/image/icon_menu.png");
+    background-repeat: no-repeat;
+    background-position: 0 -35px;
+    margin: 8px 0;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 18px;
+}
+.left ul li{
+    line-height: 32px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+.left ul li a{
+    color: #969696;
+}
+.left ul li a:hover{
+    color: red;
+}
+
+.right{
+    width: 990px;
+    /* height: 1000px; */
+    padding:  0 0 0 10px; ;
+    /* border: 1px solid red; */
+}
+
+/* 用户信息框 */
+.user_message{
+    position: relative;
+    background-image: url("/static/image/user_message_bg.png");
+    background-repeat: no-repeat;
+    height:165px ;
+    margin-bottom: 10px;
+    padding: 10px 0 0 48px;
+    text-align: center;
+}
+.user_info{
+    width: 130px;
+    height: 150px;
+    padding: 5px 5px 0 0 ;
+    position: relative;
+}
+.user_photo{
+    background-image: url("/static/image/user_photo_bg.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 85px;
+    height: 85px;
+    margin-bottom: 2px;
+    position: relative;
+    padding: 16px;
+}
+.user_photo img{
+    width: 85px;
+    height: 85px;
+}
+.user_photo span{
+    width: 117px;
+    height: 117px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url("/static/image/photo_mask.png");
+}
+.user_message .message{
+    width: 25px;
+    height: 28px;
+    padding: 0 3px 0 26px;
+    background-image: url("/static/image/icon.png");
+    background-position: 0 -316px;
+    position: absolute;
+    left: 78px;
+    top: 80px;
+}
+.user_message .no_message{
+    background-position: 0 -344px;
+}
+#user_name{
+    width: 102px;
+    /* display: block; */
+    margin: 0 auto;
+    line-height: 20px;
+    color: #fff;     
+    /* overflow: hidden; */
+    font-size: 16px;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+}
+.safe_type{
+    width: 360px;
+    padding: 22px 0 0 20px;
+    text-align: left;
+}
+.safe_type .vip{
+    position: relative;
+    height: 16px;
+}
+.safe_type .vip_type{
+    width: 70px;
+    height: 16px;
+    display: block;
+    background-image: url("/static/image/icon.png");
+    background-position: 0 -268px;
+    /* text-indent: -99em; 去除文本作用*/ 
+    overflow: hidden;
+}
+.level_info{
+    padding: 15px 0 0 ;
+    font-size: 14px;
+}
+.level_info .level_line{
+    height: 21px;
+    margin: 10px 0;
+    background-image: url("/static/image/icon_safety.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.level_info .setting{
+    display: inline-block;
+    padding: 5px 15px 0 0 ;
+    line-height: 20px;
+    color: #66c67f; 
+}
+.level_info .setting em{
+    display: inline-block;
+    margin: 0 2px 0 0;
+    height: 20px;
+    width: 20px;
+    background-image: url("/static/image/icon.png");
+    vertical-align: middle;
+}
+/* 不同信息前面对应的小图标 */
+.level_info .setting .tel { 
+    background-position: 0 -87px;
+}
+.level_info .setting .email{
+    background-position: -24px -87px;
+}
+.level_info .setting .sn{
+    background-position: -48px -87px ;
+}
+/* 等级颜色字体划分和对应的图片显示 */
+.level_info .low{
+    color: #ff2832;
+}
+.level_info .mid{
+    color: #ff9804;
+    background-position: 0 -21px;
+}
+.level_info .high{
+    color: #66c67f; 
+    background-position: 0 -43px;
+}
+/* 用户道具 */
+.prop{
+    padding-left: 35px;
+    width: 385px;
+}
+.prop li{
+    width: 80px;
+    position: relative;
+    margin-right: 10px;
+    float: left;
+    padding-top: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.prop li a{
+    display: block;
+}
+/* 道具图案 */
+.prop li .pic{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto 10px;
+    background-image: url("/static/image/icon.png");
+}
+/* 对应不同的图案显示 */
+.prop li .lpk{
+    background-position: 0 -373px;
+}
+.prop li .ye{
+    background-position:0 -433px ;
+}
+.prop li .yhj{
+    background-position: 0 -493px;
+}
+.prop li .db{
+    background-position: 0 -553px;
+}
+/* 会员中心 */
+.user_message .member_center{
+    width: 160px;
+    height: 56px;
+    position: absolute;
+    top: 20px;
+    left: 380px;
+    background-image: url("/static/image/go_center.png");
+    background-repeat:no-repeat ;
+}
+
+
+/* 订单框 */
+.my_order{
+    margin-bottom: 10px;
+}
+
+.my_title{
+    height: 48px;
+    line-height: 48px;
+    background: #fafafa;
+    border: 1px solid #dcdcdc;
+    /* 解决父元素高度0的问题 */
+    overflow: hidden;
+}
+.my_title .tab_list{
+    float: right;
+    padding: 18px 0 0;
+}
+.my_title .tab_list li{
+    padding: 0 21px;
+    position: relative;
+    height: 12px;
+    line-height: 12px;
+    float: left;
+    border-right: 1px solid #dcdcdc;
+}
+.my_title .tab_list li a{
+    color: #969696;
+    padding: 0 3px;
+    display: inline-block;
+    height: 22px;
+}
+.my_title .tab_list li a:hover{
+    color: #ff2832;
+}
+.my_title .tab_list .last{
+    /* 最后一个没有分割线 */
+    border: none;
+}
+
+.my_title .title{
+    margin: 15px 0 15px 10px;
+    padding: 0 0 0 10px;
+    font-size: 16px;
+    color: #323232;
+    line-height: 18px;
+    border-left:2px solid #ff2832;
+    display: inline-block;
+}
+
+.order_box{
+    border: 1px solid #dcdcdc;
+    border-width: 0 1px 1px;
+    text-align: center;
+    padding: 25px 0 0;
+}
+.order_box h3{
+    font-size: 14px;
+    color: #969696;
+    font-weight: normal;
+    padding: 20px 0;
+}
+.order_box h3 a{
+    color: #ff2832;
+}
+
+/* 商品收藏框 */
+.my_collect{
+    margin-bottom: 15px;
+}
+.my_collect .collect_box{
+    border: 1px solid #dcdcdc;
+    border-width: 0 1px 1px;
+}
+.show_list{
+    position: relative;
+    padding: 0 19px;
+}
+.show_box{
+    width: 950px;
+    height: 198px;
+    overflow: hidden;
+}
+/* 收藏商品展示统一样式 */
+.show_box li{
+    width: 168px;
+    height: 198px;
+    padding: 0 10px;
+    text-align: center;
+    border: 1px solid #fff;
+    border-width:  0 1px;
+    float: left;
+    color: #323232;
+    line-height: 16px;
+}
+.show_box li .gpic{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+}
+.show_box li:hover{
+    border-color:#dcdcdc ;
+}
+
+/* 猜你喜欢 */
+.like{
+    border: 1px solid #dcdcdc;
+    margin-bottom:15px;
+}
+.like .headline{
+    width: 990px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #323232;
+    font-size: 16px;
+    display: inline-block;
+}
+.like_box .show_box{
+    height: 490px;
+}
+.like_box .show_box li{
+    width: 170px;
+    border: none;
+    height: 245px;
+}
+
+.like_box .show_box li:hover{
+    background-color: #f9f9f9;
+}
+
+
+.like_box .show_box li a{
+    position: relative;
+    color: #323232;
+}
+.like_box .show_box li p{
+    text-align: left;
+    line-height: 15px;
+    width: 150px;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+}
+.like_box .show_box li p .price{
+    font-size: 18px;
+    color: #ff2832;
+    line-height: 32px;
+}
+.like_box .show_box li p .comment{
+    display: block;
+    background-image: url("/static/image/sprite_tj.png");
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding-left: 20px;
+    float: right;
+    margin-top: 8px;
+}
+.like_box .show_box li p .comment:hover{
+    background-position: 0 -18px;
+    text-decoration: underline;
+}
+
+.like_box .show_box li p a:hover{
+    color: #ff2832;
+}
+
+.like_box .show_box li p .comment span{
+    color: #2068b1;
+}
