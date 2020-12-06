@@ -557,8 +557,9 @@ function getGVerify(id)
 				if(res.code==200){
 					window.localStorage.setItem('dnblog_token',res.data.token);
 					window.localStorage.setItem('dnblog_user',res.username);
-					window.location.href = '/index'
+                    //window.location.href = '/index'
 
+                    window.location.href = '/' + res.username+'/topics';
 				}else{
 					$('.error').html(res.error)
 				}

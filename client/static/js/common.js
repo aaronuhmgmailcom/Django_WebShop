@@ -122,7 +122,7 @@ function makeHeader(blog_username, username){
     var user_info_url = '/' + blog_username + '/' + 'info'
     //登陆用户发博客url
     if (username){
-        var topic_release_url = '/' + username + '/' + 'topic/release'
+        var topic_release_url = '/' + username + '/' + 'topics/release'
     }else{
         //没有登陆状态直接去登陆
         var topic_release_url = '/login'
