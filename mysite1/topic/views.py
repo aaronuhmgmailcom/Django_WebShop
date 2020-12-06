@@ -10,9 +10,7 @@ from django.views import View
 from tools.login_dec import login_check
 from .models import Topic
 from users.models import User
-
 from tools.login_dec import get_user_by_request
-
 
 class topic_views(View):
     @method_decorator(login_check)
@@ -66,17 +64,26 @@ class topic_views(View):
         # 从token中获取用户信息【博主】
         visitor_username = get_user_by_request(request)
 
-
-
+        p = request.GET.get('category')
+        category_exist = False
+        if p in ['tec','no-tec']:
+            category_exist = True
 
         if author_id == visitor_username:
             # 博主访问自己的博客(返回个人+公开的文章)
-            author_topics = Topic.objects.filter(user_profile=author.id)
-
+            if not category_exist:
+                author_topics = Topic.objects.filter(user_profile=author.id)
+            else:
+                author_topics = Topic.objects.filter(user_profile=author.id,
+                                                      category=p)
         else:
             # 只返回该用户公开的文章
-            author_topics = Topic.objects.filter(user_profile=author.id,
-                                                 limit='public')
+            if not category_exist:
+                author_topics = Topic.objects.filter(user_profile=author.id,
+                                                 limit='public', )
+            else:
+                author_topics = Topic.objects.filter(user_profile=author.id,
+                                                 limit='public', category=p)
 
         # 按照一定的格式返回
         res = self.make_topics_res(author, author_topics)
