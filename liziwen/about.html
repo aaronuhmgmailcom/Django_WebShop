@@ -1,0 +1,433 @@
+{% extends "index.html" %}
+{% block title %}
+<title>我的当当</title>
+<!-- <link rel="shorcut icon" href="static/images/bitbug_favicon.ico" type="image/x-icon"> -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/about.css">
+{% endblock %}
+
+{% block main %}
+<div class="nav">
+    <div class="w">
+        <!-- 下拉菜单 title-->
+        <div class="dropdown fl">
+            <div class="dt">全部商品分类</div>
+            <!-- 下拉菜单内容 itmes-->
+            <!-- <div class="dd">
+                    <ul>
+                        <li class="menu_item"><a href="#">家用电器</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item">
+                            <a href="list.html">手机</a>
+                            <a href="# ">数码</a>
+                            <a href="# ">通信</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">电脑</a>
+                            <a href="# ">办公</a>
+                            <i>  </i> </li>
+                        <li class="menu_item ">
+                            <a href="# ">家居</a>
+                            <a href="# ">家具</a>
+                            <a href="# ">家装</a>
+                            <a href="# ">厨具</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">女装</a>
+                            <a href="# ">男装</a>
+                            <a href="# ">童装</a>
+                            <a href="# ">内衣</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+
+                            <a href="# ">个户化妆</a>
+                            <a href="# ">清洁用品</a> 、
+                            <a href="# ">宠物</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">鞋靴</a>
+                            <a href="# ">箱包</a>
+                            <a href="# ">珠宝</a>
+                            <a href="# ">奢侈品</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">运动户外</a>
+                            <a href="# ">钟表</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">汽车</a>
+                            <a href="# ">汽车用品</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">母婴</a>
+                            <a href="# ">玩具乐器</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">食品</a>
+                            <a href="# ">酒类</a>
+                            <a href="# ">生鲜</a>
+                            <a href="# ">特产</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">医药保健</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">图书</a>
+                            <a href="# ">音像</a>
+                            <a href="# ">电子书</a>
+                            <i>  </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">彩票</a>
+                            <a href="# ">旅行</a>
+                            <a href="# ">充值</a>
+                            <a href="# ">票务</a>
+                            <i> </i>
+                        </li>
+                        <li class="menu_item ">
+                            <a href="# ">理财</a>
+                            <a href="# ">众筹</a>
+                            <a href="# ">白条</a>
+                            <a href="# ">保险</a>
+                            <i>  </i>
+                        </li>
+                    </ul>
+
+                </div> -->
+        </div>
+        <!-- 导航栏组 -->
+        <div class="navitems fl ">
+            <ul>
+                <li><a href="list.html">服装城</a></li>
+                <li><a href="list.html">美妆馆</a></li>
+                <li><a href="list.html">传质超市</a></li>
+                <li><a href="list.html">全球购</a></li>
+                <li><a href="list.html">闪购</a></li>
+                <li><a href="list.html">团购</a></li>
+                <li><a href="list.html">拍卖</a></li>
+                <li><a href="list.html">有趣</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<main>
+    <!-- 上部广告 -->
+    <div class="top">
+        <div>
+            <a><img src="image/40820001.png"></a>
+        </div>
+    </div>
+    <!-- 左栏 -->
+    <div class="left fl">
+        <div class="c">
+            <span><a href="/about">我的当当</a></span>
+        </div>
+        <ul>
+            <dd>我的交易</dd>
+            <li><a href="/my_order">我的订单</a></li>
+            <dd>我的钱包</dd>
+            <li><a href="">我的余额</a></li>
+            <a href=""></a>
+            <dd>个人中心</dd>
+            <li><a href="">个人信息</a></li>
+            <li><a href="">收获地址</a></li>
+            <li><a href="">邮件/短信订阅</a></li>
+        </ul>
+    </div>
+    <!-- 右栏 -->
+    <div class="right fl">
+        {% block content %}
+        <!-- 用户栏 -->
+        <div id="user">
+            <div class="user_message">
+                <!-- 头像信息部分 -->
+                <div class="user_info fl">
+                    <div class="user_photo">
+                        <a href="#">
+                            <img src="image/header.jpg" alt="">
+                            <span></span>
+                        </a>
+                    </div>
+                    <a href="#" title="信息">
+                        <div class="message no_message"></div>
+                    </a>
+                    <!-- 此处为用户名,应与 js 联系处理 -->
+                    <span id="user_name">12345</span>
+                </div>
+                <!-- 安全信息部分 -->
+                <div class="safe_type fl">
+                    <div class="vip">
+                        <a class="vip_type" href="#"></a>
+                    </div>
+                    <div class="level_info ">
+                        <p>
+                            账户安全:
+                            <span class="mid">中</span>
+                        </p>
+                        <p class="level_line mid"></p>
+                        <p>
+                            <a href="#手机号">
+                                <span class="setting">
+                                    <em class="tel"></em>
+                                    手机设置
+                                </span>
+                            </a>
+                            <a href="#邮箱">
+                                <span class="setting">
+                                    <em class="email"></em>
+                                    邮箱设置
+                                </span>
+                            </a>
+                            <a href="#支付密码">
+                                <span class="setting">
+                                    <em class="sn"></em>
+                                    支付密码设置
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!-- 用户道具 -->
+                <div class="prop fl">
+                    <ul>
+                        <li>
+                            <a href="" class="pic lpk"></a>
+                            <a href="">礼品卡</a>
+                            <a href="">0</a>
+                        </li>
+                        <li>
+                            <a href="" class="pic ye"></a>
+                            <a href="">余额</a>
+                            <a href="">0</a>
+                        </li>
+                        <li>
+                            <a href="" class="pic yhj"></a>
+                            <a href="">优惠券</a>
+                            <a href="">0</a>
+                        </li>
+                        <li>
+                            <a href="" class="pic db"></a>
+                            <a href="">当币</a>
+                            <a href="">0</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 会员中心 -->
+                <a href="#" class="member_center"></a>
+            </div>
+        </div>
+        <!-- 订单栏 -->
+        <div id="order">
+            <div class="my_order">
+                <!-- 订单标题 -->
+                <div class="my_title">
+                    <ul class="tab_list">
+                        <li><a href="#">待付款</a></li>
+                        <li><a href="#">待收货</a></li>
+                        <li><a href="#">待评价</a></li>
+                        <li class="last"><a href="#">全部订单</a></li>
+                    </ul>
+                    <span class="title">我的订单</span>
+                </div>
+                <!-- 订单详情 -->
+                <div class="order_box">
+                    <h3>
+                        您买的东西太少了，这里都是空的,
+                        <a href="#">快去挑选合适的商品吧!</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- 商品收藏 -->
+        <div id="collection">
+            <div class="my_collect">
+                <div class="my_title">
+                    <ul class="tab_list">
+                        <li class="last">
+                            <a href="#">查看更多</a>
+                        </li>
+                    </ul>
+                    <span class="title">商品收藏</span>
+                </div>
+                <div class="collect_box">
+                    <div class="show_list">
+                        <ul class="show_box">
+                            <!-- 此处每一个 li 节点循环动态生成 ；由 Django服务器发送 json遍历添加 -->
+                            <li>
+                                <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                    <img src="image/29133949-1_l.jpg" width="150" height="150">
+                                </a>
+                                <p>53.00</p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        <!-- 猜你喜欢-->
+        <div class="like">
+            <span class="headline">猜你喜欢</span>
+            <div class="like_box">
+                <div class="show_list">
+                    <ul class="show_box">
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                <img src="image/29133949-1_l.jpg" width="150" height="150">
+                            </a>
+                            <p>
+                                <span class="price">￥66.90</span>
+                                <a href="此商品详情页面连接" class="comment">
+                                    <span>0</span>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="此商品详情页面连接">商品描述</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

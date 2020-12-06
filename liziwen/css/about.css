@@ -30,7 +30,7 @@ main{
 .left span{
     width: 12px;
     height: 10px;
-    background-image: url("/static/image/icon_menu.png");
+    background-image: url("image/icon_menu.png");
     /* 清除背景重复铺满 */
     background-repeat: no-repeat;
     /* 给图片元素添加内边距 ，将他与文字隔开 */
@@ -48,7 +48,7 @@ main{
 }
 
 .left ul dd{
-    background-image: url("/static/image/icon_menu.png");
+    background-image: url("image/icon_menu.png");
     background-repeat: no-repeat;
     background-position: 0 -35px;
     margin: 8px 0;
@@ -78,7 +78,7 @@ main{
 /* 用户信息框 */
 .user_message{
     position: relative;
-    background-image: url("/static/image/user_message_bg.png");
+    background-image: url("image/user_message_bg.png");
     background-repeat: no-repeat;
     height:165px ;
     margin-bottom: 10px;
@@ -92,7 +92,7 @@ main{
     position: relative;
 }
 .user_photo{
-    background-image: url("/static/image/user_photo_bg.png");
+    background-image: url("image/user_photo_bg.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     width: 85px;
@@ -111,13 +111,13 @@ main{
     position: absolute;
     left: 0;
     top: 0;
-    background-image: url("/static/image/photo_mask.png");
+    background-image: url("image/photo_mask.png");
 }
 .user_message .message{
     width: 25px;
     height: 28px;
     padding: 0 3px 0 26px;
-    background-image: url("/static/image/icon.png");
+    background-image: url("image/icon.png");
     background-position: 0 -316px;
     position: absolute;
     left: 78px;
@@ -150,7 +150,7 @@ main{
     width: 70px;
     height: 16px;
     display: block;
-    background-image: url("/static/image/icon.png");
+    background-image: url("image/icon.png");
     background-position: 0 -268px;
     /* text-indent: -99em; 去除文本作用*/ 
     overflow: hidden;
@@ -162,7 +162,7 @@ main{
 .level_info .level_line{
     height: 21px;
     margin: 10px 0;
-    background-image: url("/static/image/icon_safety.png");
+    background-image: url("image/icon_safety.png");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
@@ -177,7 +177,7 @@ main{
     margin: 0 2px 0 0;
     height: 20px;
     width: 20px;
-    background-image: url("/static/image/icon.png");
+    background-image: url("image/icon.png");
     vertical-align: middle;
 }
 /* 不同信息前面对应的小图标 */
@@ -225,7 +225,7 @@ main{
     height: 60px;
     position: relative;
     margin: 0 auto 10px;
-    background-image: url("/static/image/icon.png");
+    background-image: url("image/icon.png");
 }
 /* 对应不同的图案显示 */
 .prop li .lpk{
@@ -247,7 +247,7 @@ main{
     position: absolute;
     top: 20px;
     left: 380px;
-    background-image: url("/static/image/go_center.png");
+    background-image: url("image/go_center.png");
     background-repeat:no-repeat ;
 }
 
@@ -403,7 +403,7 @@ main{
 }
 .like_box .show_box li p .comment{
     display: block;
-    background-image: url("/static/image/sprite_tj.png");
+    background-image: url("image/sprite_tj.png");
     background-repeat: no-repeat;
     background-position: 0 2px;
     padding-left: 20px;

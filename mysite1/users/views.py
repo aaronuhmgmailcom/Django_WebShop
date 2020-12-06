@@ -2,6 +2,7 @@
 # from django.shortcuts import render
 # from .models import *
 # from django.views.decorators.csrf import csrf_exempt
+import datetime
 import json
 
 from django.core.cache import cache
@@ -16,6 +17,14 @@ from django.conf import settings
 from tools.login_dec import login_check
 import random
 from tools.sms import YunTongXin
+from .tasks import task_test
+from .tasks import get_res
+
+def test_celery(request):
+    task_test.delay()
+    now = datetime.datetime.now()
+    html='result at %s'%(now.strftime('%H:%M:%S'))
+    return HttpResponse(html)
 
 @login_check
 def user_avatar(request,username):
@@ -120,6 +129,12 @@ def makeToken(username, expire=3600*24):
     key = settings.JWT_TOKEN_KEY
     return jwt.encode(payload,key,algorithm='HS256')
 
+def getResult(r):
+    while True:
+        if r.ready():
+            return r.result
+            break
+
 def sms_view(request):
     json_str= request.body
     json_obj= json.loads(json_str)
@@ -129,8 +144,13 @@ def sms_view(request):
 
     cache.set(cache_key,code,65)
     print('--send code -- is %s'%code)
-    x=YunTongXin(settings.SMS_ACCOUNT_ID,settings.SMS_ACCOUNT_TOKEN,settings.SMS_APP_ID,settings.SMS_TEMPLATE_ID)
-    res= x.run(phone,code)
+
+    # x=YunTongXin(settings.SMS_ACCOUNT_ID,settings.SMS_ACCOUNT_TOKEN,settings.SMS_APP_ID,settings.SMS_TEMPLATE_ID)
+    # res= x.run(phone,code)
+    res= get_res.delay(phone,code)
+    # print(res)
+    # res = getResult(res)
+
     print('--send sms result is %s'%res)
     return JsonResponse({'code':200})
 

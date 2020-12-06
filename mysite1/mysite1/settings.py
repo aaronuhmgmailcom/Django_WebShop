@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'shopping_cart',
     'user_wallet',
     'btoken',
+    'topic',
 
 ]
 

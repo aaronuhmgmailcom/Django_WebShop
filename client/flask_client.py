@@ -47,7 +47,7 @@ def change_password(username):
     return send_file('templates/change_password.html')
 
 
-@app.route('/<username>/topic/release')
+@app.route('/<username>/topics/release')
 def topic_release(username):
     #发表博客
     return send_file('templates/release.html')
