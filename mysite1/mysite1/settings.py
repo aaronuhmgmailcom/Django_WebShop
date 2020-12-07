@@ -155,8 +155,10 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
+#True表示在数据库中写入的是标准时间，在DJANGO中的模版夜中根据配置的市区时间，自动计算当市区时间
+#FALSE 在数据库中直接写入的就是当前市区的时间
+#钱后端分离后，不再使用DJANGO模版了，选择FALSE
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
