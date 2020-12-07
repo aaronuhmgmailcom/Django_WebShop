@@ -1,0 +1,375 @@
+    /*公共样式*/
+    
+    .fl {
+        float: left;
+    }
+    
+    .fr {
+        float: right;
+    }
+    /*版心*/
+    
+    .w {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    /* 声明字体 */
+    
+    @font-face {
+        font-family: 'icomoon';
+        src: url('/static/fonts_index/icomoon.eot?7kkyc2');
+        src: url('/static/fonts_index/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'), url('/static/fonts_index/icomoon.ttf?7kkyc2') format('truetype'), url('/static/fonts_index/icomoon.woff?7kkyc2') format('woff'), url('/static/fonts_index/icomoon.svg?7kkyc2#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    /* 防止其他的icomoon也使用该样式 */
+    
+    .fr .icomoon {
+        font-family: 'icomoon';
+        font-size: 16px;
+        line-height: 26px;
+    }
+    /* 免费注册的颜色可能会在多处使用，因此写一个颜色样式 */
+    
+    .style-red {
+        color: #c81623;
+    }
+    /* 给li盒子实现 | */
+    
+    .spacer {
+        width: 1px;
+        height: 12px;
+        background-color: #666;
+        /* 上左右下 */
+        margin: 9px 12px 0;
+    }
+    /* 顶部快捷导航 */
+    
+    .shortcut {
+        height: 31px;
+        line-height: 31px;
+        background-color: #f1f1f1;
+    }
+    
+    .shortcut li {
+        float: left;
+    }
+    /* 头部header大盒子布局 */
+    
+    .header {
+        position: relative;
+        height: 105px;
+        /* background-color: pink; */
+    }
+    
+    .logo {
+        position: absolute;
+        top: 26px;
+        width: 175px;
+        height: 56px;
+    }
+    /* 给a大小，和logo一样
+    添加logo背景图片 */
+    
+    .logo a {
+        display: block;
+        /* 溢出隐藏把超出盒子的部分剪切掉，最后隐藏文字 */
+        overflow: hidden;
+        width: 220px;
+        height: 90px;
+        background: url(/static/image/DDlogoNEW.gif) 0 0 no-repeat;
+        /* 首行缩进 负值往左移动*/
+        text-indent: -999px;
+        /* 字体显示0px也行 */
+        /* font-size: 0; */
+    }
+    /* 搜索框   不需要添加宽度，因为里面的表单会撑开盒子*/
+    
+    .search {
+        position: absolute;
+        top: 26px;
+        left: 348px;
+        background-color: red;
+    }
+    
+    .search .text {
+        float: left;
+        /* //455-10 */
+        width: 445px;
+        height: 32px;
+        border: 2px solid #b1191a;
+        padding-left: 10px;
+        color: #ccc;
+    }
+    
+    .search .btn {
+        float: left;
+        width: 82px;
+        height: 36px;
+        background-color: #b1191a;
+        /* 去掉默认边框 */
+        border: 0;
+        color: #f1f1f1;
+        font-size: 16px;
+    }
+    /* 热词盒子 */
+    
+    .hotwords {
+        position: absolute;
+        top: 65px;
+        left: 348px;
+        /* border: 1px solid red; */
+    }
+    /* 热词链接 添加左右外边距 */
+    
+    .hotwords a {
+        margin: 0 10px;
+    }
+    /*购物车盒子  */
+    
+    .shopcar {
+        position: absolute;
+        top: 26px;
+        right: 65px;
+        width: 138px;
+        height: 35px;
+        border: 1px solid #dfdfdf;
+        background-color: #f7f7f7;
+        line-height: 35px;
+        text-align: center;
+    }
+    
+    .car {
+        font-family: 'icomoon';
+        color: #da5555;
+    }
+    
+    .arrow {
+        font-family: 'icomoon';
+        margin-left: 5px;
+    }
+    /* 右上角count图标 */
+    
+    .count {
+        /* 
+        加了定位的盒子默认转化成行内块 ,继承了父亲行高，和高度。需要设置高度*/
+        position: absolute;
+        top: -5px;
+        /* 右侧对齐盒子会向左侧扩大 ，所以需要左对齐*/
+        /* right: 18px; */
+        left: 104px;
+        background-color: #e60012;
+        height: 14px;
+        line-height: 14px;
+        padding: 0 3px 0 4px;
+        color: #fff;
+        /* 制作右上圆角 */
+        /*左上 右上 右下 左下 */
+        border-radius: 7px 7px 7px 0;
+    }
+    /* nav导航栏盒子  通栏 */
+    /* 是dropdown和navitems的父盒子 */
+    
+    .nav {
+        width: auto;
+        height: 45px;
+        margin-top: 24px;
+        /* background-color: pink; */
+        border-bottom: 2px solid #cb6666;
+    }
+    /* 下拉菜单栏 */
+    
+    .dropdown {
+        width: 209px;
+        height: 45px;
+        /* 45 */
+        background-color: pink;
+        /* padding: 16px 25px 16px 54px; */
+    }
+    
+    .dropdown .dt {
+        width: 100%;
+        height: 100%;
+        background-color: #b1191a;
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        line-height: 45px;
+    }
+    
+    .dropdown .dd {
+        width: 100%;
+        height: 464px;
+        background-color: #c81623;
+        /* 压住了2px的线，所以向下移动2px */
+        margin-top: 2px;
+    }
+    /* .dropdown .dd的li  */
+    
+    .menu_item {
+        height: 31px;
+        line-height: 31px;
+        margin-left: 1px;
+        /* 因为li没有设置宽度，所以不会撑大盒子 */
+        padding: 0 10px;
+        transition: all 0.5s;
+    }
+    /* 添加过渡效果 */
+    
+    .menu_item:hover {
+        padding: 0 20px;
+    }
+    
+    .menu_item a {
+        font-size: 14px;
+        color: #fff;
+    }
+    /* 鼠标经过li 改背景颜色 */
+    
+    .menu_item:hover {
+        background-color: #fff;
+    }
+    /* 鼠标经过li 里面的a变颜色 */
+    
+    .menu_item:hover a {
+        color: #c81623;
+    }
+    
+    .menu_item i {
+        float: right;
+        font-family: 'icomoon';
+        font-size: 16px;
+        color: #fff;
+    }
+    /* 导航栏组 */
+    
+    .navitems {
+        margin-left: 10px;
+    }
+    
+    .navitems li {
+        float: left;
+    }
+    
+    .navitems li a {
+        display: block;
+        height: 45px;
+        /* padding会把盒子撑开 */
+        padding: 0 25px;
+        line-height: 45px;
+        font-size: 16px;
+    }
+    /*  */
+    /* footer 底部大盒子 */
+    
+    .footer {
+        /* 417-60 */
+        height: 387px;
+        background-color: #f5f5f5;
+        /* background-color: red; */
+        padding-top: 30px;
+    }
+    /* mod_service */
+    /* 子盒子 上半部分 */
+    
+    .mod_service {
+        height: 79px;
+        /* background-color: pink; */
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .mod_service li {
+        float: left;
+        width: 240px;
+        height: 79px;
+    }
+    /* 除了坐标不相同，其他代码重复，因此写公共的类名 */
+    
+    .mod_service_icon {
+        float: left;
+        /* 浮动的盒子可以直接给大小，不用转格式 */
+        width: 50px;
+        height: 50px;
+        /* background-color: #fff; */
+        /* 精灵图 */
+        background: url(/static/images/icons.png) no-repeat -253px -3px;
+        margin-left: 30px;
+    }
+    /* 其他的设置在公共样式类中，精灵图的坐标 */
+    
+    .mod_service_zheng {
+        background-position: -253px -3px 0;
+    }
+    
+    .mod_service_title {
+        float: left;
+        width: 117px;
+        height: 49px;
+        /* background-color: #fff; */
+        margin-left: 5px;
+    }
+    
+    .mod_service_title h5 {
+        font-size: 15px;
+        margin: 5px 0;
+    }
+    
+    .mod_service_kuai {
+        background-position: -255px -53px;
+    }
+    
+    .mod_service_bao {
+        background-position: -257px -105px;
+    }
+    
+    .mod_service_te {
+        background-position: -258px -156px;
+    }
+    
+    .mod_service_bang {
+        background-position: -255px -208px;
+    }
+    /* 子盒子 help部分 */
+    
+    .mod_help {
+        height: 187px;
+        /* background-color: pink; */
+        border-bottom: 1px solid #ccc;
+    }
+    /* dl  */
+    
+    .mod_help_item {
+        float: left;
+        width: 150px;
+        padding: 20px 0 0 50px;
+        /* border-left: 1px solid #000; */
+        /* background-color: red; */
+    }
+    
+    .mod_help_item dt {
+        height: 25px;
+        font-size: 16px;
+    }
+    
+    .mod_help_item dd {
+        height: 22px;
+    }
+    /* 帮助中心二维码 */
+    
+    .mod_help_app dt,
+    .mod_help_app p {
+        padding-left: 15px;
+    }
+    
+    .mod_help_app img {
+        margin: 7px 0;
+    }
+    /* 版权 mod_copyright */
+    
+    .mod_copyright {
+        text-align: center;
+    }
+    
+    .mod_copyright_links {
+        margin: 5px 0;
+    }

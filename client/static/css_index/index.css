@@ -1,0 +1,448 @@
+    .main {
+        width: 980px;
+        height: 455px;
+        margin-left: 219px;
+        /* background-color: pink; */
+        margin-top: 10px;
+    }
+    
+    .focus {
+        position: relative;
+        float: left;
+        width: 721px;
+        height: 455px;
+        background-color: purple;
+        overflow: hidden;
+    }
+    /* 修改ul的宽度，放下所有li  溢出隐藏*/
+    
+    .focus ul {
+        /* 添加了定位才可以实现动画效果 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 600%;
+    }
+    /* 焦点图内的所有 用来放图片内容的li */
+    
+    .focus ul li {
+        float: left;
+    }
+    
+    .arrow_l,
+    .arrow_r {
+        /* 隐藏按钮 */
+        display: none;
+        /* 原本a无大小，添加了浮动和定位的元素可以直接添加大小 */
+        position: absolute;
+        /* 在轮播图定位垂直居中写法 */
+        top: 50%;
+        margin-top: -20px;
+        width: 24px;
+        height: 40px;
+        /* 半透明 */
+        background-color: rgba(0, 0, 0, .3);
+        line-height: 40px;
+        text-align: center;
+        color: #ccc;
+        font-family: "icomoon";
+        font-size: 18px;
+        z-index: 2;
+    }
+    /* 右箭头靠右侧 */
+    
+    .arrow_r {
+        right: 0;
+    }
+    /* 底部圆圈 水平居中 定位 left50% -marginleft 宽度一半*/
+    
+    .circle {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        margin-left: -80px;
+    }
+    
+    .circle li {
+        float: left;
+        width: 8px;
+        height: 8px;
+        margin: 5px;
+        /* 给背景色就是实心小圆圈 */
+        /* background-color: #fff; */
+        /* background-color: #000; */
+        /* border: 1px solid #000; */
+        border: 2px solid rgba(250, 250, 250, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    /* 当前的圆圈底色变白 */
+    
+    .current {
+        background-color: #fff;
+    }
+    /* newflash盒子 */
+    
+    .newsflash {
+        float: right;
+        width: 250px;
+        height: 455px;
+        /* background-color: blue; */
+        margin-left: 5px;
+    }
+    /* 上部分新闻 */
+    
+    .news {
+        /* width: 250px; */
+        height: 163px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+    
+    .news_hd {
+        height: 32px;
+        border-bottom: 1px dotted #ccc;
+        font-size: 14px;
+        line-height: 32px;
+        padding: 0 15px;
+    }
+    
+    .news_hd a {
+        float: right;
+        font-family: "icomoon";
+        font-size: 12px;
+    }
+    
+    .news_bd {
+        padding: 10px 0 0 15px;
+        font-size: 14px;
+    }
+    
+    .news_bd li {
+        height: 23px;
+    }
+    /* 生活服务 */
+    
+    .lifeservice {
+        /* ul盒子大于该盒子宽度，所以隐藏超出的部分 */
+        overflow: hidden;
+        /* width: 250px; */
+        height: 208px;
+        /* background-color: red; */
+        border: 1px solid #ccc;
+        border-top: 1px;
+    }
+    /* ul的宽度大于250px，就可以一行装下4个 
+    */
+    
+    .lifeservice ul {
+        width: 252px;
+    }
+    
+    .lifeservice li {
+        position: relative;
+        float: left;
+        width: 62px;
+        height: 70px;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .lifeservice li a {
+        display: block;
+        /* 由于i 和a都是块级元素，所以给i添加外边距top，会引起外边距塌陷/合并,把a盒子一起带下来了。所以解决办法如下 */
+        overflow: hidden;
+        width: 62px;
+        height: 70px;
+    }
+    /* i 元素行内元素，不能设置宽高，转成块级元素 */
+    
+    .lifeservice_ico {
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 10px auto;
+        background: url(/static/images/icons.png);
+    }
+    
+    .lifeservice_ico_huafei {
+        background-position: -17px -16px;
+    }
+    
+    .lifeservice_ico_feiji {
+        width: 26px;
+        height: 26px;
+        background-position: -78px -16px;
+    }
+    /* 减 */
+    
+    .jian {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 13px;
+        height: 16px;
+        background: url(/static/images/jian_03.png);
+    }
+    
+    .lifeservice_ico_dianying {
+        background-position: -141px -16px;
+    }
+    
+    .lifeservice_ico_youxi {
+        width: 26px;
+        height: 24px;
+        background-position: -205px -16px;
+    }
+    
+    .lifeservice_ico_caipiao {
+        background-position: -16px -88px;
+    }
+    
+    .lifeservice_ico_jiayou {
+        width: 27px;
+        height: 25px;
+        background-position: -77px -88px;
+    }
+    
+    .lifeservice_ico_jiudian {
+        background-position: -141px -87px;
+    }
+    
+    .lifeservice_ico_huoche {
+        background-position: -206px -87px;
+    }
+    
+    .lifeservice_ico_zhongchou {
+        background-position: -16px -159px;
+    }
+    
+    .lifeservice_ico_licai {
+        background-position: -77px -159px;
+    }
+    
+    .lifeservice_ico_lipin {
+        background-position: -141px -159px;
+    }
+    
+    .lifeservice_ico_baitiao {
+        background-position: -205px -159px;
+    }
+    
+    .lifeservice li p {
+        text-align: center;
+    }
+    
+    .bragain {
+        height: 75px;
+        margin-top: 5px;
+        background-color: #fff;
+    }
+    /* 推荐模块 */
+    
+    .recommend {
+        height: 163px;
+        /* background-color: pink; */
+        margin-top: 10px;
+    }
+    /* 左侧盒子 */
+    
+    .recom_hd {
+        float: left;
+        width: 200px;
+        height: 163px;
+        background-color: #5c5251;
+        text-align: center;
+    }
+    
+    .recom_hd img {
+        margin: 30px 0 10px 0;
+    }
+    
+    .recom_hd h3 {
+        /* 不加粗 */
+        font-weight: normal;
+        font-size: 18px;
+        color: #fff;
+    }
+    /* 右侧 */
+    
+    .recom_bd {
+        float: left;
+        width: 1000px;
+        height: 163px;
+        background-color: #ebebeb;
+    }
+    
+    .recom_bd li {
+        overflow: hidden;
+        float: left;
+        /* 249+1px边框=250，超过会掉下去 */
+        width: 249px;
+        height: 145px;
+        margin: 10px 0;
+        /* background-color: #fff; */
+        border-right: 1px solid #ccc;
+    }
+    /* <!-- 最后一个li不要右边框 --> */
+    /* 直接类选择器无效果，原因：权重不够10，上面的是11，所以要提权重 */
+    /* .last {
+        border-right: none;
+    } */
+    
+    .recom_bd .last {
+        border-right: 0px;
+    }
+    /* floor楼层区部分 不要给楼层区大盒子样式 */
+    
+    .box_hd {
+        height: 30px;
+        margin-top: 25px;
+        border-bottom: 2px solid #da646c;
+        /* background-color: yellow; */
+    }
+    
+    .box_hd h3 {
+        float: left;
+        font-size: 18px;
+    }
+    
+    .tab_list {
+        float: right;
+        line-height: 30px;
+    }
+    
+    .tab_list li {
+        float: left;
+    }
+    
+    .tab_list li a {
+        margin: 0 15px;
+    }
+    
+    .box_bd {
+        height: 360px;
+        /* background-color: pink; */
+    }
+    /* tab栏 对应内容 tab_con ul*/
+    /* .tab_con li 5个子盒子 */
+    
+    .tab_con li {
+        float: left;
+        height: 360px;
+    }
+    /* 宽度样式 */
+    
+    .w209 {
+        width: 209px;
+        background-color: #f9f9f9;
+    }
+    
+    .w329 {
+        width: 329px;
+    }
+    /* 右侧有1像素边框 */
+    
+    .w219 {
+        width: 219px;
+        border-right: 1px solid #ccc;
+    }
+    
+    .w220 {
+        width: 220px;
+        border-right: 1px solid #ccc;
+    }
+    /* 209 329 219+还有1像素边框 */
+    /*给右边3个盒子添加底边框的样式 底边有1像素边框样式 */
+    
+    .tab_con_item {
+        border-bottom: 1px solid #ccc;
+    }
+    /* 1号盒子上面个的ul li*/
+    
+    .tab_con_list {
+        margin-bottom: 10px;
+        /* 没有效果的原因：父亲盒子没有添加高度，然后子盒子有浮动，所以要清楚浮动*/
+        overflow: hidden;
+    }
+    
+    .tab_con_list li {
+        width: 86px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        margin-left: 13px;
+        font-size: 14px;
+    }
+    /* 底部广告品牌 */
+    
+    .box_brand {
+        height: 66px;
+        /* background-color: #f7f7f7; */
+        margin: 20px 0 30px 0;
+        line-height: 66px;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .box_brand_con li {
+        float: left;
+        line-height: 40px;
+        width: 119px;
+        height: 40px;
+        text-align: center;
+        margin: 12px 0;
+        background-color: #fff;
+        border-right: 1px dotted #ccc;
+        /* background-color: #f7f7f7; */
+    }
+    /* 接触图片向右移动 */
+    
+    .box_bd li {
+        overflow: hidden;
+    }
+    
+    .box_bd img {
+        transition: all 0.2s;
+    }
+    /* 鼠标经过图片向上移动 */
+    
+    .box_bd img:hover {
+        margin-left: 8px;
+    }
+    /* 侧边栏 固定定位 */
+    
+    .fixedtool {
+        position: fixed;
+        top: 253px;
+        left: 50%;
+        /* 版心的一半+自己的宽度 */
+        margin-left: -676px;
+        width: 65px;
+    }
+    
+    .fixedtool li {
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        color: #000;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #fff;
+        transition: all 0.2s;
+    }
+    
+    .fixedtool li:hover {
+        background-color: #c81623;
+        color: #fff;
+        font-size: 14px;
+    }
+    
+    .fixedtool .bgc_color {
+        background-color: #c81623;
+        color: #fff;
+        font-size: 14px;
+    }

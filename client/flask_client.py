@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     #首页
-    return send_file('templates/index.html')
+    return send_file('templates/index_index.html')
 
 @app.route('/login')
 def login():

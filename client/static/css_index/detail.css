@@ -1,0 +1,528 @@
+.de_container {
+    margin-top: 20px;
+    /* background-color: pink; */
+}
+
+
+/* 1.面包屑导航 */
+
+.crumb_wrap {
+    margin: 25px 0;
+}
+
+.crumb_wrap a {
+    margin-right: 10px;
+}
+
+
+/* 2.产品介绍 */
+
+.product_intro {
+    /* 清除浮动 */
+    overflow: hidden;
+    /* background-color: pink; */
+}
+
+
+/* 左部分 */
+
+.preview_wrap {
+    float: left;
+    width: 400px;
+    height: 590px;
+    /* background-color: skyblue; */
+}
+
+
+/* 图 */
+
+.preview_img {
+    height: 398px;
+    width: 398px;
+    border: 1px solid #ccc;
+}
+
+
+/*列表 */
+
+.preview_list {
+    position: relative;
+    height: 60px;
+    margin-top: 60px;
+    /* background-color: pink; */
+}
+
+
+/* ul */
+
+.list_item {
+    width: 320px;
+    height: 61px;
+    /* 水平居中对齐 */
+    margin: 0 auto;
+    /* background-color: purple; */
+}
+
+
+/* li */
+
+.list_item li {
+    float: left;
+    width: 56px;
+    height: 56px;
+    border: 2px solid transparent;
+    background-color: #fff;
+    margin: 0 2px;
+}
+
+.list_item li.current {
+    border: 2px solid #c81623;
+}
+
+
+/* z左右按钮定位 */
+
+.arrow_prev,
+.arrow_next {
+    position: absolute;
+    top: 15px;
+    width: 22px;
+    height: 33px;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+.arrow_prev {
+    background: url(../img/arrow-prev.png)no-repeat;
+    left: 0;
+}
+
+.arrow_next {
+    right: 0;
+    background-position: 0 0;
+    background: url(../img/arrow-next.png) no-repeat;
+}
+
+
+/* 右侧部分 */
+
+.iteminfo_wrap {
+    float: right;
+    width: 720px;
+    /* background-color: skyblue; */
+}
+
+.sku_name {
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.news {
+    /* margin-top: 20px; */
+    height: 33px;
+    /* 直接设置高度，要是没有用到高度，就会空出来，不需要写margin */
+    font-size: 12px;
+    color: #c81623;
+}
+
+
+/* 价格部分 dl */
+
+.summary_price,
+.summary_pormotion {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+    background-color: pink;
+}
+
+.summary_price i {
+    font-size: 24px;
+    color: #e12228;
+}
+
+.summary_price a {
+    color: #c81623;
+}
+
+
+/* 累计评价 */
+
+.remark {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+
+/* 有浮动  清除浮动 */
+
+
+/* 父亲大盒子 */
+
+.summary dl {
+    overflow: hidden;
+}
+
+
+/* 给最外层的summary盒子内的dt和dd写样式 */
+
+.summary dt {
+    float: left;
+    width: 60px;
+    padding-left: 10px;
+    line-height: 36px;
+    /* text-align: justify;
+    text-align-last: justify */
+}
+
+.summary dd {
+    float: left;
+}
+
+
+/* 促销 */
+
+.summary_pormotion {
+    /* 价格部分 dl有上下padding */
+    padding: 0;
+}
+
+
+/* 促销部分 dd*/
+
+.summary_pormotion dd {
+    width: 454px;
+    line-height: 36px;
+}
+
+.summary_pormotion em {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    padding: 2px;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    background-color: #c81623;
+    font-size: 13px;
+}
+
+
+/* 支持与配送部分 结构相同 */
+
+.summary_support dd,
+.summary_stock {
+    line-height: 36px;
+}
+
+
+/* 配送部分 */
+
+.summary_stock i {
+    font-family: "icomoon";
+    font-size: 14px;
+}
+
+
+/* 选择颜色 */
+
+.summary_choose dd a {
+    display: inline-block;
+    width: 80px;
+    height: 41px;
+    background-color: #f7f7f7;
+    text-align: center;
+    line-height: 41px;
+    margin-right: 10px;
+    border: 1px solid #ededed;
+}
+
+.summary_choose a.current {
+    border: 1px solid red;
+}
+
+
+/* 选择版本 */
+
+
+/* 容量，购买方式，套装 */
+
+.summary_version,
+.summary_type {
+    margin: 10px 0;
+}
+
+.summary_version a,
+.summary_type a {
+    display: inline-block;
+    height: 33px;
+    padding: 0 10px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 33px;
+    background-color: #f7f7f7;
+    border: 1px solid #ededed;
+}
+
+.summary_version a.current,
+.summary_type a.current {
+    border: 1px solid red;
+}
+
+
+/* 加入购物车 */
+
+.choose_btn {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+/* 选择数量 */
+
+.choose_amount {
+    position: relative;
+    float: left;
+    width: 50px;
+    height: 46px;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+}
+
+.choose_amount input {
+    width: 33px;
+    height: 44px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+
+/* + -号 */
+
+.add,
+.reduce {
+    position: absolute;
+    right: 0;
+    width: 14px;
+    height: 21px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.add {
+    top: 0;
+}
+
+.reduce {
+    bottom: 0;
+    cursor: not-allowed;
+}
+
+
+/* 加入购物车 */
+
+.addshopcar {
+    float: left;
+    width: 142px;
+    height: 46px;
+    background-color: #c81623;
+    text-align: center;
+    line-height: 46px;
+    /* border: 1px solid ; */
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+/* 3.产品细节模块  外层盒子*/
+
+.product_detail {
+    overflow: hidden;
+    margin: 50px 0;
+    /* background-color: pink; */
+    /* border: 1px solid #ccc; */
+}
+
+
+/* 左侧 */
+
+.aside {
+    float: left;
+    width: 208px;
+    border: 1px solid #ccc;
+}
+
+
+/* tab切换栏头部 */
+
+.tab_list {
+    height: 34px;
+    /* background-color: pink; */
+}
+
+.tab_list li {
+    float: left;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.first {
+    width: 104px;
+}
+
+.second {
+    width: 103px;
+    border-left: 1px solid #ccc;
+}
+
+
+/* tab选项卡 选中状态  背景白色，去边框 文字变色*/
+
+.tab_list .current {
+    background-color: #fff;
+    /* border-bottom: 1px solid transparent; */
+    border-bottom: 0;
+    color: #c81623;
+}
+
+
+/* tab_con选项卡对应内容 */
+
+.tab_con {
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+
+/* tab_con的1号盒子 ul*/
+
+.list_con_one {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.list_con_one li {
+    float: left;
+    height: 27px;
+    width: 50%;
+    text-align: center;
+    line-height: 27px;
+    border-bottom: 1px dotted #ccc;
+    /* background-color: pink; */
+    font-size: 12px;
+}
+
+
+/* 2号盒子 */
+
+.list_con_two {
+    margin-top: 20px;
+}
+
+.list_con_two .title {
+    font-weight: 700;
+    font-size: 15px;
+    /* border-bottom: 1px solid #ccc; */
+    margin-bottom: 20px;
+}
+
+.list_con_two li {
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+/* 省略号 */
+
+.list_con_two li h5 {
+    /*1.文字强制一行显示  */
+    white-space: nowrap;
+    /* 2溢出隐藏 */
+    overflow: hidden;
+    /* 3. 超出部分省略号显示*/
+    text-overflow: ellipsis;
+    font-weight: normal;
+}
+
+.aside_price {
+    font-weight: 700;
+}
+
+
+/* 加入购物车 a */
+
+.adside_add {
+    display: block;
+    width: 88px;
+    height: 26px;
+    text-align-last: center;
+    line-height: 26px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    margin: 10px auto;
+}
+
+
+/* 右侧 */
+
+.detail {
+    float: right;
+    width: 978px;
+    /* border: 1px solid #ccc; */
+}
+
+
+/* tab栏 */
+
+.detail_tab_list {
+    height: 39px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.detail_tab_list li {
+    float: left;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+
+/* 选中时候的效果 */
+
+.detail_tab_list .current {
+    background-color: #c81326;
+    color: #fff;
+}
+
+
+/* 内容 */
+
+
+/* .detail_tab_con {} */
+
+.item_info {
+    padding: 20px 10px;
+}
+
+.item_info li {
+    line-height: 22px;
+}
+
+.item p a {
+    float: right;
+    font-weight: 700;
+    font-family: "icomoon";
+}
+
+.item img {
+    background-color: #fafafa;
+}
