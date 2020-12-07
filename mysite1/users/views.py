@@ -96,14 +96,16 @@ class UsersView(View):
         redis_code= cache.get('sms_%s'%phone)
         print(code)
         print(redis_code)
-        if code!=redis_code:
-            result = {'code': 10103, 'error': '验证码错误！'}
-            return JsonResponse(result)
+        # if code!=redis_code:
+        #     result = {'code': 10103, 'error': '验证码错误！'}
+        #     return JsonResponse(result)
         # print(username,email,phone,password1,password2)
         if len(username)>11:
             result={'code':10100, 'error':'用户名太长！'}
             return JsonResponse(result)
+        print(username)
         old_user= User.objects.filter(username=username)
+        print(old_user)
         if old_user:
             result={'code':10101, 'error':"用户名已被使用" }
             return JsonResponse(result)
