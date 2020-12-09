@@ -54,6 +54,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                 //console.log(result);
                 $(document).attr('title', '文章详情-'+ result.data.nickname+'的博客');
                 header_html = makeHeader(blog_username, username);
+                console.log(result.data)
                 var messages_list = result.data.messages
                 html_body += header_html;
                 html_body += '<article>';
@@ -182,6 +183,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                     success:function (result) {
                         if (200 == result.code){
                             alert("发布成功")
+
                             window.location.reload()
                         }else{
                             alert(result.error)

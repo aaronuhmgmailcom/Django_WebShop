@@ -14,8 +14,8 @@ from .models import Topic
 from users.models import User
 # from tools.login_dec import get_user_by_request
 from tools.login_dec import get_user_by_request
-
 from tools.cache_dec import topic_cache
+from message.models import Message
 
 
 class topic_views(View):
@@ -78,6 +78,31 @@ class topic_views(View):
         else:
             last_id = None
             last_title = None
+
+        all_message=Message.objects.filter(topic=author_topic).order_by('-created_time')
+        # print(all_message)
+        msg_list=[]
+        r_dict={}
+        msg_count=0
+        for msg in all_message:
+            if msg.parent_message:
+                r_dict.setdefault(msg.parent_message,[])
+                r_dict[msg.parent_message].append({'id':msg.id,'content':msg.content,'publisher':msg.user_profile.nickname,'publisher_avatar':str(msg.user_profile.IMAGE),'created_time':msg.created_time.strftime('%Y-%m-%d %H:%M:%S')})
+            else:
+                msg_count+=1
+                msg_list.append({
+                    'id':msg.id,
+                    'content':msg.content,
+                    'publisher':msg.user_profile.nickname,
+                    'publisher_avatar':str(msg.user_profile.IMAGE),
+                    'created_time':msg.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'reply':[]
+                })
+
+        for l in msg_list:
+            if l['id'] in r_dict:
+                l['reply']=r_dict[l['id']]
+
         d = {'code': 200, 'data': {}}
         d['data']['id'] = author_topic.id
         d['data']['nickname'] = author.nickname
@@ -91,8 +116,8 @@ class topic_views(View):
         d['data']['last_title'] = last_title
         d['data']['next_id'] = next_id
         d['data']['next_title'] = next_title
-        d['data']['messages'] = []
-        d['data']['messages_count'] = 0
+        d['data']['messages'] = msg_list
+        d['data']['messages_count'] =msg_count
         return d
 
     def clear_topic_caches(self,request):

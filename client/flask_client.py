@@ -70,5 +70,5 @@ def test_api():
     return send_file('templates/test_api.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='176.215.66.101', port=5000, debug=True)
 
