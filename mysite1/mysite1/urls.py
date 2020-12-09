@@ -24,6 +24,7 @@ from btoken import views as btoken_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('payment/', include('payment.urls')),
     path('', views.index_view),
     path('cors', views.cors),
     path('cors_server', views.cors_server),

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qv=42t43*oik5kd(u$zuii$z-5pz*t$^n=2+!iby-$2b8v!#+r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'btoken',
     'topic',
     'message',
-
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -221,3 +221,8 @@ SMS_ACCOUNT_ID = '8a216da87380115d017389546bb802f5'
 SMS_ACCOUNT_TOKEN = '12444d5592d247b2af0e5cc10bf666a0'
 SMS_APP_ID = '8a216da87380115d017389546c9e02fb'
 SMS_TEMPLATE_ID = '1'
+
+ALIPAY_APPID='2021000116664332'
+ALIPAY_KEY_DIR= os.path.join(BASE_DIR,'static/key_file/')
+ALIPAY_RETURN_URL='http://127.0.0.1:8000/payment/result/'
+ALIPAY_NOTIFY_URL='http://127.0.0.1:8000/payment/result/'
