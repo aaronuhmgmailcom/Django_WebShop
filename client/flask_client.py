@@ -39,7 +39,7 @@ def info(username):
 @app.route('/<username>/change_info')
 def change_info(username):
     #修改个人信息
-    return send_file('templates/change_info.html')
+    return send_file('templates/home-setting-info.html')
 
 @app.route('/<username>/change_password')
 def change_password(username):

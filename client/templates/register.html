@@ -218,7 +218,7 @@
                     <div class="cont-wrapper">
                         <img src="/static/ones.jpg" class="icon-tips">
                         <p class="zi">
-                                贴心提示：请勿设置与邮箱密码相同的账户登录密码或支付密码，防止不法分子窃取您的当当账户信息，
+                                贴心提示：请勿设置与邮箱密码相同的账户登录密码或支付密码，防止不法分子窃取您的趣书账户信息，
                                 <a href="#" style="text-decoration:none; color:red">谨防诈骗</a>
                         </p>
                     </div>
@@ -256,8 +256,8 @@
         <div class="checkbox">
                 <input type="checkbox" name="remember" class="memory">
                 <label class="memorys" style="font-size: 2%">我已阅读并同意
-                        <a href="#" style="text-decoration:none;">《当当交易条款》</a>
-                        <a href="#" style="text-decoration:none;">《当当社区条款》</a>和 <a href="#" style="text-decoration:none;" >《当当隐私政策》</a>
+                        <a href="#" style="text-decoration:none;">《趣书交易条款》</a>
+                        <a href="#" style="text-decoration:none;">《趣书社区条款》</a>和 <a href="#" style="text-decoration:none;" >《趣书隐私政策》</a>
                 </label>
         </div>
         <div  id="last">
@@ -278,7 +278,7 @@
             <span>|</span>
             <a href="#">广告服务</a>
             </div>
-            <div>当当小组全体成员@武汉市洪山区达内中心</div>
+            <div>趣书网小组全体成员@武汉市武昌区达内中心</div>
             <div> 联系电话：183#######&nbsp;&nbsp;&nbsp;邮箱:#####@qq.com</div>
     </div>
 </div>
@@ -399,6 +399,7 @@
 			success:function(res){
 				if(res.code==200){
 					alert('短信验证码已发送到您的手机，请查收');
+					console.log(res.sms)
 				}else{
 					alert(res.error);
 				}

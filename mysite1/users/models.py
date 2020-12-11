@@ -18,6 +18,7 @@ class User(models.Model):
     country= models.CharField("国家",default='', max_length=30,null=True)
     province= models.CharField("省份",default='', max_length=30,null=True)
     city= models.CharField("城市", default='' , max_length=30,null=True)
+    district= models.CharField("区", default='' , max_length=30,null=True)
     gender= models.IntegerField("性别",default=0,null=True)
     age= models.IntegerField("年龄",default=0,null=True)
     birthday= models.DateField("生日",default='1900-01-01',  max_length=64,null=True)

@@ -49,8 +49,14 @@ class UsersView(View):
         json_str = request.body
         json_obj = json.loads(json_str)
         user.nickname = json_obj['nickname']
-        user.sign = json_obj['sign']
-        user.Delivery_address1 = json_obj['info']
+        # user.sign = json_obj['sign']
+        # user.Delivery_address1 = json_obj['info']
+        user.province = json_obj['province']
+        user.city = json_obj['city']
+        user.district = json_obj['district']
+        user.birthday = json_obj['year']+'-'+json_obj['month']+'-'+json_obj['day']
+        user.gender = json_obj['gender']
+
         user.save()
         result = {'code': 200, 'username': user.username}
         return JsonResponse(result)
@@ -76,7 +82,7 @@ class UsersView(View):
                 result={'code':200,'username':username,'data':data}
             else:
             #get all data
-                result={'code':200,'username':username,'data':{'info':user.Delivery_address1, 'sign':user.sign, 'nickname':user.nickname,'avatar':str(user.IMAGE) }}
+                result={'code':200,'username':username,'data':{'info':user.Delivery_address1, 'sign':user.sign,'gender':user.gender,'year':user.birthday.year, 'province':user.province,'city':user.city,'district':user.district,'month':user.birthday.month,'day':user.birthday.day,'nickname':user.nickname,'avatar':str(user.IMAGE) }}
 
             return JsonResponse(result)
         else:
@@ -154,7 +160,7 @@ def sms_view(request):
     # res = getResult(res)
 
     print('--send sms result is %s'%res)
-    return JsonResponse({'code':200})
+    return JsonResponse({'code':200 , 'sms':res})
 
 # # Create your views here.
 # from .models import User
