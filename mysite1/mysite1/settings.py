@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'search_history',
     'shopping_cart',
     'user_wallet',
+    'UserAddress',
     'btoken',
     'topic',
     'message',
