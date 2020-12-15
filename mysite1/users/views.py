@@ -94,6 +94,7 @@ class UsersView(View):
         json_str=request.body
         json_obj =json.loads(json_str)
         username=json_obj['username']
+        nickname = json_obj['nickname']
         email=json_obj['email']
         phone=json_obj['phone']
         password1=json_obj['password1']
@@ -112,24 +113,32 @@ class UsersView(View):
         print(username)
         old_user= User.objects.filter(username=username)
         print(old_user)
-        if old_user:
-            result={'code':10101, 'error':"用户名已被使用" }
-            return JsonResponse(result)
         if password1 !=password2:
             result = {'code': 10102, 'error': "两次密码不一致"}
             return JsonResponse(result)
-        #hash
-        md5=hashlib.md5()
+            # hash
+        md5 = hashlib.md5()
         md5.update(password1.encode())
-        password_h=md5.hexdigest()
+        password_h = md5.hexdigest()
+        print(password_h,nickname,username)
+        if old_user and email and phone:
+            result = {'code': 10101, 'error': "用户名已被使用"}
+            return JsonResponse(result)
+        elif old_user and not email and not phone:
+            old_user[0].password = password_h
+            old_user[0].nickname = nickname
+            old_user[0].save()
+            result = {'code': 200, 'username': old_user[0].username}
 
-        try:
-            User.objects.create(username=username,password=password_h,EMAIL=email,TELEPHONE=phone)
-        except Exception as e:
-            print('error is %s' % e)
-            return JsonResponse('user name exist', safe=False)
-        token= makeToken(username)
-        return JsonResponse({'code':200 ,'username':username, 'data':{'token':token.decode()}})
+            return JsonResponse(result)
+        else:
+            try:
+                User.objects.create(username=username,password=password_h,EMAIL=email,TELEPHONE=phone)
+            except Exception as e:
+                print('error is %s' % e)
+                return JsonResponse('user name exist', safe=False)
+            token= makeToken(username)
+            return JsonResponse({'code':200 ,'username':username, 'data':{'token':token.decode()}})
 
 def makeToken(username, expire=3600*24):
     now = time.time()
@@ -160,7 +169,7 @@ def sms_view(request):
     # res = getResult(res)
 
     print('--send sms result is %s'%res)
-    return JsonResponse({'code':200 , 'sms':res})
+    return JsonResponse({'code':200 , 'sms':code})
 
 # # Create your views here.
 # from .models import User

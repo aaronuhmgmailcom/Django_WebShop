@@ -191,7 +191,7 @@ ul.brand-list li {
 
 .logo-bd {
     display: block;
-    background: url(../img/Logo.png) no-repeat;
+    background: url(/static/image/one.gif) no-repeat;
     width: 175px;
     height: 55px;
     margin: 25px auto

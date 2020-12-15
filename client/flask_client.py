@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     #首页
-    return send_file('templates/index_index.html')
+    return send_file('templates/index.html')
 
 @app.route('/login')
 def login():
@@ -40,6 +40,21 @@ def info(username):
 def change_info(username):
     #修改个人信息
     return send_file('templates/home-setting-info.html')
+
+@app.route('/<username>/password_info')
+def password_info(username):
+    #修改个人信息
+    return send_file('templates/home-setting-safe.html')
+
+@app.route('/<username>/password_info_2')
+def password_info_2(username):
+    #修改个人信息
+    return send_file('templates/home-setting-address-phone.html')
+
+@app.route('/<username>/password_info_3')
+def password_info_3(username):
+    #修改个人信息
+    return send_file('templates/home-setting-address-complete.html')
 
 @app.route('/<username>/change_password')
 def change_password(username):
