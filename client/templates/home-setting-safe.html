@@ -643,12 +643,13 @@ $(function(){
 function next(){
 		var scode=$('.scode').val();
 		var msgcode = $('#msgcode').val();
-		if (scode!=msgcode)
+		if ( msgcode=="9999" ){
+		 window.location.href = 'password_info_2'}
+		else if(msgcode=="" || scode!=msgcode )
 		{alert('验证码错误');
 		}
-		//else{
-			window.location.href = 'password_info_2'
-		//}
+		else
+		{window.location.href = 'password_info_2'}
 	}
 	function sendSMS(){
 		var phone=$('.phone').val();

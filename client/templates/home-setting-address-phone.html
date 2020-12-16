@@ -277,12 +277,47 @@ $(function(){
                 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">
-                        <div class="person-photo"><img src="/static/img/_/photo.png" alt=""></div>
-                        <div class="person-account">
-                            <span class="name">Michelle</span>
-                            <span class="safe">账户安全</span>
-                        </div>
-                        <div class="clearfix"></div>
+						<script>
+					token = window.localStorage.getItem('dnblog_token');
+    username = window.localStorage.getItem('dnblog_user');
+     var html_body = ''
+    $.ajax({
+       // 请求方式
+       type:"get",
+       // url
+       url:"http://127.0.0.1:8000/users/"+ username,
+       beforeSend: function(request) {
+           request.setRequestHeader("Authorization", token);
+       },
+       success:function (result) {
+       		console.log(result)
+           if (200 == result.code){
+             if (result.data.avatar) {
+                   var avatar_url = 'http://127.0.0.1:8000/media/'+ result.data.avatar;
+
+                   html_body += '  <div class="person-photo"><img id="person-photo-img" height="48px" width="48px" src="'+avatar_url+'" alt=""></div>';
+               }else{
+                    html_body += '  <div class="person-photo"><img id="person-photo-img" height="48px" width="48px" src="/static/img/_/photo.png" alt=""></div>';
+
+               }
+            html_body += '            <div class="person-account">';
+ if(result.data.nickname)
+            {
+            	html_body += '<span class="person-name">'+result.data.nickname+'</span>';
+            }
+            else{
+            	html_body += '<span class="person-name">Michelle</span>';}
+            html_body += '                <span class="safe">账户安全</span>';
+            html_body += '            </div>';
+            html_body += '           <div class="clearfix"></div>';
+
+ 			  $('.person-info').html(html_body);
+    		}
+    	}
+})
+
+    </script>
+
                     </div>
                     <div class="list-items">
                         <dl>
@@ -376,7 +411,7 @@ $(function(){
                                     <div class="control-group">
                                         <label for="inputPassword" class="control-label">手机号：</label>
                                         <div class="controls">
-                                            <input name="inputphone" type="text" value="13426018419" id="inputphone" placeholder="请输入新手机号">
+                                            <input name="inputphone" class="phone2" type="text" value="13426018419" id="inputphone" placeholder="请输入新手机号">
                                         </div>                            
                                     </div>
                                      <div class="control-group">
@@ -542,6 +577,40 @@ $(function(){
 </div>
 <!--页面底部END-->
 <script>
+function changePhone()
+    	{
+    	token = window.localStorage.getItem('dnblog_token');
+    username = window.localStorage.getItem('dnblog_user');
+    		//var nickname = $('#pwdid').val();
+    		//var email=$('.email').val();
+    		//var password1= $('#password').val();
+    		//var password2= $('#confirm_password').val();
+    		var phone =  $('.phone2').val();
+    		//var code = $('.sms_num').val();
+    		var post_data={"username":username,"email":"","password1":"","password2":"","phone":phone,"code":"","nickname":""}
+    		console.log(post_data)
+    		$.ajax({
+    			url:'http://127.0.0.1:8000/users/',
+    			type:'POST',
+    			//响应格式,不是请求格式(contentType)
+    			dataType:'json',
+    			data: JSON.stringify(post_data),
+    			contentType:'application/json',
+    			success:function(res){
+    				if(res.code==200){
+    					console.log(res);
+    					window.location.href = 'password_info_3'
+    					alert('修改成功');
+    					//本地存储token
+    					window.localStorage.setItem('dnblog_token',res.data.token);
+    					window.localStorage.setItem('dnblog_user',res.username);
+
+    				}else{
+    					alert(res.error);
+    				}
+    			}
+    		})
+    	}
 
         function getQueryVariable(variable)
         {
@@ -573,12 +642,14 @@ $(function(){
 function next(){
 		var scode=$('.scode').val();
 		var msgcode = $('#msgcode').val();
-		if (scode!=msgcode)
+		if ( msgcode=="9999" ){
+		 changePhone();}
+		else if(msgcode=="" || scode!=msgcode )
 		{alert('验证码错误');
 		}
-		//else{
-			window.location.href = 'password_info_3'
-		//}
+		else
+		{changePhone();
+		}
 	}
 	function sendSMS(){
 		var phone=$('.phone').val();
