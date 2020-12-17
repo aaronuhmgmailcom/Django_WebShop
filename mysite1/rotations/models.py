@@ -10,6 +10,7 @@ class Rotation(models.Model):
     img_path = models.CharField("图片地址", default='', max_length=128)
     link = models.CharField("图片链接", default='', max_length=128)
     remark = models.TextField('备注')
+    type = models.CharField("分类名", default='', max_length=128)
     product_profile=models.ForeignKey(Product, on_delete=models.CASCADE,default=None)
 
     def __str__(self):
