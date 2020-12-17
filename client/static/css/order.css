@@ -1,0 +1,392 @@
+.head_info .order_menu{
+    height: 43px;
+    border-bottom:1px solid;
+    position: relative; 
+}
+
+.head_info .order_search{
+    width: 420px;
+    position: absolute;
+    right: 0;
+    top: -4px;
+}
+
+.head_info .search_input{
+    padding-left: 5px;
+    height: 34px;
+    font-size: 12px;
+    width: 320px;
+    border: 1px solid #dcdcdc;
+    color: #b0afaf;
+}
+
+.head_info .search_but{
+    display: inline-block;
+    text-align: center;
+    color: #787878;
+    width: 87px;
+    height: 36px;
+    border: 1px solid #dcdcdc;
+    line-height: 34px;
+    border-left: none;
+    background-color: #f3f4f5;
+    margin-left: -3px;
+}
+.head_info .search_but:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.head_info .order_search span{
+    position: absolute;
+    color: rgb(153, 153, 153);
+    width: 323px;
+    height: 36px;
+    font-size: 12px;
+    padding-left: 5px;
+    font-family: 微软雅黑;
+    top: 0px;
+    left: 0px;
+    line-height: 36px;
+    display: block;
+}
+.head_info .line{
+    width: 112px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    bottom: -1px;
+    left: 112.737px;
+    /* 112.737px  214.125px  315.512px*/
+}
+.head_info .red_line{
+    width: 92px;
+    height: 1px;
+    background-color: red;
+    margin: 0 auto;
+}
+.head_info .menu_list{
+    padding-top: 6px; 
+}
+.head_info .menu_list li{
+    float: left;
+    margin: 0 22px;
+    font-size:16px;
+    color: #323232; 
+}
+.head_info .menu_list li a:hover{
+    cursor: pointer;
+    color: red;
+}
+.head_info .menu_list li .nums{
+    color: red;
+}
+
+
+.head_info .order_time{
+    height: 87px;
+}
+.head_info .time_show{
+    height: 36px;
+}
+.head_info .time_show li{
+    float: left;
+    margin: 20px -77px 0 177px;
+    color: #969696;
+}
+.head_info .give_color{
+    /* 当流程线发生点击添加字体颜色改变,与轮播图逻辑相同 */
+    color: red;
+}
+.head_info .time_show_pic{
+    height: 51px;
+    position: relative;
+}
+.head_info .ur_time{
+    height: 30px;
+    margin-top: 4px;
+}
+.head_info .time_show_pic .ur_time span{
+    padding-top: 9px;
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 25px;
+}
+.head_info .time_show_pic .pic_line{
+    width: 656px;
+    height: 2px;
+    margin: 10px 102px;
+    position: absolute;
+    top: 5px;
+    background:url("/static/image/dash_line.png") repeat-x 0 0;
+}
+.head_info .time_show_pic .time_circle{
+    position: absolute;
+    top: 6px;
+    left: 126px;
+}
+
+.head_info .time_show_pic .time_circle li{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #dddddd;
+    border-radius:65px;
+    float: left;
+    margin: 3px 63px;
+    background-color: #f4f4f4; 
+}
+.time_circle a{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+}
+/* 样式轮换，发生点击切换该样式名称 */
+.head_info .time_sample{
+    background-image: url("/static/image/wl_icon.png");
+    background-repeat: no-repeat;
+    background-position: -4px -2px;
+}
+
+/* 回收站 */
+.head_info .order_back{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.head_info .order_back .back_img{
+    background-image: url("/static/image/wl_icon.png");
+    background-position: -2px -122px;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 18px;
+    display: inline-block; 
+}
+
+.head_info .order_back span{
+    margin-bottom:-4px;
+    color: #646464;
+}
+
+.head_info .order_back span:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+
+.head_info .order_detail{
+    height: 36px;
+    background-color: #f3f4f5;
+    line-height: 36px;
+    margin-top:6px; 
+}
+
+.head_info .order_detail1{
+    margin-left: 225px;
+}
+.head_info .order_detail2{
+    margin-left: 250px;
+}
+.head_info .order_detail3{
+    margin-left: 95px;
+}
+.head_info .order_detail4{
+    margin-left: 85px;
+}
+.head_info .order_detail5{
+    margin-left: 90px;
+}
+
+.head_info .turn{
+    height: 44px;
+    position: relative;
+    line-height: 44px;
+}
+
+
+/* 订单展示样式 */
+.order_tab{
+    margin-bottom: 15px;
+    width: 988px;
+}
+.order_tab .emp_row{
+    height: 20px;
+}
+
+.order_tab .order_title{
+    background-color: #f5f5f5;
+    height: 31px;
+    line-height: 31px;
+    color: #aaa;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+.order_tab .order_title td{
+    
+    border-bottom-color:#f5f5f5; 
+}
+.order_tab .order_title span{
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 0 0;
+}
+.order_tab .order_title .gap{
+    width: 14px;
+}
+.order_tab .order_title .dealtime{
+    margin-right: 53px;
+    font-family: verdana;
+}
+.order_tab .order_title .number{
+    width: 220px;
+    font-family: verdana;
+}
+.order_tab .order_title a{
+    color: #333;
+}
+.order_tab .order_title a:hover{
+    color: red;
+}
+.order_tab .order_title .order_shop{
+    width: 550px;
+    height: 23px;
+    float: right;
+    margin-right: 15px;
+    position: relative;
+}
+.order_tab .order_title .shop{
+    width: 250px;
+}
+.order_tab .order_title .shop .shop_txt{
+    display: inline-block;
+    max-width: 120px;
+    overflow: hidden;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.order_tab .order_title .shop .shop_img{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 5px;
+    overflow: hidden;
+    background-image: url("/static/image/sprite-im.png");
+    background-repeat: no-repeat;
+    background-position: -26px 0;
+}
+
+/* 商品列表展示 */
+.order_tab .order_body{
+    text-align: center;
+    
+}
+.order_tab .order_body td{
+    padding: 14px 0;
+    border: 1px solid #e5e5e5;
+}
+
+.order_tab .order_body .goods_item{
+    width: 300px;
+    margin-right: 10px; 
+    display: block;
+    float: left;
+}
+.order_tab .goods_item .p_img{
+    float: left;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #efefef;
+    margin: 0 14px;
+    position: relative;
+    overflow: hidden;
+}
+.order_tab .goods_item .p_msg{
+    width: 200px;
+    float: left;
+}
+.order_tab .goods_item .p_name{
+    height: 56px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #333;
+    text-align: left;
+}
+.order_tab .goods_nums{
+    width: 20px;
+    text-align: left;
+    color: #aaa;
+    float: left;
+}
+.order_tab  .goods_repair{
+    width: 100px;
+    float: right;
+    text-align: center;
+}
+
+.order_tab .tooptip{
+    position: relative;
+    width: 110px;
+    margin: 0 auto;
+    cursor: pointer;
+    color: #333;
+}
+
+.order_tab .tooptip .txt{
+    display: inline-block;
+    white-space: normal;
+    overflow: hidden;
+    max-width: 72px;
+}
+.order_tab .tooptip b{
+    display: inline-block;
+    width: 14px;
+    height: 28px;
+    margin: 0 0 0 5px;
+    background: url("/static/image/order-icons.png") 0 -24px;
+    vertical-align: middle;
+}
+.order_tab .amount{
+    color: #AAA;
+}
+.order_tab .amount .pay{
+    display: block;
+    margin: 0 30px;
+    margin-top:5px;
+    padding-top: 8px;
+    border-top: 1px solid #E5E5E5;
+    line-height: 19px;
+    height: 19px;
+    overflow: hidden;  
+}
+.order_tab .status{
+    position: relative;
+    color: #333;
+    line-height: 22px;
+    margin: 0 30px;
+}
+
+.order_tab .operate{
+    line-height: 22px;
+}
+.order_tab .operate .btn_again{
+    display: inline-block;
+    padding: 2px 0 3px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 2px; 
+    width: 110px;
+    text-align: center;
+}
+.order_tab .operate .btn_again:hover{
+    color: red;
+}
+.order_tab .operate .btn_again b{
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 17px;
+    margin-right:5px;
+    background: url("/static/image/order-icons.png") -22px -180px no-repeat; 
+}

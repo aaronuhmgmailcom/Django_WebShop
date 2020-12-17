@@ -1,0 +1,158 @@
+html_body += '<div class="header" >';
+               html_body += '<h1>个人信息修改</h1>';
+               html_body += '</div>';
+               html_body += '<p></p>';
+               html_body += '<ul class="left-form">';
+               html_body += '<li>';
+               html_body += '<form action=""  method="post" enctype="multipart/form-data" class="avatar_form">';
+               //avatar
+               if (result.data.avatar) {
+                   var avatar_url = 'http://127.0.0.1:8000/media/'+ result.data.avatar;
+                   html_body += '<p class="avatar"> <img src=' + avatar_url + ' alt=""> </p>';
+               }else{
+                   html_body += '<p class="avatar"> <img src="/static/images/avatar.jpg" alt=""> </p>';
+               }
+               html_body += '<p>';
+
+               html_body += '<label for="avatar">上传头像</label>&nbsp;';
+               html_body += '&nbsp;<input type="file" name="avatar" id="avatar">';
+               html_body += '</br>'
+               html_body += '</br>'
+               html_body += '<input id="submit-btn" type="button" value="上传" onclick="upload()">';
+               html_body += '</p>';
+               html_body += '</form>';
+               html_body += '</li>';
+
+               html_body += '<label style="float:left;display:inline-block">昵称: </label>'
+               html_body += '<div class="clear"> </div>';
+               html_body += '<li>';
+               html_body += '<input type="text" class="nickname" name="nickname" value="' + result.data.nickname + '"' + 'placeholder="请输入新的昵称" required maxlength="10" />';
+               html_body += '<div class="clear"> </div>';
+               html_body += '</li>';
+               html_body += '<label style="float:left;display:inline-block">个人签名: </label>'
+               html_body += '<div class="clear"> </div>';
+               html_body += '<li>';
+               if(result.data.sign){
+                   html_body += '<input type="text" class="sign" name="sign" placeholder="请输入个人签名" required  value="' + result.data.sign + '"' + '/>';
+               }else{
+                   html_body += '<input type="text" class="sign" name="sign" placeholder="请输入个人签名" required  value=""/>';
+               }
+               html_body += '<div class="clear"> </div>';
+               html_body += '</li>';
+               html_body += '<label style="float:left;display:inline-block">个人描述: </label>'
+               html_body += '<div class="clear"> </div>';
+               if(result.data.info){
+                   html_body += '<textarea class="info" rows="3" cols="20" placeholder="请输入个人描述" style="width:100%; font-size:15px; padding:0.7em 2em 0.7em 1em" required>' + result.data.info + '</textarea>';
+               }else{
+                   html_body += '<textarea class="info" rows="3" cols="20" placeholder="请输入个人描述" style="width:100%; font-size:15px; padding:0.7em 2em 0.7em 1em" required></textarea>';
+               }
+               html_body += '<div class="clear"> </div>';
+               html_body += '</li>';
+              // html_body += '<li>';
+              // html_body += '<input type="password" class="password_1" name="password_1" placeholder="请输入密码" required minlength="6" maxlength="11"/>';
+              // html_body += '<div class="clear"> </div>';
+              // html_body += '</li>';
+              // html_body += '<li>';
+              // html_body += '<input type="password" class="password_2" name="password_2" placeholder="请再次确认密码" required minlength="6" maxlength="11"/>';
+              // html_body += '<div class="clear"> </div>';
+              // html_body += '</li>';
+
+               html_body += '<li style="border:none">';
+               html_body += '</br>'
+               html_body += '<input type="button" value="保存" onclick="changeInfo()">';
+               html_body += '</li>';
+               html_body += '</ul>';
+               html_body += '<div class="clear"> </div>';
+               html_body += '</div>';
+
+
+    <div class="yui3-u-5-6">
+                    <div class="body userInfo">
+                        <ul class="sui-nav nav-tabs nav-large nav-primary ">
+                            <li class="active"><a href="#one" data-toggle="tab">基本资料</a></li>
+                            <li><a href="#two" data-toggle="tab">头像照片</a></li>
+                        </ul>
+                        <div class="tab-content ">
+                            <div id="one" class="tab-pane active">
+                                <form id="form-msg" class="sui-form form-horizontal">
+                                    <div class="control-group">
+                                        <label for="inputName" class="control-label">昵称：</label>
+                                        <div class="controls">
+                                            <input type="text" id="inputName" name="email" placeholder="昵称">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="inputGender" class="control-label">性别：</label>
+                                        <div class="controls">
+
+                                            <input type="radio" name="gender" value="1"><span>男</span>
+                                        </label>
+
+                                            <input type="radio" name="gender" value="2"><span>女</span>
+                                        </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="inputPassword" class="control-label">生日：</label>
+                                        <div class="controls">
+                                            <select id="select_year2" rel="1990"></select>年
+                                            <select id="select_month2" rel="4"></select>月
+                                            <select id="select_day2" rel="3"></select>日
+                                        </div>
+                                    </div>
+
+
+                                    <div class="control-group">
+                                        <label for="inputPassword" class="control-label">所在地：</label>
+                                        <div class="controls">
+                                            <div data-toggle="distpicker">
+                                                <div class="form-group area">
+                                                    <select class="form-control" id="province1"></select>
+                                                </div>
+                                                <div class="form-group area">
+                                                    <select class="form-control" id="city1"></select>
+                                                </div>
+                                                <div class="form-group area">
+                                                    <select class="form-control" id="district1"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="inputJob" class="control-label">职业：</label>
+                                        <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                                <input name="job" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
+                                            <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">程序员</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">产品经理</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">UI设计师</a></li>
+                                            </ul>
+                                            </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="sanwei" class="control-label"></label>
+                                        <div class="controls">
+                                            <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="two" class="tab-pane">
+
+                                <div class="new-photo">
+                                    <p>当前头像：</p>
+
+                                    <div class="upload">
+                                        <img id="imgShow_WU_FILE_0" width="100" height="100" src="/static/img/_/photo_icon.png" alt="">
+                                        <input type="file" id="up_img_WU_FILE_0" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>

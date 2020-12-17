@@ -31,8 +31,9 @@ urlpatterns = [
     path('v1/users', user_views.UsersView.as_view()),
     path('v1/tokens', btoken_views.TokenView.as_view()),
     path('users/', include('users.urls')),
+    path('useraddress/', include('useraddress.urls')),
     path('topics/', include('topic.urls')),
-
+    path("order/", include("order.urls")),
     path('product/', include('product.urls')),
     path('orders/', include('orders.urls')),
     path('download/', include('download.urls')),

@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>趣书网，优质！优质！</title>
-	 <link rel="icon" href="assets/img/favicon.ico">
+	 <link rel="icon" href="/static/assets/img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/static/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/pages-JD-index.css" />
@@ -20,7 +20,39 @@
     <script type="text/javascript" src="/static/js/base.js"></script>
     <script type="text/javascript" src="/static/js/service/contentService.js"></script>
     <script type="text/javascript" src="/static/js/controller/contentController.js"></script>
-   
+<style>
+	#photo{
+		width: 248px;
+		height: 163px;
+		
+	}
+	#photos{
+		height: 300px;
+	}
+	.photo{
+		margin-top: 45px;
+		height: 210px;
+		width: 400px;
+	}
+	#one{
+		margin-top: 50px;
+		height: 230px;
+		width: 500px;
+	}
+	#two{
+		height: 230px;
+		width: 180px;
+		margin-top: 50px;
+		margin-left: 20px
+
+	}
+	#there{
+		margin-top: 50px;
+		height: 230px;
+		width: 300px;
+	}
+</style>  
+
 </head>
 
 <body ng-app="pinyougou" ng-controller="contentController" ng-init="findByCategoryId(1)">
@@ -34,12 +66,19 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">趣书网欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item" id="loginuser">
+
+						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item" id="myorder">
+
+
+
+
+						</li>
 						<li class="f-item space"></li>
-						<li class="f-item"><a href="home.html" target="_blank">我的趣书网</a></li>
+						<li class="f-item"><a href="index" target="_blank">我的趣书网</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item">趣书网会员</li>
 						<li class="f-item space"></li>
@@ -68,7 +107,7 @@
 			<div class="py-container">
 				<div class="yui3-g Logo">
 					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="趣书网" href="JD-index.html" target="_blank"></a>
+						<a class="logo-bd" title="趣书网" href="#" target="_blank"></a>
 					</div>
 					<div class="yui3-u Center searchArea">
 						<div class="search">
@@ -88,7 +127,7 @@
 								<li class="f-item">每满99减30</li>
 								<li class="f-item">亿元优惠</li>
 								<li class="f-item">9.9元团购</li>
-								<li class="f-item">办公用品</li>
+								<li class="f-item">书籍</li>
 
 							</ul>
 						</div>
@@ -116,9 +155,9 @@
 					</div>
 					<div class="yui3-u Center navArea">
 						<ul class="nav">
-							<li class="f-item">服装城</li>
-							<li class="f-item">美妆馆</li>
-							<li class="f-item">品优超市</li>
+							<li class="f-item">作品</li>
+							<li class="f-item">理论著作</li>
+							<li class="f-item">应用著述</li>
 							<li class="f-item">全球购</li>
 							<li class="f-item">闪购</li>
 							<li class="f-item">团购</li>
@@ -141,7 +180,7 @@
 				<div class="yui3-u Left all-sort-list">
 					<div class="all-sort-list2">
 						<div class="item bo">
-							<h3><a href="">图书、音像、数字商品</a></h3>
+							<h3><a href="">天文、地理、数学</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -176,7 +215,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">家用电器</a></h3>
+							<h3><a href="">物理</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -219,7 +258,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">手机、数码</a></h3>
+							<h3><a href="">化学、生物</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -246,7 +285,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">电脑、办公</a></h3>
+							<h3><a href="">机械、电信</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -297,7 +336,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">家居、家具、家装、厨具</a></h3>
+							<h3><a href="">冶金、能源、交通、航天</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -340,7 +379,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">服饰内衣</a></h3>
+							<h3><a href="">工学、农学</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -379,7 +418,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">个护化妆</a></h3>
+							<h3><a href="">电脑</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -468,7 +507,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">汽车用品</a></h3>
+							<h3><a href="">汽车</a></h3>
 							<div class="item-list clearfix">
 								<div class="subitem">
 									<dl class="fore1">
@@ -507,67 +546,68 @@
 							</div>
 						</div>
 						<div class="item">
-							<h3><a href="">彩票、旅行</a></h3>
+							<h3><a href="">信息</a></h3>
 						</div>
 						<div class="item">
-							<h3><a href="">理财、众筹</a></h3>
+							<h3><a href="">食品</a></h3>
 						</div>
 						<div class="item">
-							<h3><a href="">母婴、玩具</a></h3>
+							<h3><a href="">纺织</a></h3>
 						</div>
 						<div class="item">
-							<h3><a href="">箱包</a></h3>
+							<h3><a href="">词典</a></h3>
 						</div>
 						<div class="item">
-							<h3><a href="">运动户外</a></h3>
+							<h3><a href="">高考真题</a></h3>
 						</div>
 						<div class="item">
-							<h3><a href="">箱包</a></h3>
+							<h3><a href="">小说</a></h3>
 						</div>
 					</div>
 				</div>
 				
 				<div class="yui3-u Center banerArea">
-					<!--banner轮播-->
+					
+						<!--banner轮播-->
 					<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
-					  <ol class="carousel-indicators">
-					    <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-					    <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="item in contentList[1]"></li>
-					  </ol>
-					  <div class="carousel-inner">
-					   <!--  <div class="active item">
-					    <a href="http://baidu2.wypxj.com/">
-					    	<img src="img/banner1.jpg"  />
-					      </a>
-					    </div> -->
-					    <div class="{{$index==0?'active':''}} item" ng-repeat="item in contentList[1]">
-					    <a href="{{item.url}}">
-					    	<img src="{{item.pic}}"  width="730" height="454"/>
-					      </a>
-					    </div>
-					   	
-					  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
-					</div>
+						  <ol class="carousel-indicators">
+							<!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+							<li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="item in contentList[1]"></li>
+						  </ol>
+						  <div class="carousel-inner">
+							<div class="active item">
+							<a href="http://baidu2.wypxj.com/">
+								<img src="/static/img/banner1.jpg"  />
+							  </a>
+							</div>
+							<div class="{{$index==0?'active':''}} item" ng-repeat="item in contentList[1]">
+							<a href="{{item.url}}">
+								<img src="{{item.pic}}"  width="730" height="454"/>
+							  </a>
+							</div>
+							   
+						  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
+						</div>
 				</div>
 				<div class="yui3-u Right">
 					<div class="news">
-						<h4><em class="fl">趣书网快报</em><span class="fr tip">更多 ></span></h4>
+						<h4><em class="fl">趣味网快报</em><span class="fr tip">更多 ></span></h4>
 						<div class="clearix"></div>
 						<ul class="news-list unstyled">
 							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
+								<span class="bold">[特惠]</span>备战开学季 全民半价课本
 							</li>
 							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
+								<span class="bold">[公告]</span>备战开学季 全民半价课本
 							</li>
 							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
+								<span class="bold">[特惠]</span>备战开学季 全民半价课本
 							</li>
 							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
+								<span class="bold">[公告]</span>备战开学季 全民半价课本
 							</li>
 							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
+								<span class="bold">[特惠]</span>备战开学季 全民半价课本
 							</li>
 						</ul>
 					</div>
@@ -641,7 +681,7 @@
 						</div>
 					</div>
 					<div class="ads">
-						<img src="img/ad1.png" />
+						<img src="/static/img/ad1.png" />
 					</div>
 				</div>
 			</div>
@@ -651,23 +691,23 @@
 	<div class="show">
 		<div class="py-container">
 			<ul class="yui3-g Recommend">
-				<li class="yui3-u-1-6  clock">
+				<li class="yui3-u-1-6  clock" >
 					<div class="time">
-						<img src="img/clock.png" />
+						<img src="/static/img/clock.png"  />
 						<h3>今日推荐</h3>
 					</div>
 				</li>
 				<li class="yui3-u-5-24">
-					<a href="list.html" target="_blank"><img src="img/today01.png" /></a>
+					<img src="/static/img/like_09.png " id="photo" />
 				</li>
 				<li class="yui3-u-5-24">
-					<img src="img/today02.png" />
+					<img src="/static/img/like_01.png"  id="photo" />
 				</li>
 				<li class="yui3-u-5-24">
-					<img src="img/today03.png" />
+					<img src="/static/img/like_11.png"  id="photo"/>
 				</li>
 				<li class="yui3-u-5-24">
-					<img src="img/today04.png" />
+					<img src="/static/img/like_08.png"  id="photo"/>
 				</li>
 			</ul>
 		</div>
@@ -676,7 +716,7 @@
 	<div class="like">
 		<div class="py-container">
 			<div class="title">
-				<h3 class="fl">猜你喜欢</h3>
+				<h3 class="fl">文学著作</h3>
 				<b class="border"></b>
 				<a href="javascript:;" class="fr tip changeBnt" id="xxlChg"><i></i>换一换</a>
 			</div>
@@ -685,17 +725,17 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_01.png" alt="" /></a>
 								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
+									<p>&nbsp&nbsp&nbsp&nbsp&nbsp乌合之众</p>
+									<h3>¥20.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_02.png" alt="" /></a>
 								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
+									<p>人间失格</p>
+									<h3>¥25.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -703,17 +743,17 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl jilu">
 							<dd>
-								<a href="" class="pic"><img src="img/like_03.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_03.png" alt="" /></a>
 								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
+									<p>&nbsp&nbsp&nbsp&nbsp人间值得</p>
+									<h3>¥40.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_04.png" alt="" /></a>
 								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
+									<p>百年孤独</p>
+									<h3>¥35.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -721,19 +761,17 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl tuhua">
 							<dd>
-								<a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_05.png" alt="" /></a>
 								<div class="like-text">
-									<p>捷波朗 </p>
-									<p>（jabra）BOOSI劲步</p>
-									<h3>¥236.00</h3>
+									<p>月亮与六便士</p>
+									<h3>¥55.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img nsrc="assets/img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img nsrc="/static/img/like_06.png" alt="" /></a>
 								<div class="like-text">
-									<p>三星（G5500）</p>
-									<p>移动联通双网通</p>
-									<h3>¥566.00</h3>
+									<p>白夜行</p>
+									<h3>¥45.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -741,17 +779,17 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_07.png" alt="" /></a>
 								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
+									<p>平凡的世界</p>
+									<h3>¥100.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_08.png" alt="" /></a>
 								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
+									<p>顿感力</p>
+									<h3>¥65.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -759,19 +797,19 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl jilu">
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="img/like_03.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_09.png" alt="" /></a>
 								<div class="like-text">
-									<p>捷波朗 </p>
-									<p>（jabra）BOOSI劲步</p>
-									<h3>¥236.00</h3>
+									<p>2021.考研政治</p>
+									
+									<h3>¥15.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="img/like_02.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_10.png" alt="" /></a>
 								<div class="like-text">
-									<p>欧普</p>
-									<p>JYLZ08面板灯平板灯铝</p>
-									<h3>¥456.00</h3>
+									<p>正面管教</p>
+									
+									<h3>¥45.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -779,18 +817,18 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl tuhua">
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="img/like_01.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_11.png" alt="" /></a>
 								<div class="like-text">
-									<p>三星（G5500）</p>
-									<p>移动联通双网通</p>
-									<h3>¥566.00</h3>
+									
+									<p>活着</p>
+									<h3>¥60.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img nsrc="assets/img/like_02.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img nsrc="/static/img/like_12.png" alt="" /></a>
 								<div class="like-text">
-									<p>韩国所望紧致湿润精华露400ml</p>
-									<h3>¥896.00</h3>
+									<p>生命简史</p>
+									<h3>¥150.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -803,47 +841,33 @@
 	<div class="fun">
 		<div class="py-container">
 			<div class="title">
-				<h3 class="fl">传智播客.有趣区</h3>
+				<h3 class="fl">古典名著</h3>
 			</div>
 			<div class="clearfix yui3-g Interest">
-				<span class="x-line"></span>
+				
 				<div class="yui3-u row-405 Interest-conver">
-					<img src="img/interest01.png" />
+					<img src="/static/img/interest01.png" />
 				</div>
 				<div class="yui3-u row-225 Interest-conver-split">
-					<h5>好东西</h5>
-					<img src="img/interest02.png" />
-					<img src="img/interest03.png" />
+					<h5>好书</h5>
+					<img src="/static/img/interest05.png" style="height: 170px ; margin-left: 20px"/>
+					<img src="/static/img/interest04.png"  style="height: 170px;margin-top: 0px;width: 180px;margin-left: 20px"/>
 				</div>
-				<div class="yui3-u row-405 Interest-conver-split blockgary">
-					<h5>品牌街</h5>
+				<div class="yui3-u row-405 Interest-conver-split blockgary" style="background-color: white">
+					<h5>品牌书</h5>
 					<div class="split-bt">
-						<img src="img/interest04.png" />
+						<img src="/static/img/interest06.png" style="height: 350px ; width:350px; margin-left: 20px " />
 					</div>
-					<div class="x-img fl">
-						<img src="img/interest05.png" />
-					</div>
-					<div class="x-img fr">
-						<img src="img/interest06.png" />
-					</div>
+					
 				</div>
 				<div class="yui3-u row-165 brandArea">
 					<span class="brand-yline"></span>
 					<ul class="yui3-g brand-list">
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand01.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand02.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand03.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand04.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand05.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand06.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand07.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand08.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand09.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand10.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand11.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand12.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand13.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="img/brand03.png" /></li>
+						<div><img src="/static/img/o1.jpg" style="margin-top: 10px" ></div>
+						<div><img src="/static/img/o2.jpg"></div>
+						<div><img src="/static/img/o3.jpg"></div>
+						<div><img src="/static/img/o4.jpg"></div>
+						<div><img src="/static/img/o5.jpg"></div>
 					</ul>
 				</div>
 			</div>
@@ -853,29 +877,29 @@
 	<div id="floor-1" class="floor">
 		<div class="py-container">
 			<div class="title floors">
-				<h3 class="fl">家用电器</h3>
+				<h3 class="fl">小说区</h3>
 				<div class="fr">
 					<ul class="sui-nav nav-tabs">
 						<li class="active">
 							<a href="#tab1" data-toggle="tab">热门</a>
 						</li>
 						<li>
-							<a href="#tab2" data-toggle="tab">大家电</a>
+							<a href="#tab2" data-toggle="tab">奇幻玄幻</a>
 						</li>
 						<li>
-							<a href="#tab3" data-toggle="tab">生活电器</a>
+							<a href="#tab3" data-toggle="tab">武侠仙侠</a>
 						</li>
 						<li>
-							<a href="#tab4" data-toggle="tab">厨房电器</a>
+							<a href="#tab4" data-toggle="tab">历史军事</a>
 						</li>
 						<li>
-							<a href="#tab5" data-toggle="tab">应季电器</a>
+							<a href="#tab5" data-toggle="tab">都市娱乐</a>
 						</li>
 						<li>
-							<a href="#tab6" data-toggle="tab">空气/净水</a>
+							<a href="#tab6" data-toggle="tab">科幻游戏</a>
 						</li>
 						<li>
-							<a href="#tab7" data-toggle="tab">高端电器</a>
+							<a href="#tab7" data-toggle="tab">二次元</a>
 						</li>
 					</ul>
 				</div>
@@ -885,14 +909,17 @@
 					<div class="yui3-g Floor-1">
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
-								<li>节能补贴</li>
-								<li>4K电视</li>
-								<li>空气净化器</li>
-								<li>IH电饭煲</li>
-								<li>滚筒洗衣机</li>
-								<li>电热水器</li>
-							</ul>
-							<img src="img/floor-1-1.png" />
+								<li style="margin-top: 100px">历史军事</li>
+								<li style="margin-top: 100px">科幻游戏</li>
+								<li>二次元</li>
+								<li>武侠仙侠</li>
+								<li>幽默搞笑</li>
+								<li>花语女生</li>
+								<li>都市娱乐</li>
+								<li>恐怖悬疑</li>
+								<li>奇幻玄幻</li>
+								<li>科幻游戏</li>
+								
 						</div>
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -903,13 +930,13 @@
 								</ol>
 								<div class="carousel-inner">
 									<div class="active item">
-										<img src="img/floor-1-b01.png">
+										<img src="/static/img/floor-1-b01.png">
 									</div>
 									<div class="item">
-										<img src="img/floor-1-b02.png">
+										<img src="/static/img/floor-1-b02.png">
 									</div>
 									<div class="item">
-										<img src="img/floor-1-b03.png">
+										<img src="/static/img/floor-1-b03.png">
 									</div>
 								</div>
 								<a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
@@ -919,22 +946,22 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-2.png" />
+								<img src="/static/img/floor-1-2.png " id="there" />
 							</div>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-3.png" />
+								<img src="" />
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="img/floor-1-4.png" />
+							<img src="/static/img/floor-1-4.png" id='two' />
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-5.png" />
+								<img src="/static/img/floor-1-5.png" id="one" />
 							</div>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-6.png" />
+								<img src="" />
 							</div>
 						</div>
 					</div>
@@ -963,7 +990,7 @@
 	<div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
-				<h3 class="fl">手机通讯</h3>
+				<h3 class="fl">漫画区</h3>
 				<div class="fr">
 					<ul class="sui-nav nav-tabs">
 						<li class="active">
@@ -973,19 +1000,19 @@
 							<a href="#tab9" data-toggle="tab">品质优选</a>
 						</li>
 						<li>
-							<a href="#tab10" data-toggle="tab">新机尝鲜</a>
+							<a href="#tab10" data-toggle="tab">科幻游戏</a>
 						</li>
 						<li>
-							<a href="#tab11" data-toggle="tab">高性价比</a>
+							<a href="#tab11" data-toggle="tab">奇幻玄幻</a>
 						</li>
 						<li>
-							<a href="#tab12" data-toggle="tab">合约机</a>
+							<a href="#tab12" data-toggle="tab">花语女生</a>
 						</li>
 						<li>
-							<a href="#tab13" data-toggle="tab">手机卡</a>
+							<a href="#tab13" data-toggle="tab">都市娱乐</a>
 						</li>
 						<li>
-							<a href="#tab14" data-toggle="tab">手机配件</a>
+							<a href="#tab14" data-toggle="tab">恐怖悬疑</a>
 						</li>
 					</ul>
 				</div>
@@ -995,14 +1022,17 @@
 					<div class="yui3-g Floor-1">
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
-								<li>节能补贴</li>
-								<li>4K电视</li>
-								<li>空气净化器</li>
-								<li>IH电饭煲</li>
-								<li>滚筒洗衣机</li>
-								<li>电热水器</li>
-							</ul>
-							<img src="img/floor-1-1.png" />
+								<li style="margin-top: 100px">历史军事</li>
+								<li style="margin-top: 100px">科幻游戏</li>
+								<li>二次元</li>
+								<li>武侠仙侠</li>
+								<li>幽默搞笑</li>
+								<li>花语女生</li>
+								<li>都市娱乐</li>
+								<li>恐怖悬疑</li>
+								<li>奇幻玄幻</li>
+								<li>科幻游戏</li>
+							
 						</div>
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousell" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -1013,13 +1043,13 @@
 								</ol>
 								<div class="carousel-inner">
 									<div class="active item">
-										<img src="img/floor-1-b01.png">
+										<img src="/static/img/2.jpg">
 									</div>
 									<div class="item">
-										<img src="img/floor-1-b02.png">
+										<img src="/static/img/3.jpg">
 									</div>
 									<div class="item">
-										<img src="img/floor-1-b03.png">
+										<img src="/static/img/6.jpg">
 									</div>
 								</div>
 								<a href="#floorCarousell" data-slide="prev" class="carousel-control left">‹</a>
@@ -1029,22 +1059,22 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-2.png" />
+								<img src="/static/img/4.jpg" class="photo" / >
 							</div>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-3.png" />
+								<img src="" />
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="img/floor-1-4.png" />
+							<img src="/static/img/1.jpg" id="photos" />
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-5.png" />
+								<img src="/static/img/8.jpg"  id="photos" style="margin-top: 5px"/>
 							</div>
 							<div class="floor-conver-pit">
-								<img src="img/floor-1-6.png" />
+								<img src="" />
 							</div>
 						</div>
 					</div>
@@ -1074,24 +1104,7 @@
 		</div>
 	</div>
 	<!--商标-->
-	<div class="brand">
-		<div class="py-container">
-			<ul class="Brand-list blockgary">
-				<li class="Brand-item">
-					<img src="img/brand_21.png" />
-				</li>
-				<li class="Brand-item"><img src="img/brand_03.png" /></li>
-				<li class="Brand-item"><img src="img/brand_05.png" /></li>
-				<li class="Brand-item"><img src="img/brand_07.png" /></li>
-				<li class="Brand-item"><img src="img/brand_09.png" /></li>
-				<li class="Brand-item"><img src="img/brand_11.png" /></li>
-				<li class="Brand-item"><img src="img/brand_13.png" /></li>
-				<li class="Brand-item"><img src="img/brand_15.png" /></li>
-				<li class="Brand-item"><img src="img/brand_17.png" /></li>
-				<li class="Brand-item"><img src="img/brand_19.png" /></li>
-			</ul>
-		</div>
-	</div>
+	
 	<!-- 底部栏位 -->
 	<!--页面底部-->
 <div class="clearfix footer">
@@ -1201,7 +1214,7 @@
 					</div>
 					<div class="yui3-u-1-6">
 						<h4>帮助中心</h4>
-						<img src="img/wx_cz.jpg">
+						<img src="http://cdn.tmooc.cn/tmooc-web/css/img/erweima.jpg" style="height: 100px ">
 					</div>
 				</div>
 			</div>
@@ -1218,8 +1231,7 @@
 					<li>友情链接<span class="space"></span></li>
 					<li>关于我们</li>
 				</ul>
-				<p>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100</p>
-				<p>京ICP备08001421号京公网安备110108007702</p>
+				<p>地址：武汉市欢乐谷大道达内科技 邮编：×××××× 电话：×××-×××-×××× 传真：×××-××××××××</p>
 			</div>
 		</div>
 	</div>
@@ -1230,11 +1242,11 @@
 		<ul>
 			<li>
 				<a class="num" href="javascript:;" style="display: none;">1F</a>
-				<a class="word" href="javascript;;" style="display: block;">家用电器</a>
+				<a class="word" href="javascript;;" style="display: block;">小说区</a>
 			</li>
 			<li>
 				<a class="num" href="javascript:;" style="display: none;">2F</a>
-				<a class="word" href="javascript;;" style="display: block;">手机通讯</a>
+				<a class="word" href="javascript;;" style="display: block;">漫画区</a>
 			</li>
 			<li>
 				<a class="num" href="javascript:;" style="display: none;">3F</a>
@@ -1385,8 +1397,19 @@
 	</div>
 </script>
 <!--侧栏面板结束-->
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
+
+		function logout(){
+
+            if(confirm("确定登出吗？")){
+                window.localStorage.removeItem('dnblog_token');
+                window.localStorage.removeItem('dnblog_user');
+                window.localStorage.removeItem('dnblog_user_nick');
+                window.localStorage.removeItem('dnblog_user_img');
+                window.location.href= '/index';
+            }
+        }
 $(function(){
 	$("#service").hover(function(){
 		$(".service").show();
@@ -1399,16 +1422,47 @@ $(function(){
 		$("#shopcarlist").hide();
 	});
 
+token = window.localStorage.getItem('dnblog_token');
+    username = window.localStorage.getItem('dnblog_user');
+    nickname=window.localStorage.getItem('dnblog_user_nick');
+
+     var html_order = ''
+ 		if(username!="" && username!=null)
+            {
+            	html_order += '<a href="'+username+'/order" >我的订单</a>';
+            }
+            else{
+            	html_order += '<a href="/login" >我的订单</a>';
+            	}
+
+ 			  $('#myorder').html(html_order);
+
+
+     var html_body = ''
+
+ 			if(username!="" && username!= null)
+            {
+            	html_body += '<a href="'+username+'/change_info" >'+nickname+'</a>　<span onclick=logout() ><a href="/index" >退出</a></span>';
+            }
+            else{
+
+            	html_body += '请<a href="login" >登录</a>　<span><a href="register" >免费注册</a></span>';
+
+    		}
+
+  $('#loginuser').html(html_body);
+
 })
+
 </script>
-<script type="text/javascript" src="js/model/cartModel.js"></script>
-<script type="text/javascript" src="js/czFunction.js"></script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/pages/index.js"></script>
-<script type="text/javascript" src="js/widget/cartPanelView.js"></script>
-<script type="text/javascript" src="js/widget/jquery.autocomplete.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
+<script type="text/javascript" src="/static/js/model/cartModel.js"></script>
+<script type="text/javascript" src="/static/js/czFunction.js"></script>
+<script type="text/javascript" src="/static/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins/sui/sui.min.js"></script>
+<script type="text/javascript" src="/static/js/pages/index.js"></script>
+<script type="text/javascript" src="/static/js/widget/cartPanelView.js"></script>
+<script type="text/javascript" src="/static/js/widget/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/static/js/widget/nav.js"></script>
 </body>
 
 

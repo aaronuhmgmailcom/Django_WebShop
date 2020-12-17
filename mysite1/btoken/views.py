@@ -30,4 +30,4 @@ class TokenView(View):
             return JsonResponse(result)
         token=makeToken(username)
 
-        return JsonResponse({'code':200, 'username':username, 'data':{'token':token.decode()}})
+        return JsonResponse({'code':200, 'username':username,'nickname':user.nickname,'IMAGE':str(user.IMAGE) ,'data':{'token':token.decode()}})

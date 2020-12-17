@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户余额</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/about.css">
+    <link rel="stylesheet" href="/static/css/balance.css">
+    <link rel="icon" href="/static/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/webbase.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/pages-seckillOrder.css">
+</head>
+<body>
+    <div id="nav-bottom">
+        <!--顶部-->
+        <div class="nav-top">
+            <div class="top">
+                <div class="py-container">
+                    <div class="shortcut">
+                        <ul class="fl">
+                            <li class="f-item">趣书网欢迎您！</li>
+                            <li class="f-item" id="loginuser"></li>
+                        </ul>
+                        <ul class="fr">
+                            <li class="f-item"><a href="order" >我的订单</a></li>
+                            <li class="f-item space"></li>
+                            <li class="f-item"><a href="home.html" target="_blank">我的趣书</a></li>
+                            <li class="f-item space"></li>
+                            <li class="f-item">趣书网会员</li>
+                            <li class="f-item space"></li>
+                            <li class="f-item">企业采购</li>
+                            <li class="f-item space"></li>
+                            <li class="f-item">关注趣书网</li>
+                            <li class="f-item space"></li>
+                            <li class="f-item" id="service">
+                                <span>客户服务</span>
+                                <ul class="service">
+                                    <li><a href="cooperation.html" target="_blank">合作招商</a></li>
+                                    <li><a href="shoplogin.html" target="_blank">商家后台</a></li>
+                                    <li><a href="cooperation.html" target="_blank">合作招商</a></li>
+                                    <li><a href="#">商家后台</a></li>
+                                </ul>
+                            </li>
+                            <li class="f-item space"></li>
+                            <li class="f-item">网站导航</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--头部-->
+            <div class="header">
+                <div class="py-container">
+                    <div class="yui3-g Logo">
+                        <div class="yui3-u Left logoArea">
+                            <a class="logo-bd" title="趣书网" href="JD-index.html" target="_blank"></a>
+                        </div>
+                        <div class="yui3-u Center searchArea">
+                            <div class="search">
+                                <form action="" class="sui-form form-inline">
+                                    <!--searchAutoComplete-->
+                                    <div class="input-append">
+                                        <input type="text" id="autocomplete" type="text"
+                                            class="input-error input-xxlarge" />
+                                        <button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="hotwords">
+                                <ul>
+                                    <li class="f-item">趣书网首发</li>
+                                    <li class="f-item">亿元优惠</li>
+                                    <li class="f-item">9.9元团购</li>
+                                    <li class="f-item">每满99减30</li>
+                                    <li class="f-item">亿元优惠</li>
+                                    <li class="f-item">9.9元团购</li>
+                                    <li class="f-item">办公用品</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yui3-u Right shopArea">
+                            <div class="fr shopcar">
+                                <div class="show-shopcar" id="shopcar">
+                                    <span class="car"></span>
+                                    <a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+                                        <span>我的购物车</span>
+                                        <i class="shopnum">0</i>
+                                    </a>
+                                    <div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
+                                        <p>"啊哦，你的购物车还没有商品哦！"</p>
+                                        <p>"啊哦，你的购物车还没有商品哦！"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="yui3-g NavList">
+                        <div class="yui3-u Left all-sort">
+                            <h4>全部商品分类</h4>
+                        </div>
+                        <div class="yui3-u Center navArea">
+                            <ul class="nav">
+                                <li class="f-item">服装城</li>
+                                <li class="f-item">美妆馆</li>
+                                <li class="f-item">趣书超市</li>
+                                <li class="f-item">全球购</li>
+                                <li class="f-item">闪购</li>
+                                <li class="f-item">团购</li>
+                                <li class="f-item">有趣</li>
+                                <li class="f-item"><a href="seckill-index.html" target="_blank">秒杀</a></li>
+                            </ul>
+                        </div>
+                        <div class="yui3-u Right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+    <script>
+       function logout(){
+
+            if(confirm("确定登出吗？")){
+                window.localStorage.removeItem('dnblog_token');
+                window.localStorage.removeItem('dnblog_user');
+                window.localStorage.removeItem('dnblog_user_nick');
+                window.localStorage.removeItem('dnblog_user_img');
+                window.location.href= '/index';
+            }
+        }
+        $(function() {
+            $("#service").hover(function () {
+                $(".service").show();
+            }, function () {
+                $(".service").hide();
+            });
+            $("#shopcar").hover(function () {
+                $("#shopcarlist").show();
+            }, function () {
+                $("#shopcarlist").hide();
+            });
+             nickname=window.localStorage.getItem('dnblog_user_nick');
+
+     var html_body = ''
+
+ 			if(nickname!="" && nickname!= null)
+            {
+            	html_body += '<a href="change_info" >'+nickname+'</a>　<span onclick=logout() ><a href="/index" >退出</a></span>';
+            }
+            else{
+
+            	html_body += '请<a href="/login" >登录</a>　<span><a href="/register"">免费注册</a></span>';
+
+    		}
+
+  $('#loginuser').html(html_body);
+        })
+
+
+    </script>
+    <main>
+        <!-- 左栏 -->
+        <div class="yui3-u-1-6 list fl">
+                <div class="person-info" style="cursor:pointer;" onclick="toinfo()">
+                    <div class="person-photo"><img id="person-photo-img" height="48px" width="48px" src="/static/img/_/photo.png" alt=""></div>
+                    <div class="person-account">
+                        <span class="person-name">Michelle</span>
+                        <span class="safe">账户安全</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="list-items">
+                    <dl>
+                        <dt><i>·</i> 订单中心</dt>
+                        <dd ><a href="order" >我的订单</a></dd>
+                        <dd><a href="order?status=0" >待付款</a></dd>
+                        <dd><a href="order?status=3"  >待发货</a></dd>
+                        <dd><a href="order?status=1" >待收货</a></dd>
+                        <dd><a href="order?status=2" >待评价</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><i>·</i>我的钱包</dt>
+                        <dd><a href="balance">我的余额</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><i>·</i> 我的中心</dt>
+                        <dd><a href="home-person-collect.html" >我的收藏</a></dd>
+                        <dd><a href="home-person-footmark.html" >我的足迹</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><i>·</i> 物流消息</dt>
+                    </dl>
+                    <dl>
+                        <dt><i>·</i> 设置</dt>
+                        <dd><a href="change_info" class="list-active">个人信息</a></dd>
+                        <dd><a href="address_info"  >地址管理</a></dd>
+                        <dd><a href="password_info" >安全管理</a></dd>
+                    </dl>
+                </div>
+        </div>
+        <!-- 右栏 -->
+        <div class="right fl">
+            <div class="balance_box">
+                    <div class="userInfo">
+                        <div class="info_box">
+                            
+                        </div>
+                    </div>
+                    <div id="order">
+                        <div class="my_order">
+                            <!-- 订单标题 -->
+                            <div class="my_title">
+                                <span class="title">交易记录</span>
+                            </div>
+                            <!-- 订单详情 -->
+                            <div class="order_box">
+                                <h3>
+                                    还没有任何余额记录~
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <!-- 猜你喜欢-->
+            <div class="like">
+                    <span class="headline">猜你喜欢</span>
+                    <div class="like_box">
+                        <div class="show_list">
+                            <ul class="show_box">
+                                <!-- <li>
+                                    <a href="此商品详情页面连接" class="gpic" title="会赚钱的人想的不一样（壹心理联合创始人黄启团，通往财富自由的财商心理课">
+                                        <img src="/static/image/29133949-1_l.jpg" width="150" height="150">
+                                    </a>
+                                    <p>
+                                        <span class="price">￥66.90</span>
+                                        <a href="此商品详情页面连接" class="comment">
+                                            <span>0</span>
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="此商品详情页面连接">商品描述</a>
+                                    </p>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+    <div class="clearfix footer">
+        <div class="py-container">
+            <div class="footlink">
+                <div class="Mod-service">
+                    <ul class="Mod-Service-list">
+                        <li class="grid-service-item intro  intro1">
+    
+                            <i class="serivce-item fl"></i>
+                            <div class="service-text">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+    
+                        </li>
+                        <li class="grid-service-item  intro intro2">
+    
+                            <i class="serivce-item fl"></i>
+                            <div class="service-text">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+    
+                        </li>
+                        <li class="grid-service-item intro  intro3">
+    
+                            <i class="serivce-item fl"></i>
+                            <div class="service-text">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+    
+                        </li>
+                        <li class="grid-service-item  intro intro4">
+    
+                            <i class="serivce-item fl"></i>
+                            <div class="service-text">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+    
+                        </li>
+                        <li class="grid-service-item intro intro5">
+    
+                            <i class="serivce-item fl"></i>
+                            <div class="service-text">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+    
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix Mod-list">
+                    <div class="yui3-g">
+                        <div class="yui3-u-1-6">
+                            <h4>购物指南</h4>
+                            <ul class="unstyled">
+                                <li>购物流程</li>
+                                <li>会员介绍</li>
+                                <li>生活旅行/团购</li>
+                                <li>常见问题</li>
+                                <li>购物指南</li>
+                            </ul>
+    
+                        </div>
+                        <div class="yui3-u-1-6">
+                            <h4>配送方式</h4>
+                            <ul class="unstyled">
+                                <li>上门自提</li>
+                                <li>211限时达</li>
+                                <li>配送服务查询</li>
+                                <li>配送费收取标准</li>
+                                <li>海外配送</li>
+                            </ul>
+                        </div>
+                        <div class="yui3-u-1-6">
+                            <h4>支付方式</h4>
+                            <ul class="unstyled">
+                                <li>货到付款</li>
+                                <li>在线支付</li>
+                                <li>分期付款</li>
+                                <li>邮局汇款</li>
+                                <li>公司转账</li>
+                            </ul>
+                        </div>
+                        <div class="yui3-u-1-6">
+                            <h4>售后服务</h4>
+                            <ul class="unstyled">
+                                <li>售后政策</li>
+                                <li>价格保护</li>
+                                <li>退款说明</li>
+                                <li>返修/退换货</li>
+                                <li>取消订单</li>
+                            </ul>
+                        </div>
+                        <div class="yui3-u-1-6">
+                            <h4>特色服务</h4>
+                            <ul class="unstyled">
+                                <li>夺宝岛</li>
+                                <li>DIY装机</li>
+                                <li>延保服务</li>
+                                <li>趣书E卡</li>
+                                <li>趣书通信</li>
+                            </ul>
+                        </div>
+                        <div class="yui3-u-1-6">
+                            <h4>帮助中心</h4>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="Mod-copyright">
+                    <ul class="helpLink">
+                        <li>关于我们<span class="space"></span></li>
+                        <li>联系我们<span class="space"></span></li>
+                        <li>关于我们<span class="space"></span></li>
+                        <li>商家入驻<span class="space"></span></li>
+                        <li>营销中心<span class="space"></span></li>
+                        <li>友情链接<span class="space"></span></li>
+                        <li>关于我们<span class="space"></span></li>
+                        <li>营销中心<span class="space"></span></li>
+                        <li>友情链接<span class="space"></span></li>
+                        <li>关于我们</li>
+                    </ul>
+                    <p>趣书网小组全体成员@武汉市武昌区达内中心</p>
+                    <p>联系电话：183#######&nbsp;&nbsp;&nbsp;邮箱:#####@qq.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+    function toinfo()
+    	{
+		window.location.href = 'info'
+    	}
+        $(function(){
+            token = window.localStorage.getItem("dnblog_token");
+            nickname = window.localStorage.getItem("dnblog_user_nick");
+            avatar = window.localStorage.getItem("dnblog_user_img");
+            // 设置用户名
+            $(".person-name").text(nickname);
+            $("#person-photo-img").attr("src","http://127.0.0.1:8000/media/"+avatar);
+            $.ajax({
+                type:"get",
+                url:"http://127.0.0.1:8000/users/balance",
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                success:function(result){
+                    if(result.code==200){
+                        var html = ` <dl>
+                        <dt>我的可用余额</dt>
+                        <dd>
+                            <em>${result.available}</em>
+                            <a href="/payment/jump">充值</a>
+                        </dd>
+                    </dl>
+                    <ul>
+                        <li style="line-height:34px">
+                            账户总余额:
+                            <span>${result.total}</span>
+                        </li>
+                        <li style="line-height:34px">
+                            不可用余额:
+                            <span>${result.unavailable}</span>
+                        </li>
+                    </ul>`
+                        $(".info_box").append(html);
+                    }else{
+                        // window.location.href="/login";
+                        alert(result.error)
+                    }
+                }
+            })
+        })
+    </script>
+</html>

@@ -556,9 +556,19 @@ function getGVerify(id)
 			contentType:'application/json',
 			success:function(res){
 				if(res.code==200){
+					alert(res.nickname);
 					window.localStorage.setItem('dnblog_token',res.data.token);
 					window.localStorage.setItem('dnblog_user',res.username);
-                    window.location.href = '/index'
+                    window.localStorage.setItem('dnblog_user_nick',res.nickname);
+                    window.localStorage.setItem('dnblog_user_img',res.IMAGE);
+                    //window.location.href = '/index'
+
+                    var prevLink = document.referrer;
+if($.trim(prevLink)==''){
+    location.href = '/index';
+}else{
+    location.href = prevLink;
+}
 
                     //window.location.href = '/' + res.username+'/topics';
 				}else{

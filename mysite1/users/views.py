@@ -19,32 +19,36 @@ import random
 from tools.sms import YunTongXin
 from .tasks import task_test
 from .tasks import get_res
+from user_wallet.models import UserWallet
+
 
 def test_celery(request):
     task_test.delay()
     now = datetime.datetime.now()
-    html='result at %s'%(now.strftime('%H:%M:%S'))
+    html = 'result at %s' % (now.strftime('%H:%M:%S'))
     return HttpResponse(html)
 
+
 @login_check
-def user_avatar(request,username):
-    if request.method!='POST':
-        result={'code':10105,'error':'必须是POST'}
+def user_avatar(request, username):
+    if request.method != 'POST':
+        result = {'code': 10105, 'error': '必须是POST'}
         return JsonResponse(result)
-    user=request.myuser
-    user.IMAGE= request.FILES['avatar']
+    user = request.myuser
+    user.IMAGE = request.FILES['avatar']
     user.save()
-    result={'code':200,'username':user.username}
+    result = {'code': 200, 'username': user.username}
     return JsonResponse(result)
+
 
 class UsersView(View):
     @method_decorator(login_check)
-    def put(self,request,username=None):
-        #获取用户提交数据
-        if request.method!='PUT':
+    def put(self, request, username=None):
+        # 获取用户提交数据
+        if request.method != 'PUT':
             result = {'code': 10106, 'error': '必须是PUT'}
             return JsonResponse(result)
-        #从REQUEST.MYUSER获取要修改用户
+        # 从REQUEST.MYUSER获取要修改用户
         user = User.objects.get(username=username)
         json_str = request.body
         json_obj = json.loads(json_str)
@@ -54,41 +58,46 @@ class UsersView(View):
         user.province = json_obj['province']
         user.city = json_obj['city']
         user.district = json_obj['district']
-        user.birthday = json_obj['year']+'-'+json_obj['month']+'-'+json_obj['day']
+        user.birthday = json_obj['year'] + '-' + json_obj['month'] + '-' + json_obj['day']
         user.gender = json_obj['gender']
 
         user.save()
         result = {'code': 200, 'username': user.username}
         return JsonResponse(result)
 
-    def get(self,request,username=None):
+    def get(self, request, username=None):
         print(username)
         if username:
             try:
-                user=User.objects.get(username=username)
+                user = User.objects.get(username=username)
             except Exception as e:
-                print('-get user error is %s-'% e)
-                result={'code':10104 , 'error':'user not exist'}
+                print('-get user error is %s-' % e)
+                result = {'code': 10104, 'error': 'user not exist'}
                 return JsonResponse(result)
-            #get search data
-            keys= request.GET.keys()
+            # get search data
+            keys = request.GET.keys()
             if keys:
-                data={}
+                data = {}
                 for key in keys:
-                    if key =='password':
+                    if key == 'password':
                         continue
-                    if hasattr(user,key):
-                        data[key]= getattr(user,key)
-                result={'code':200,'username':username,'data':data}
+                    if hasattr(user, key):
+                        data[key] = getattr(user, key)
+                result = {'code': 200, 'username': username, 'data': data}
             else:
-            #get all data
-                result={'code':200,'username':username,'data':{'info':user.Delivery_address1, 'sign':user.sign,'gender':user.gender,'year':user.birthday.year, 'province':user.province,'city':user.city,'district':user.district,'month':user.birthday.month,'day':user.birthday.day,'nickname':user.nickname,'avatar':str(user.IMAGE) }}
+                # get all data
+                result = {'code': 200, 'username': username,
+                          'data': {'info': user.Delivery_address1, 'sign': user.sign, 'gender': user.gender,
+                                   'year': user.birthday.year, 'province': user.province, 'city': user.city,
+                                   'district': user.district, 'month': user.birthday.month, 'day': user.birthday.day,
+                                   'nickname': user.nickname, 'avatar': str(user.IMAGE)}}
 
             return JsonResponse(result)
         else:
             pass
 
         return HttpResponse('--users get--')
+
 
     def post(self,request):
         json_str=request.body
@@ -106,7 +115,7 @@ class UsersView(View):
         # if code!=redis_code:
         #     result = {'code': 10103, 'error': '验证码错误！'}
         #     return JsonResponse(result)
-        # print(username,email,phone,password1,password2)
+        print(username,email,phone,password1,password2)
         if len(username)>11:
             result={'code':10100, 'error':'用户名太长！'}
             return JsonResponse(result)
@@ -124,6 +133,12 @@ class UsersView(View):
         if old_user and email and phone:
             result = {'code': 10101, 'error': "用户名已被使用"}
             return JsonResponse(result)
+        elif (old_user and not email) and phone:
+            print(phone)
+            old_user[0].TELEPHONE = phone
+            old_user[0].save()
+            result = {'code': 200, 'username': old_user[0].username}
+            return JsonResponse(result)
         elif old_user and not email and not phone:
             old_user[0].password = password_h
             old_user[0].nickname = nickname
@@ -140,11 +155,13 @@ class UsersView(View):
             token= makeToken(username)
             return JsonResponse({'code':200 ,'username':username, 'data':{'token':token.decode()}})
 
-def makeToken(username, expire=3600*24):
+
+def makeToken(username, expire=3600 * 24):
     now = time.time()
-    payload={'username':username,'exp':now + expire}
+    payload = {'username': username, 'exp': now + expire}
     key = settings.JWT_TOKEN_KEY
-    return jwt.encode(payload,key,algorithm='HS256')
+    return jwt.encode(payload, key, algorithm='HS256')
+
 
 def getResult(r):
     while True:
@@ -152,24 +169,59 @@ def getResult(r):
             return r.result
             break
 
-def sms_view(request):
-    json_str= request.body
-    json_obj= json.loads(json_str)
-    phone =json_obj['phone']
-    code=random.randint(1000,9999)
-    cache_key='sms_%s'%phone
 
-    cache.set(cache_key,code,65)
-    print('--send code -- is %s'%code)
+def sms_view(request):
+    json_str = request.body
+    json_obj = json.loads(json_str)
+    phone = json_obj['phone']
+    code = random.randint(1000, 9999)
+    cache_key = 'sms_%s' % phone
+
+    cache.set(cache_key, code, 65)
+    print('--send code -- is %s' % code)
 
     # x=YunTongXin(settings.SMS_ACCOUNT_ID,settings.SMS_ACCOUNT_TOKEN,settings.SMS_APP_ID,settings.SMS_TEMPLATE_ID)
     # res= x.run(phone,code)
-    res= get_res.delay(phone,code)
+    res = get_res.delay(phone, code)
     # print(res)
     # res = getResult(res)
 
-    print('--send sms result is %s'%res)
-    return JsonResponse({'code':200 , 'sms':code})
+    print('--send sms result is %s' % res)
+    return JsonResponse({'code': 200, 'sms': code})
+
+
+# 用户about页面的相关数据返还
+@login_check
+def about_view(request):
+    user = request.myuser
+    avatar = str(user.IMAGE)
+    wallet = UserWallet.objects.filter(user_id=user.id).last()
+    if wallet:
+        balance = wallet.total_balance
+        result = {"code": 200, "balance": balance, "avatar": avatar}
+        return JsonResponse(result)
+    else:
+        result = {"code": 200, "balance": 0, "avatar": avatar}
+        return JsonResponse(result)
+
+@login_check
+def balance_view(request):
+    user = request.myuser
+    avatar = str(user.IMAGE)
+    wallet = UserWallet.objects.filter(user_id=user.id).last()
+    # 若存在余额充值订单
+    if wallet:
+        available = wallet.available_balance
+        total = wallet.total_balance
+        unavailable = total - available
+        result = {"code": 200, "available": available, "total": total, "unavailable": unavailable, "avatar": avatar}
+        return JsonResponse(result)
+    # 没有充值记录
+    else:
+        result = {"code": 200, "available": 0, "total": 0, "unavailable": 0, "avatar": avatar}
+        return JsonResponse(result)
+
+
 
 # # Create your views here.
 # from .models import User

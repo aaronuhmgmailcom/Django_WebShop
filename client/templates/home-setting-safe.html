@@ -23,10 +23,10 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">趣书网欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item" id="loginuser"></li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="order" >我的订单</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的趣书网</a></li>
 						<li class="f-item space"></li>
@@ -124,6 +124,16 @@
 
 <script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
+function logout(){
+
+            if(confirm("确定登出吗？")){
+                window.localStorage.removeItem('dnblog_token');
+                window.localStorage.removeItem('dnblog_user');
+                window.localStorage.removeItem('dnblog_user_nick');
+                window.localStorage.removeItem('dnblog_user_img');
+                window.location.href= '/index';
+            }
+        }
 $(function(){
 	$("#service").hover(function(){
 		$(".service").show();
@@ -135,7 +145,21 @@ $(function(){
 	},function(){
 		$("#shopcarlist").hide();
 	});
+ nickname=window.localStorage.getItem('dnblog_user_nick');
 
+     var html_body = ''
+
+ 			if(nickname!="" && nickname!= null)
+            {
+            	html_body += '<a href="change_info">'+nickname+'</a><span onclick=logout() ><a href="/index">退出</a></span>　';
+            }
+            else{
+
+            	html_body += '请<a href="/login" >登录</a>　<span><a href="/register">免费注册</a></span>';
+
+    		}
+
+  $('#loginuser').html(html_body);
 })
 </script>
 <script type="text/javascript" src="/static/js/plugins/jquery.easing/jquery.easing.min.js"></script>
@@ -276,7 +300,7 @@ $(function(){
                 <!--左侧列表-->
                 <div class="yui3-u-1-6 list">
 
-                    <div class="person-info">
+                    <div class="person-info" style="cursor:pointer;" onclick="toinfo()">
 
 					<script>
 					token = window.localStorage.getItem('dnblog_token');
@@ -328,12 +352,16 @@ $(function(){
                     <div class="list-items">
                         <dl>
 							<dt><i>·</i> 订单中心</dt>
-							<dd ><a href="home-index.html"   >我的订单</a></dd>
-							<dd><a href="home-order-pay.html" >待付款</a></dd>
-							<dd><a href="home-order-send.html"  >待发货</a></dd>
-							<dd><a href="home-order-receive.html" >待收货</a></dd>
-							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+							 <dd ><a href="order" >我的订单</a></dd>
+                    <dd><a href="order?status=0" >待付款</a></dd>
+                    <dd><a href="order?status=3"  >待发货</a></dd>
+                    <dd><a href="order?status=1" >待收货</a></dd>
+                    <dd><a href="order?status=2" >待评价</a></dd>
 						</dl>
+						<dl>
+                    		<dt><i>·</i>我的钱包</dt>
+                    		<dd><a href="balance">我的余额</a></dd>
+                		</dl>
 						<dl>
 							<dt><i>·</i> 我的中心</dt>
 							<dd><a href="home-person-collect.html" >我的收藏</a></dd>
@@ -345,7 +373,7 @@ $(function(){
 						<dl>
 							<dt><i>·</i> 设置</dt>
 							<dd><a href="change_info" >个人信息</a></dd>
-							<dd><a href="home-setting-address.html" >地址管理</a></dd>
+							<dd><a href="address_info" >地址管理</a></dd>
 							<dd><a href="password_info" class="list-active" >安全管理</a></dd>
 						</dl>
                     </div>
@@ -604,8 +632,7 @@ $(function(){
     					console.log(res);
     					alert('修改成功');
     					//本地存储token
-    					window.localStorage.setItem('dnblog_token',res.data.token);
-    					window.localStorage.setItem('dnblog_user',res.username);
+
     					window.location.href = '/index'
     				}else{
     					alert(res.error);
@@ -672,7 +699,10 @@ function next(){
 			}
 		})
 	}
-
+function toinfo()
+    	{
+		window.location.href = 'info'
+    	}
     </script>
 
 undefined

@@ -1,0 +1,44 @@
+.userInfo{
+    height: 152px;
+    margin-bottom:20px; 
+}
+.info_box{
+    padding: 35px 0 0 235px;
+    /* width: 988px; */
+    height: 115px;
+    border: 1px solid #d9d9d9;
+    line-height: 34px;
+    color: #313131;
+}
+.info_box dl{
+    width: 350px;
+    float: left;
+}
+.info_box dt{
+    font-size: 16px;
+    font-weight: bold;
+}
+.info_box dd{
+    font-size: 20px;
+    font-weight: bold;
+}
+.info_box dd em{
+    font-size: 45px;
+    font-weight: bold;
+}
+.info_box dd a{
+    font-size: 20px;
+    color: red;
+}
+.info_box dd a:hover{
+    cursor: pointer;
+}
+
+
+.info_box ul{
+    float: left;
+}
+.info_box ul li span{
+    font-size: 18px;
+    font-weight: bold;
+}

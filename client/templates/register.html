@@ -11,9 +11,9 @@
 <style>
 
     .tp{
-        width:15%;
+        width:10%;
         height: 5%;
-        margin-left:35%;
+        margin-left:30%;
 
     }
     #there .four{
@@ -22,7 +22,7 @@
         font-size: 150%;
         font-style:italic;
         margin-top:1.5% ;
-        margin-left:-5%;
+        margin-left:15%;
 
 
     }
@@ -230,8 +230,13 @@
             <input type="text" class="username" name="username" placeholder="请输入用户名" required maxlength="11"/>
 
         </div>
-		   <div class="names">
-            <a class="name">email:</a>
+        <div class="names">
+            <a class="name">昵称 :</a>
+            <input type="text" class="email" id="nickname" placeholder="请输入昵称" required maxlength="11"/>
+
+        </div>
+        <div class="names">
+            <a class="name">email :</a>
             <input type="email" class="email" name="email" placeholder="请输入邮箱" required />
 
         </div>
@@ -332,12 +337,13 @@
     	function register()
     	{
     		var username = $('.username').val();
+    		var nickname = $('#nickname').val();
     		var email=$('.email').val();
     		var password1= $('.password_1').val();
     		var password2= $('.password_2').val();
     		var phone =  $('.phone').val();
     		var code = $('.sms_num').val();
-    		var post_data={"username":username,"email":email,"password1":password1,"password2":password2,"phone":phone,"code":code}
+    		var post_data={"username":username,"email":email,"password1":password1,"password2":password2,"phone":phone,"code":code,"nickname":nickname}
     		console.log(post_data)
     		$.ajax({
     			url:'http://127.0.0.1:8000/users/',
@@ -353,7 +359,16 @@
     					//本地存储token
     					window.localStorage.setItem('dnblog_token',res.data.token);
     					window.localStorage.setItem('dnblog_user',res.username);
-    					window.location.href = '/index'
+    					  window.localStorage.setItem('dnblog_user_nick',res.nickname);
+                    window.localStorage.setItem('dnblog_user_img',res.IMAGE);
+    					//window.location.href = '/index'
+
+                    var prevLink = document.referrer;
+if($.trim(prevLink)==''){
+    location.href = '/index';
+}else{
+    location.href = prevLink;
+}
     				}else{
     					alert('fail');
     				}

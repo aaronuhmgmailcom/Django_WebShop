@@ -1,26 +1,17 @@
 # Create your views here.
 from django.core import mail
 from django.core.paginator import Paginator
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 import hashlib
 
+from django.utils.decorators import method_decorator
+from django.views import View
+from tools.login_dec import login_check
 from django.utils import html
-
 from .models import Order
 
-def login_check(fn):
-    def wrap(request,*args,**kwargs):
-        if 'uname' not in request.session or 'uid' not in request.session:
-            c_uname=request.COOKIES.get('uname')
-            c_uid=request.COOKIES.get('uid')
-            if not c_uname or not c_uid:
-                return HttpResponseRedirect('/users/login')
-            else:
-                request.session['uname']=c_uname
-                request.session['uid']=c_uid
-        return fn(request,*args,**kwargs)
-    return wrap
+
 
 @login_check
 def add_view(request):
@@ -72,3 +63,9 @@ def delete_order(request):
         book =  Order.objects.get(id=id)
         book.delete()
     return HttpResponseRedirect('/orders/list')
+
+
+
+
+
+

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--	<link rel="stylesheet" href="/static/css/login_reglogin.css"/>-->
+    <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+        <title>登陆</title>
+	<style>
+		  .ones{
+        position: relative;
+    }
+    .tp{
+        width:175px;
+        height: 56px;
+        margin-left:12%;
+    }
+    .one{
+        position: absolute;
+        font-weight:normal;
+        font-size: 218%;
+        font-style:italic;
+        margin-top:0px ;
+        margin-left:110px;
+    }
+    #content{
+        width: 100%;
+        height: 40px;
+        position: relative;
+    }
+    #content .tips-wrapper{
+        background: #fff8f0;
+        width: 100%;
+        position: absolute;
+        margin-top:10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    #content .cont-wrapper{
+        width: 100%;
+        font-size: 10px;
+        font-weight:lighter;
+        vertical-align: middle;
+        background: #fff8f0;
+        position: absolute;
+        margin-top:-10px ;
+    }
+    #content .icon-tips{
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        margin-left: -400px;
+        margin-top:8px ;
+    }
+    .black{
+        text-decoration:none;
+    }
+    .two{
+        width: 100%;
+        height: 400px;
+        position: relative;
+    }
+    #photo{
+        width: 100%;
+        height: 400px;
+    }
+    .two .box{
+        width: 21%;
+        height: 99%;
+        background-color: white;
+        position: absolute;
+        margin-left: 74%;
+        margin-top:-402px ;
+    }
+    .two .icon-tip{
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        margin-left:-145px;
+        margin-top:5px ;
+    }
+    .cont-wrappers{
+        font-size: 10px;
+        font-weight:lighter;
+        background: #fff8f0;
+        text-align: center;
+    }
+    .login-tab{
+        width: 100%;
+        height: 40px;
+        border-bottom:solid 1px blue;
+    }
+    .two .login-tabs{
+        font-size: 25px;
+        font-weight:bold;
+        position: absolute;
+        margin-top: 0px;
+        margin-left: 13%;
+        color:blue;
+        text-decoration:none;
+    }
+    .two .tabs{
+        font-size: 25px;
+        font-weight:bold;
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 60%;
+        color: #000;
+        text-decoration:none;
+    }
+    .two .names{
+        font-size: 20px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:10px;
+        margin-top: 25px;
+    }
+    .two .username{
+        width: 70%;
+        height: 30px;
+        position: absolute;
+        margin-left:100px;
+        margin-top: 20px;
+    }
+    .two .pwds{
+        font-size: 20px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:10px;
+        margin-top: 85px;
+    }
+    .two .password{
+        width: 270px;
+        height: 30px;
+        position: absolute;
+        margin-left:100px;
+        margin-top: 80px;
+    }
+    .two #code{
+        font-size: 20px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:10px;
+        margin-top: 145px;
+    }
+    .two #codes{
+        width: 100px;
+        height: 30px;
+        position: absolute;
+        margin-left:100px;
+        margin-top: 140px;
+    }
+    .two .code{
+        width: 100px;
+        height: 35px;
+        position: absolute;
+        margin-left:220px;
+        margin-top: 142px;
+    }
+    .two .memory {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        margin-left:10px;
+        margin-top: 190px;
+    }
+    .two .memorys{
+        font-size: 10px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:35px;
+        margin-top: 190px;
+    }
+    .two .forget{
+        font-size: 10px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:325px;
+        margin-top: 190px;
+        text-decoration:none;
+        color:rgb(58, 36, 36)
+    }
+    .two .login {
+        width: 365px;
+        height: 40px;
+        font-size: 20px;
+        font-weight:normal;
+        position: absolute;
+        margin-left:10px;
+        margin-top: 230px;
+        color: white;
+        background-color:red;
+    }
+    .two .qq{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        margin-left:15px;
+        margin-top: 290px;
+    }
+    .qqs:active:hover{
+        color:red ;
+    }
+    .two .qqs{
+        font-size: 10px;
+        font-weight:bold;
+        position: absolute;
+        margin-left:40px;
+        margin-top: 293px;
+        transition: all 0.5;
+        text-decoration:none;
+        color:rgb(58, 36, 36)
+    }
+    .two .zfb{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        margin-left:65px;
+        margin-top: 290px;
+        }
+    .zfbs:active:hover{
+        color:red ;
+    }
+    .two .zfbs{
+        font-size: 10px;
+        font-weight:bold;
+        position: absolute;
+        margin-left:90px;
+        margin-top: 292px;
+        transition: all 0.5;
+        text-decoration:none;
+        color:rgb(58, 36, 36)
+    }
+    .error{
+        color:red;
+    }
+    .two .zc{
+        font-size: 10px;
+        font-weight:bold;
+        position: absolute;
+        margin-left:325px;
+        margin-top: 292px;
+        text-decoration:none;
+        color:rgb(58, 36, 36)
+    }
+    .last{
+        margin-top:20px;
+        text-align:center;
+    }
+    .two .ewm{
+
+        position: absolute;
+        margin-left: 100px;
+        margin-top:50px
+    }
+    .ewms{
+        width: 200px;
+        height: 200px;
+    }
+	</style>
+
+</head>
+<body>
+<script>
+function show1(){
+document.getElementById("div2").style.display="block";
+document.getElementById("div1").style.display="none";
+};
+function show2()
+{
+document.getElementById("div1").style.display="block";
+document.getElementById("div2").style.display="none";
+}
+</script>
+<!--	<div class="bg">-->
+<!--		<img src="/static/images/b.jpg" alt="">-->
+<!--	</div>-->
+<!--	<div class="main">-->
+<!--		<div class="header" >-->
+<!--			<h1>Login!</h1>-->
+<!--		</div>-->
+<!--		<p></p>-->
+<!--			<ul class="right-form">-->
+<!--				<h2>Login:</h2>-->
+<!--				<li><input type="text" class="username" name="username" placeholder="Username" required/></li>-->
+<!--				<li><input type="password" class="password" name="password" placeholder="Password" required/></li>-->
+<!--				<li><span>微博登录</span></li>-->
+<!--				<input type="button" value="登录" onclick="login()">-->
+<!--				<div class="clear"> </div>-->
+<!--			</ul>-->
+<!--			<div class="clear"> </div>-->
+<!--	</div>-->
+<!--</body>-->
+<div class="ones">
+        <img src="/static/image/one.gif"  class="tp">
+        <i class="one">欢迎登录</i>
+</div>
+<div>
+    <div id="content">
+        <div class="tips-wrapper">
+            <div class="tips-inner">
+                <div class="cont-wrapper">
+                    <img src="/static/image/ones.jpg" class="icon-tips"></img>
+                    <p>
+                   "依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版"
+                   <a href="" class="black">《趣书隐私政策》</a>
+                   “已上线，将更有利于保护您的个人隐私”
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="two">
+        <img src="/static/image/six.jpg" class="photo" id="photo">
+            <div class="box">
+                <div class="cont-wrappers">
+                     <img src="/static/image/ones.jpg" class="icon-tip"></img>
+                    <p>
+                        趣书不会以任何理由要求您转账汇款，谨防诈骗.
+                </div>
+                <div class="login-tab">
+                    <a href="#" id='account' class="login-tabs" onclick="show1()"
+                    >扫码登录 </a>
+                </div>
+                <div class="tab">
+                    <a href="#" id='scan' class="tabs" onclick="show2()">账号登录</a>
+                </div>
+                <form method="POST" style="display: block "  id="div1">
+                    <div>
+                        <i class="names">用&nbsp户&nbsp名:</i>
+                        <input type="text" name="username"  value placeholder="请输入用户名" class="username">
+                    </div>
+                    <div>
+                        <i class="pwds">密&nbsp&nbsp&nbsp码:</i>
+                        <input type="password" name="pwd" value
+                        placeholder="请输入密码" class="password">
+                    </div>
+                    <div>
+                    <i
+                    id="code">
+                            验&nbsp证&nbsp码:
+                    </i>
+                    <i >
+                        <input type="text" id="codes" />
+                    </i>
+                    <i id="id" class="code"></i>
+                        <i class="error" ></i>
+                    </div>
+
+                    <div>
+                            <input type="checkbox" name="remember" class="memory">
+                            <label class="memorys" >记住用户名</label>
+                            <a href="#" class="forget">忘记密码</a>
+                        </div>
+                        <div>
+<!--                            <input type="submit" value="登录" class="login" onclick="login()" >-->
+							<input type="button" value="登录" class="login" onclick="login()">
+                        </div>
+                    </form>
+                    <form style="display:none"  id="div2">
+                        <div class="ewm" >
+                        <img src="http://cdn.tmooc.cn/tmooc-web/css/img/erweima.jpg" class="ewms" >
+                        </div>
+                    </form>
+
+
+                    <div>
+                        <img src="/static/image/four.jpg" class="qq">
+                        <a href="" class="qqs">QQ</a>
+                        <img src="/static/image/two.jpg" class="zfb">
+                        <a href="" class="zfbs">支付宝</a>
+                        <a href="/register" class="zc">立刻注册</a>
+                    </div>
+            </div>
+    </div>
+
+    <div class="last">
+        <div >
+        <a href="#">关于我们</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+        <span>|</span>
+        <a href="#">招聘人才</a>
+        <span>|</span>
+        <a href="#">友情链接</a>
+        <span>|</span>
+        <a href="#">商家入驻</a>
+        <span>|</span>
+        <a href="#">广告服务</a>
+        </div>
+        <div>趣书网小组全体成员@武汉市武昌区达内中心</div>
+        <div> 联系电话：183#######&nbsp&nbsp&nbsp邮箱:#####@qq.com</div>
+    </div>
+</div>
+</body>
+<script>
+function getGVerify(id)
+  {
+
+    function GVerify(options) { //创建一个图形验证码对象，接收options对象为参数
+      this.options = { //默认options参数值
+        id: "", //容器Id
+        canvasId: "verifyCanvas", //canvas的ID
+        width: "100", //默认canvas宽度
+        height: "30", //默认canvas高度
+        type: "blend", //图形验证码默认类型blend:数字字母混合类型、number:纯数字、letter:纯字母
+        code: ""
+      }
+
+      if(Object.prototype.toString.call(options) == "[object Object]"){//判断传入参数类型
+        for(var i in options) { //根据传入的参数，修改默认参数值
+          this.options[i] = options[i];
+        }
+      }else{
+        this.options.id = options;
+      }
+
+      this.options.numArr = "0,1,2,3,4,5,6,7,8,9".split(",");
+      this.options.letterArr = getAllLetter();
+
+      this._init();
+      this.refresh();
+    }
+
+    GVerify.prototype = {
+      /**版本号**/
+      version: '1.0.0',
+
+      /**初始化方法**/
+      _init: function() {
+        var con = document.getElementById(this.options.id);
+        var canvas = document.createElement("canvas");
+        /*this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "100";
+        this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "30";*/
+        canvas.id = this.options.canvasId;
+        canvas.width = this.options.width;
+        canvas.height = this.options.height;
+        canvas.style.cursor = "pointer";
+        canvas.innerHTML = "您的浏览器版本不支持canvas";
+        con.appendChild(canvas);
+        var parent = this;
+        canvas.onclick = function(){
+          parent.refresh();
+        }
+      },
+
+      /**生成验证码**/
+      refresh: function() {
+        this.options.code = '';
+        var canvas = document.getElementById(this.options.canvasId);
+        if(canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+        }
+        ctx.textBaseline = "middle";
+
+        ctx.fillStyle = randomColor(180, 240);
+        ctx.fillRect(0, 0, this.options.width, this.options.height);
+
+        if(this.options.type == "blend") { //判断验证码类型
+          var txtArr = this.options.numArr.concat(this.options.letterArr);
+        } else if(this.options.type == "number") {
+          var txtArr = this.options.numArr;
+        } else {
+          var txtArr = this.options.letterArr;
+        }
+
+        for(var i = 1; i <= 4; i++) {
+          var txt = txtArr[randomNum(0, txtArr.length)];
+          this.options.code += txt;
+          ctx.font = '20px SimHei';
+          //ctx.font = randomNum(this.options.height/2, this.options.height) + 'px SimHei'; //随机生成字体大小
+          ctx.fillStyle = randomColor(50, 160); //随机生成字体颜色
+          /* ctx.shadowOffsetX = randomNum(-3, 3);
+          ctx.shadowOffsetY = randomNum(-3, 3);*/
+          ctx.shadowBlur = randomNum(-3, 3);
+          ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+          var x = this.options.width / 5 * i;
+          var y = this.options.height / 2;
+          var deg = randomNum(-30, 30);
+          /**设置旋转角度和坐标原点**/
+          ctx.translate(x, y);
+          ctx.rotate(deg * Math.PI / 180);
+          ctx.fillText(txt, 0, 0);
+          /**恢复旋转角度和坐标原点**/
+          ctx.rotate(-deg * Math.PI / 180);
+          ctx.translate(-x, -y);
+        }
+        /**绘制干扰线**/
+        for(var i = 0; i < 4; i++) {
+          ctx.strokeStyle = randomColor(40, 180);
+          ctx.beginPath();
+          ctx.moveTo(randomNum(0, this.options.width/2), randomNum(0, this.options.height/2));
+          ctx.lineTo(randomNum(0, this.options.width/2), randomNum(0, this.options.height));
+          ctx.stroke();
+        }
+        /**绘制干扰点**/
+        for(var i = 0; i < this.options.width/4; i++) {
+          ctx.fillStyle = randomColor(0, 255);
+          ctx.beginPath();
+          ctx.arc(randomNum(0, this.options.width), randomNum(0, this.options.height), 1, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      },
+
+      /**验证验证码**/
+      validate: function(code){
+        var verifyCode = code.toLowerCase();
+        var v_code = this.options.code.toLowerCase();
+        if(verifyCode == v_code){
+          return true;
+        }else{
+          return false;
+        }
+      }
+    }
+
+    /**生成字母数组**/
+    function getAllLetter() {
+      var letterStr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+      return letterStr.split(",");
+    }
+    /**生成一个随机数**/
+    function randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+    /**生成一个随机色**/
+    function randomColor(min, max) {
+      var r = randomNum(min, max);
+      var g = randomNum(min, max);
+      var b = randomNum(min, max);
+      return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    return new GVerify(id);
+  }
+  var verifyCode = new getGVerify('id');
+
+	function login(){
+		var username= $('.username').val();
+		var password = $('.password').val();
+		var vcode = $('#codes').val();
+		//验证code
+		if(!verifyCode.validate(vcode))
+		{
+		    $('.error').html('验证码错误')
+			return
+		}
+		var post_data={"username":username, "password":password};
+		console.log(post_data)
+		$.ajax({
+			url:'http://127.0.0.1:8000/v1/tokens',
+			type:'post',
+			dataType:'json',
+			data:JSON.stringify(post_data),
+			contentType:'application/json',
+			success:function(res){
+				if(res.code==200){
+					window.localStorage.setItem('dnblog_token',res.data.token);
+					window.localStorage.setItem('dnblog_user',res.username);
+                    window.location.href = '/index'
+
+                    //window.location.href = '/' + res.username+'/topics';
+				}else{
+					$('.error').html(res.error)
+				}
+			}
+		})
+	}
+</script>
+</html>

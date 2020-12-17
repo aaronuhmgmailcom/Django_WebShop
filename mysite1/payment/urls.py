@@ -7,4 +7,5 @@ urlpatterns = [
     path('result/',views.ResultView.as_view()),
 
 
+
 ]
