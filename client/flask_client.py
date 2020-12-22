@@ -16,10 +16,19 @@ def index():
     # 首页
     return send_file('templates/index.html')
 
+@app.route('/product/<pid>')
+def product(pid):
+    # 首页
+    return send_file('templates/product.html')
+
+
+
 @app.route('/<username>/cart')
 def cart(username):
     # 首页
     return send_file('templates/cart.html')
+
+
 
 @app.route('/login')
 def login():

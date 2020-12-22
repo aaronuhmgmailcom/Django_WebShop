@@ -78,7 +78,7 @@
 
 						</li>
 						<li class="f-item space"></li>
-						<li class="f-item"><a href="index" target="_blank">我的趣书网</a></li>
+						<li class="f-item"><a href="/index" >我的趣书网</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item">趣书网会员</li>
 						<li class="f-item space"></li>
@@ -107,7 +107,7 @@
 			<div class="py-container">
 				<div class="yui3-g Logo">
 					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="趣书网" href="#" target="_blank"></a>
+						<a class="logo-bd" title="趣书网" href="#" ></a>
 					</div>
 					<div class="yui3-u Center searchArea">
 						<div class="search">
@@ -136,10 +136,28 @@
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
-									<span>我的购物车</span>
-									<i class="shopnum">0</i>
-								</a>
+								<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+								<script type="text/javascript">
+								 username = window.localStorage.getItem('dnblog_user');
+
+     var html_body = ''
+
+ 			if(username!="" && username!= null)
+            {
+            	html_body += '<a class="sui-btn btn-default btn-xlarge" href=' + username + '/cart ><span>我的购物车</span><i class="shopnum">0</i></a>';
+            }
+            else{
+
+            	html_body += '<a class="sui-btn btn-default btn-xlarge" href=cart><span>我的购物车</span><i class="shopnum">0</i></a>';
+
+    		}
+
+  $('.car').after(html_body);
+								</script>
+
+
+
+
 								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
 									<p>"啊哦，你的购物车还没有商品哦！"</p>
 									<p>"啊哦，你的购物车还没有商品哦！"</p>
@@ -565,7 +583,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="yui3-u Center banerArea">
 					
 						<!--banner轮播-->
@@ -576,9 +594,9 @@
 						  </ol>
 						  <div class="carousel-inner">
 							<div class="active item">
-							<a href="http://baidu2.wypxj.com/">
-								<img src="/static/img/banner1.jpg"  />
-							  </a>
+
+								<img src="/static/img/banner1.jpg" onclick="showProduct(2)" />
+
 							</div>
 							<div class="{{$index==0?'active':''}} item" ng-repeat="item in contentList[1]">
 							<a href="{{item.url}}">
@@ -725,14 +743,14 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_01.png" alt="" onclick="showProduct(4)" /></a>
 								<div class="like-text">
 									<p>&nbsp&nbsp&nbsp&nbsp&nbsp乌合之众</p>
 									<h3>¥20.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_02.png" alt="" onclick="showProduct(3)" /></a>
 								<div class="like-text">
 									<p>人间失格</p>
 									<h3>¥25.00</h3>
@@ -743,14 +761,14 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl jilu">
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_03.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_03.png" alt="" onclick="showProduct(5)" /></a>
 								<div class="like-text">
 									<p>&nbsp&nbsp&nbsp&nbsp人间值得</p>
 									<h3>¥40.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_04.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_04.png" alt=""  onclick="showProduct(6)"/></a>
 								<div class="like-text">
 									<p>百年孤独</p>
 									<h3>¥35.00</h3>
@@ -761,14 +779,14 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl tuhua">
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_05.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_05.png" alt="" onclick="showProduct(7)"/></a>
 								<div class="like-text">
 									<p>月亮与六便士</p>
 									<h3>¥55.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img nsrc="/static/img/like_06.png" alt="" /></a>
+								<a href="" class="pic"><img nsrc="/static/img/like_06.png" alt="" onclick="showProduct(7)" /></a>
 								<div class="like-text">
 									<p>白夜行</p>
 									<h3>¥45.00</h3>
@@ -779,14 +797,14 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_07.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_07.png" alt="" onclick="showProduct(9)" /></a>
 								<div class="like-text">
 									<p>平凡的世界</p>
 									<h3>¥100.00</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="/static/img/like_08.png" alt="" /></a>
+								<a href="" class="pic"><img src="/static/img/like_08.png" alt="" onclick="showProduct(10)"/></a>
 								<div class="like-text">
 									<p>顿感力</p>
 									<h3>¥65.00</h3>
@@ -797,7 +815,7 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl jilu">
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_09.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_09.png" alt="" onclick="showProduct(11)" /></a>
 								<div class="like-text">
 									<p>2021.考研政治</p>
 									
@@ -805,7 +823,7 @@
 								</div>
 							</dd>
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_10.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_10.png" alt="" onclick="showProduct(12)" /></a>
 								<div class="like-text">
 									<p>正面管教</p>
 									
@@ -817,7 +835,7 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl tuhua">
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_11.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/img/like_11.png" alt="" onclick="showProduct(13)"/></a>
 								<div class="like-text">
 									
 									<p>活着</p>
@@ -825,7 +843,7 @@
 								</div>
 							</dd>
 							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img nsrc="/static/img/like_12.png" alt="" /></a>
+								<a href="http://sc.chinaz.com/" class="pic"><img nsrc="/static/img/like_12.png" alt="" onclick="showProduct(14)"/></a>
 								<div class="like-text">
 									<p>生命简史</p>
 									<h3>¥150.00</h3>
@@ -850,24 +868,24 @@
 				</div>
 				<div class="yui3-u row-225 Interest-conver-split">
 					<h5>好书</h5>
-					<img src="/static/img/interest05.png" style="height: 170px ; margin-left: 20px"/>
-					<img src="/static/img/interest04.png"  style="height: 170px;margin-top: 0px;width: 180px;margin-left: 20px"/>
+					<img src="/static/img/interest05.png" onclick="showProduct(15)" style="height: 170px ; margin-left: 20px"/>
+					<img src="/static/img/interest04.png" onclick="showProduct(16)" style="height: 170px;margin-top: 0px;width: 180px;margin-left: 20px"/>
 				</div>
 				<div class="yui3-u row-405 Interest-conver-split blockgary" style="background-color: white">
 					<h5>品牌书</h5>
 					<div class="split-bt">
-						<img src="/static/img/interest06.png" style="height: 350px ; width:350px; margin-left: 20px " />
+						<img src="/static/img/interest06.png" onclick="showProduct(17)" style="height: 350px ; width:350px; margin-left: 20px " />
 					</div>
 					
 				</div>
 				<div class="yui3-u row-165 brandArea">
 					<span class="brand-yline"></span>
 					<ul class="yui3-g brand-list">
-						<div><img src="/static/img/o1.jpg" style="margin-top: 10px" ></div>
-						<div><img src="/static/img/o2.jpg"></div>
-						<div><img src="/static/img/o3.jpg"></div>
-						<div><img src="/static/img/o4.jpg"></div>
-						<div><img src="/static/img/o5.jpg"></div>
+						<div><img src="/static/img/o1.jpg"  onclick="showProduct(18)" style="margin-top: 10px" ></div>
+						<div><img src="/static/img/o2.jpg" onclick="showProduct(19)"></div>
+						<div><img src="/static/img/o3.jpg" onclick="showProduct(20)"></div>
+						<div><img src="/static/img/o4.jpg" onclick="showProduct(21)"></div>
+						<div><img src="/static/img/o5.jpg" onclick="showProduct(22)"></div>
 					</ul>
 				</div>
 			</div>
@@ -930,13 +948,13 @@
 								</ol>
 								<div class="carousel-inner">
 									<div class="active item">
-										<img src="/static/img/floor-1-b01.png">
+										<img src="/static/img/floor-1-b01.png" onclick="showProduct(23)">
 									</div>
 									<div class="item">
-										<img src="/static/img/floor-1-b02.png">
+										<img src="/static/img/floor-1-b02.png" onclick="showProduct(24)">
 									</div>
 									<div class="item">
-										<img src="/static/img/floor-1-b03.png">
+										<img src="/static/img/floor-1-b03.png" onclick="showProduct(25)">
 									</div>
 								</div>
 								<a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
@@ -946,19 +964,19 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-2.png " id="there" />
+								<img src="/static/img/floor-1-2.png " onclick="showProduct(26)" id="there" />
 							</div>
 							<div class="floor-conver-pit">
 								<img src="" />
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="/static/img/floor-1-4.png" id='two' />
+							<img src="/static/img/floor-1-4.png" onclick="showProduct(27)" id='two' />
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/floor-1-5.png" id="one" />
+								<img src="/static/img/floor-1-5.png" onclick="showProduct(28)" id="one" />
 							</div>
 							<div class="floor-conver-pit">
 								<img src="" />
@@ -1059,19 +1077,19 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/4.jpg" class="photo" / >
+								<img src="/static/img/4.jpg" class="photo" onclick="showProduct(29)" / >
 							</div>
 							<div class="floor-conver-pit">
 								<img src="" />
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="/static/img/1.jpg" id="photos" />
+							<img src="/static/img/1.jpg" id="photos" onclick="showProduct(30)" />
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/img/8.jpg"  id="photos" style="margin-top: 5px"/>
+								<img src="/static/img/8.jpg"  id="photos" onclick="showProduct(31)" style="margin-top: 5px"/>
 							</div>
 							<div class="floor-conver-pit">
 								<img src="" />
@@ -1399,6 +1417,16 @@
 <!--侧栏面板结束-->
 <script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
+		function showProduct(id)
+		{
+ 			if(id!="" && id!= null)
+            {
+            	window.location.href= '/product/'+ id;
+            }
+            else{
+				window.location.href= '/product';
+    		}
+		}
 
 		function logout(){
 
