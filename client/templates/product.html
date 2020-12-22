@@ -58,7 +58,24 @@
 						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item" id = 'myorder'>
+
+
+						<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+								<script type="text/javascript">
+								 username = window.localStorage.getItem('dnblog_user');
+     var html_body = ''
+ 			if(username!="" && username!= null)
+            {
+            	html_body += '<a href=/'+username+'/order>我的订单</a>';
+            }
+            else{
+            	html_body += '<a href="/login" >我的订单</a>';
+    		}
+  $('#myorder').html(html_body);
+								</script>
+
+						</li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="/index" >我的趣书网</a></li>
 						<li class="f-item space"></li>
@@ -119,7 +136,7 @@
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
 
-								<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+<!--								<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>-->
 								<script type="text/javascript">
 								 username = window.localStorage.getItem('dnblog_user');
 
@@ -137,8 +154,6 @@
 
   $('.car').after(html_body);
 								</script>
-
-
 
 								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
 									<p>"啊哦，你的购物车还没有商品哦！"</p>
@@ -185,9 +200,7 @@
 					</li>
 					<li>
 						<a href="#">半身裙</a>
-					</li>	
-					
-					{{specificationItems}}				
+					</li>
 				</ul>
 			</div>
 			<!--product-info-->

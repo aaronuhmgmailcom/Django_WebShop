@@ -556,7 +556,7 @@ function getGVerify(id)
 			contentType:'application/json',
 			success:function(res){
 				if(res.code==200){
-					alert(res.nickname);
+
 					window.localStorage.setItem('dnblog_token',res.data.token);
 					window.localStorage.setItem('dnblog_user',res.username);
                     window.localStorage.setItem('dnblog_user_nick',res.nickname);
