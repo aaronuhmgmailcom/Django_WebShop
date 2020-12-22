@@ -7,8 +7,8 @@ from product.models import Product
 
 class Rotation(models.Model):
     title = models.CharField("轮播图标题", default='', max_length=64)
-    img_path = models.CharField("图片地址", default='', max_length=128)
-    img = models.FileField(upload_to='image', blank=True, default='')
+    # img_path = models.CharField("图片地址", default='', max_length=128)
+    img_path = models.FileField(upload_to='image', blank=True, default='')
     link = models.CharField("图片链接", default='', max_length=128)
     remark = models.TextField('备注')
     type = models.CharField("分类名", default='', max_length=128)
