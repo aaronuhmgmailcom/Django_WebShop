@@ -391,10 +391,10 @@
             avatar = window.localStorage.getItem("dnblog_user_img");
             // 设置用户名
             $(".person-name").text(nickname);
-            $("#person-photo-img").attr("src","http://127.0.0.1:8000/media/"+avatar);
+            $("#person-photo-img").attr("src","http://176.215.66.101:8000/media/"+avatar);
             $.ajax({
                 type:"get",
-                url:"http://127.0.0.1:8000/users/balance",
+                url:"http://176.215.66.101:8000/users/balance",
                 beforeSend:function(request){
                     request.setRequestHeader("Authorization",token);
                 },

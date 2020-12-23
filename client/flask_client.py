@@ -135,4 +135,4 @@ def test_api():
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(host='176.215.66.101', port=5000, debug=True)

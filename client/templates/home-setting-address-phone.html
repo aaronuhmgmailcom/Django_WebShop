@@ -309,7 +309,7 @@ $(function(){
        // 请求方式
        type:"get",
        // url
-       url:"http://127.0.0.1:8000/users/"+ username,
+       url:"http://176.215.66.101:8000/users/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -317,7 +317,7 @@ $(function(){
        		console.log(result)
            if (200 == result.code){
              if (result.data.avatar) {
-                   var avatar_url = 'http://127.0.0.1:8000/media/'+ result.data.avatar;
+                   var avatar_url = 'http://176.215.66.101:8000/media/'+ result.data.avatar;
 
                    html_body += '  <div class="person-photo"><img id="person-photo-img" height="48px" width="48px" src="'+avatar_url+'" alt=""></div>';
                }else{
@@ -622,7 +622,7 @@ function changePhone()
     		var post_data={"username":username,"email":"","password1":"","password2":"","phone":phone,"code":"","nickname":""}
     		console.log(post_data)
     		$.ajax({
-    			url:'http://127.0.0.1:8000/users/',
+    			url:'http://176.215.66.101:8000/users/',
     			type:'POST',
     			//响应格式,不是请求格式(contentType)
     			dataType:'json',
@@ -686,7 +686,7 @@ function next(){
 		var phone=$('.phone').val();
 		var post_data={"phone":phone };
 		$.ajax({
-			url:'http://127.0.0.1:8000/users/sms',
+			url:'http://176.215.66.101:8000/users/sms',
 			type:'POST',
 			data:JSON.stringify(post_data),
 			contentType:'application/json',

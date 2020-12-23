@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/pages-zoom.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/widget-cartPanelView.css" />
     
-    <script type="text/javascript" src="/static/plugins/angularjs/angular.min.js"> </script>
-    <script type="text/javascript" src="/static/js/base.js"> </script>
-    <script type="text/javascript" src="/static/js/controller/itemController.js"> </script>
+<!--    <script type="text/javascript" src="/static/plugins/angularjs/angular.min.js"> </script>-->
+<!--    <script type="text/javascript" src="/static/js/base.js"> </script>-->
+<!--    <script type="text/javascript" src="/static/js/controller/itemController.js"> </script>-->
     <script>
         var skuList=[
                      {
@@ -41,7 +41,7 @@
     </script>
 </head>
 
-<body ng-app="pinyougou" ng-controller="itemController" ng-init="num=1;loadSku()">
+<body ng-app="pinyougou" >
 
 <!--页面顶部 开始-->
 <div id="nav-bottom">
@@ -139,7 +139,6 @@
 <!--								<script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>-->
 								<script type="text/javascript">
 								 username = window.localStorage.getItem('dnblog_user');
-
      var html_body = ''
 
  			if(username!="" && username!= null)
@@ -147,11 +146,8 @@
             	html_body += '<a class="sui-btn btn-default btn-xlarge" href=/' + username + '/cart ><span>我的购物车</span><i class="shopnum">0</i></a>';
             }
             else{
-
             	html_body += '<a class="sui-btn btn-default btn-xlarge" href=/login><span>我的购物车</span><i class="shopnum">0</i></a>';
-
     		}
-
   $('.car').after(html_body);
 								</script>
 
@@ -206,28 +202,54 @@
 			<!--product-info-->
 			<div class="product-info">
 				<div class="fl preview-wrap">
+					<script>
+					token = window.localStorage.getItem('dnblog_token');
+    username = window.localStorage.getItem('dnblog_user');
+     var html_body = ''
+     var pid =window.location.href.substring(window.location.href.lastIndexOf("/")+1);
+
+    $.ajax({
+       // 请求方式
+       type:"get",
+       // url
+       url:"http://176.215.66.101:8000/product/"+ pid,
+       beforeSend: function(request) {
+           request.setRequestHeader("Authorization", token);
+       },
+       success:function (result) {
+       		console.log(result)
+           if (200 == result.code){
+            	console.log(result)
+    		}
+    	}
+})
+
+    </script>
+
+
+
 					<!--放大镜效果-->
-					<div class="zoom">
-						<!--默认第一个预览-->
-						<div id="preview" class="spec-preview">
-							<span class="jqzoom">
-							     <img jqimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" width="400px" height="400px" />
-							</span>
-						</div>
-						<!--下方的缩略图-->
-						<div class="spec-scroll">
-							<a class="prev">&lt;</a>
-							<!--左右按钮-->
-							<div class="items">
-								<ul>
-									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" onmousemove="preview(this)" /></li>
-									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" onmousemove="preview(this)" /></li>
-									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" onmousemove="preview(this)" /></li>
-								</ul>
-							</div>
-							<a class="next">&gt;</a>
-						</div>
-					</div>
+<!--					<div class="zoom">-->
+<!--						&lt;!&ndash;默认第一个预览&ndash;&gt;-->
+<!--						<div id="preview" class="spec-preview">-->
+<!--							<span class="jqzoom">-->
+<!--							     <img jqimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" width="400px" height="400px" />-->
+<!--							</span>-->
+<!--						</div>-->
+<!--						&lt;!&ndash;下方的缩略图&ndash;&gt;-->
+<!--						<div class="spec-scroll">-->
+<!--							<a class="prev">&lt;</a>-->
+<!--							&lt;!&ndash;左右按钮&ndash;&gt;-->
+<!--							<div class="items">-->
+<!--								<ul>-->
+<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" onmousemove="preview(this)" /></li>-->
+<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" onmousemove="preview(this)" /></li>-->
+<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" onmousemove="preview(this)" /></li>-->
+<!--								</ul>-->
+<!--							</div>-->
+<!--							<a class="next">&gt;</a>-->
+<!--						</div>-->
+<!--					</div>-->
 				</div>
 				<div class="fr itemInfo-wrap">
 					<div class="sku-name">
@@ -1023,7 +1045,7 @@ $(function(){
 <script type="text/javascript" src="/static/js/plugins/sui/sui.min.js"></script>
 <script type="text/javascript" src="/static/js/plugins/jquery.jqzoom/jquery.jqzoom.js"></script>
 <script type="text/javascript" src="/static/js/plugins/jquery.jqzoom/zoom.js"></script>
-<script type="text/javascript" src="/static/index/index.js"></script>
+<!--<script type="text/javascript" src="/static/index/index.js"></script>-->
 
 <!--页面底部  结束 -->
 </body>

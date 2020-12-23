@@ -502,10 +502,10 @@
         // 设置用户名称
         $("#user_name").text(nickname);
         $(".person-name").text(nickname);
-        $("#person-photo-img").attr("src","http://127.0.0.1:8000/media/"+avatar);
-        $("#avatar").attr("src","http://127.0.0.1:8000/media/"+avatar);
+        $("#person-photo-img").attr("src","http://176.215.66.101:8000/media/"+avatar);
+        $("#avatar").attr("src","http://176.215.66.101:8000/media/"+avatar);
         $.ajax({
-            url:"http://127.0.0.1:8000/users/user_about",
+            url:"http://176.215.66.101:8000/users/user_about",
             type:"get",
             beforeSend:function(request){
                 request.setRequestHeader("Authorization",token)

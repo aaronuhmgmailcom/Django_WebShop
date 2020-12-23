@@ -40,6 +40,7 @@ urlpatterns = [
     path('uploads/', include('uploads.urls')),
     path('messages/', include('message.urls')),
     path('cart/', include('shopping_cart.urls')),
+    path('rotations/', include('rotations.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
