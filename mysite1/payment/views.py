@@ -44,7 +44,7 @@ class MyAliPay(View):
             # 设定为测试环境
             debug=True,
             # 支付宝向返还支付情况的服务器路由
-            app_notify_url="http://127.0.0.1:8000/payment/result"
+            app_notify_url="http://176.215.66.101:8000/payment/result"
         )
 
     # 凑出ali返回支付页面的url:payurl
@@ -98,7 +98,7 @@ class JumpView(MyAliPay):
                 print("------------------------")
             OrderItem.objects.create(order_id=order.id, product_id=cart.product_id, price=product.price,amount=cart.purchase_quantity)
         # 获取到订单支付页面地址
-        result_url = "http://127.0.0.1:8000/payment/result?type=buy"
+        result_url = "http://176.215.66.101:8000/payment/result?type=buy"
         url = self.get_trade_url(order.id, int(amount), "商品购买", result_url)
         return JsonResponse({"code": 200, "pay_url": url})
 
@@ -106,14 +106,13 @@ class JumpView(MyAliPay):
     def post(self, request):
         json_str = request.body
         json_obj = json.loads(json_str)
-        user = request.user
-
+        user = request.myuser
         # 创建用户账单明细表
         amount = json_obj["money"]
         old_wallet = UserWallet.objects.filter(user_id=user.id).last()
-        wallet = UserWallet.objects.create(user_id=user.id, recharge=amount, total_balance=old_wallet.total_balance,
-                                           available_balance=old_wallet.available_balance)
-        result_url = "http://127.0.0.1:8000/payment/result?type=chongzhi"
+        wallet = UserWallet.objects.create(user_id=user.id, recharge=amount, total_balance=float(old_wallet.total_balance) + float(amount),
+                                           available_balance=float(old_wallet.available_balance)+float(amount))
+        result_url = "http://176.215.66.101:8000/payment/result?type=chongzhi"
         url = self.get_trade_url(wallet.id, amount, "余额充值", result_url)
         return JsonResponse({"code": 200, "pay_url": url})
 
@@ -122,10 +121,12 @@ class JumpView(MyAliPay):
 class ResultView(MyAliPay):
     def get(self, request):
         # 获取全部的重定向字符串
+        print('===================')
         request_data = {k: request.GET[k] for k in request.GET.keys()}
         order_id = request_data["out_trade_no"]  # 获取订单id
         money = request_data["total_amount"]  # 订单金额
         genre = request_data.get("type")
+        print(money)
         if genre == "chongzhi":
             try:
                 wallet = UserWallet.objects.get(id=order_id)

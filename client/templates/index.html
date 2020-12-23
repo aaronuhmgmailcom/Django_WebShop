@@ -590,19 +590,19 @@
 					<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
 						  <ol class="carousel-indicators">
 							<!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-							<li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="item in contentList[1]"></li>
+<!--							<li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="item in contentList[1]"></li>-->
 						  </ol>
 						  <div class="carousel-inner">
-							<div class="active item">
+<!--							<div class="active item">-->
 
-								<img src="/static/img/banner1.jpg" onclick="showProduct(2)" />
+<!--								<img src="/static/img/banner1.jpg" onclick="showProduct(2)" />-->
 
-							</div>
-							<div class="{{$index==0?'active':''}} item" ng-repeat="item in contentList[1]">
-							<a href="{{item.url}}">
-								<img src="{{item.pic}}"  width="730" height="454"/>
-							  </a>
-							</div>
+<!--							</div>-->
+<!--							<div class="{{$index==0?'active':''}} item" ng-repeat="item in contentList[1]">-->
+<!--							<a href="{{item.url}}">-->
+<!--								<img src="{{item.pic}}"  width="730" height="454"/>-->
+<!--							  </a>-->
+<!--							</div>-->
 							   
 						  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
 						</div>
@@ -889,10 +889,11 @@
 					</ul>
 				</div>
 			</div>
+			<ul class="clearfix yui3-g Favourate picLB" id="gdmz"></ul>
 		</div>
 	</div>
 	<!--楼层-->
-	<div id="floor-1" class="floor">
+	<div id="floor-1" class="floor" style="text-align:center;">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">小说区</h3>
@@ -937,25 +938,25 @@
 								<li>恐怖悬疑</li>
 								<li>奇幻玄幻</li>
 								<li>科幻游戏</li>
-								
+							</ul>
 						</div>
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
 								<ol class="carousel-indicators">
-									<li data-target="#floorCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="#floorCarousel" data-slide-to="1"></li>
-									<li data-target="#floorCarousel" data-slide-to="2"></li>
+<!--									<li data-target="#floorCarousel" data-slide-to="0" class="active"></li>-->
+<!--									<li data-target="#floorCarousel" data-slide-to="1"></li>-->
+<!--									<li data-target="#floorCarousel" data-slide-to="2"></li>-->
 								</ol>
 								<div class="carousel-inner">
-									<div class="active item">
-										<img src="/static/img/floor-1-b01.png" onclick="showProduct(23)">
-									</div>
-									<div class="item">
-										<img src="/static/img/floor-1-b02.png" onclick="showProduct(24)">
-									</div>
-									<div class="item">
-										<img src="/static/img/floor-1-b03.png" onclick="showProduct(25)">
-									</div>
+<!--									<div class="active item">-->
+<!--										<img src="/static/img/floor-1-b01.png" onclick="showProduct(23)">-->
+<!--									</div>-->
+<!--									<div class="item">-->
+<!--										<img src="/static/img/floor-1-b02.png" onclick="showProduct(24)">-->
+<!--									</div>-->
+<!--									<div class="item">-->
+<!--										<img src="/static/img/floor-1-b03.png" onclick="showProduct(25)">-->
+<!--									</div>-->
 								</div>
 								<a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
 								<a href="#floorCarousel" data-slide="next" class="carousel-control right">›</a>
@@ -1004,8 +1005,9 @@
 				</div>
 			</div>
 		</div>
+		<ul class="clearfix yui3-g Favourate picLB" id="xs" style="width:1200px;display:inline-block;"></ul>
 	</div>
-	<div id="floor-2" class="floor">
+	<div id="floor-2" class="floor" style="text-align:center;">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">漫画区</h3>
@@ -1055,20 +1057,20 @@
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousell" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
 								<ol class="carousel-indicators">
-									<li data-target="#floorCarousell" data-slide-to="0" class="active"></li>
-									<li data-target="#floorCarousell" data-slide-to="1"></li>
-									<li data-target="#floorCarousell" data-slide-to="2"></li>
+<!--									<li data-target="#floorCarousell" data-slide-to="0" class="active"></li>-->
+<!--									<li data-target="#floorCarousell" data-slide-to="1"></li>-->
+<!--									<li data-target="#floorCarousell" data-slide-to="2"></li>-->
 								</ol>
 								<div class="carousel-inner">
-									<div class="active item">
-										<img src="/static/img/2.jpg">
-									</div>
-									<div class="item">
-										<img src="/static/img/3.jpg">
-									</div>
-									<div class="item">
-										<img src="/static/img/6.jpg">
-									</div>
+<!--									<div class="active item">-->
+<!--										<img src="/static/img/2.jpg">-->
+<!--									</div>-->
+<!--									<div class="item">-->
+<!--										<img src="/static/img/3.jpg">-->
+<!--									</div>-->
+<!--									<div class="item">-->
+<!--										<img src="/static/img/6.jpg">-->
+<!--									</div>-->
 								</div>
 								<a href="#floorCarousell" data-slide="prev" class="carousel-control left">‹</a>
 								<a href="#floorCarousell" data-slide="next" class="carousel-control right">›</a>
@@ -1120,9 +1122,10 @@
 				</div>
 			</div>
 		</div>
+		<ul class="clearfix yui3-g Favourate picLB" id="mh" style="width:1200px;display:inline-block;"></ul>
 	</div>
 	<!--商标-->
-	
+
 	<!-- 底部栏位 -->
 	<!--页面底部-->
 <div class="clearfix footer">
@@ -1483,6 +1486,8 @@ token = window.localStorage.getItem('dnblog_token');
 })
 
 </script>
+<script type="text/javascript" src="/static/js/carousel_load.js"></script>
+<script type="text/javascript" src="/static/js/book_load.js"></script>
 <script type="text/javascript" src="/static/js/model/cartModel.js"></script>
 <script type="text/javascript" src="/static/js/czFunction.js"></script>
 <script type="text/javascript" src="/static/js/plugins/jquery.easing/jquery.easing.min.js"></script>

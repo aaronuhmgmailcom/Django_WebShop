@@ -201,7 +201,7 @@ $(function(){
        // 请求方式
        type:"get",
        // url
-       url:"http://127.0.0.1:8000/users/"+ username,
+       url:"http://176.215.66.101:8000/users/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -290,7 +290,7 @@ $(function(){
                html_body += '                     <p>当前头像：</p>';
                html_body += '                     <div class="upload"><form action=""  method="post" enctype="multipart/form-data" class="avatar_form">';
                 if (result.data.avatar) {
-                   var avatar_url = 'http://127.0.0.1:8000/media/'+ result.data.avatar;
+                   var avatar_url = 'http://176.215.66.101:8000/media/'+ result.data.avatar;
                    $("#person-photo-img").attr("src",avatar_url);
                    html_body += '<p class="avatar"> <img src=' + avatar_url + ' alt=""> </p>';
                }else{
@@ -335,8 +335,8 @@ $(function(){
     function upload(){
         var token = window.localStorage.getItem('dnblog_token');
         var username = window.localStorage.getItem('dnblog_user');
-        //$('.avatar_form').attr('action', 'http://127.0.0.1/users/avatar')
-        var url = 'http://127.0.0.1:8000/users/' + username + '/avatar'
+        //$('.avatar_form').attr('action', 'http://176.215.66.101/users/avatar')
+        var url = 'http://176.215.66.101:8000/users/' + username + '/avatar'
         formdata = new FormData();
         formdata.append("avatar",$("#avatar")[0].files[0]);
         $.ajax({
@@ -386,7 +386,7 @@ $(function(){
         // dataType
         dataType:"json",
         // url
-        url:"http://127.0.0.1:8000/users/" + username,
+        url:"http://176.215.66.101:8000/users/" + username,
         // 把JS的对象或数组序列化一个json 字符串
         data:JSON.stringify(post_data),
         // result 为请求的返回结果对象

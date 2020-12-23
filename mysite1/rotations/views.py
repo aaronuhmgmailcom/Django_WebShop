@@ -6,28 +6,22 @@ from .models import Rotation
 
 
 def load(request):
-    mycarousel=Rotation.objects.filter(type="0")
-    floorcarousel = Rotation.objects.filter(type="1")
-    floorcarousell = Rotation.objects.filter(type="2")
+    carousel_all = Rotation.objects.all()
     mycarousel_list=[]
     floorcarousel_list=[]
     floorcarousell_list=[]
-    for item in mycarousel:
-        item_list={}
-        item_list['src']=str(item.img_path)
-        item_list['href']=item.link
-        mycarousel_list.append(item_list)
-    for item in floorcarousel:
-        item_list={}
-        item_list['src'] = str(item.img_path)
-        item_list['href'] = item.link
-        floorcarousel_list.append(item_list)
-    for item in floorcarousell:
-        item_list={}
-        item_list['src'] = str(item.img_path)
-        item_list['href'] = item.link
-        floorcarousell_list.append(item_list)
+    for carousel in carousel_all:
+        item = {}
+        item['src'] = "http://176.215.66.101:8000/media/"+str(carousel.img_path)
+        item['href'] = carousel.link
+        if carousel.type=="0":
+            mycarousel_list.append(item)
+        if carousel.type=="1":
+            floorcarousel_list.append(item)
+        if carousel.type=="2":
+            floorcarousell_list.append(item)
     data=[mycarousel_list,floorcarousel_list,floorcarousell_list]
+    print(data)
     result={}
     result['code']=200
     result['data']=data

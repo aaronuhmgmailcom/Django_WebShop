@@ -14,7 +14,7 @@ $(function(){
                 }
                 $("#myCarousel>.carousel-indicators").append(html);
                 if(i==0){
-                    html=`<div class="active item" ng-repeat="item in contentList[1]"><a href="`+mycarousel_list[i].href+`"><img src="`+mycarousel_list[i].src+`" style="width:730px;height:454px;"/></a></div>`;
+                    html=`<div class="active item" ng-repeat="item in contentList[1]"><a href="`+mycarousel_list[i].href+`"><img src="`+mycarousel_list[i].src+`"  style="width:730px;height:454px;"/></a></div>`;
                 }else{
                     html=`<div class="item" ng-repeat="item in contentList[1]"><a href="`+mycarousel_list[i].href+`"><img src="`+mycarousel_list[i].src+`" style="width:730px;height:454px;"/></a></div>`;
                 }

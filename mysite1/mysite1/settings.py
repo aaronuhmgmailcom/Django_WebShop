@@ -195,7 +195,7 @@ SERVER_EMAIL = '**@qq.com'
 # CACHES = {
 #     "default": {
 #             "BACKEND": "django_redis.cache.RedisCache",
-#             "LOCATION": "redis://127.0.0.1:6379",
+#             "LOCATION": "redis://176.215.66.101:6379",
 #             "OPTIONS": {
 #                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
 #             }
@@ -205,7 +205,7 @@ SERVER_EMAIL = '**@qq.com'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379",
+        "LOCATION": "redis://176.215.66.101:6379",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -225,5 +225,5 @@ SMS_TEMPLATE_ID = '1'
 
 ALIPAY_APPID='2021000116664332'
 ALIPAY_KEY_DIR= os.path.join(BASE_DIR,'static/key_file/')
-ALIPAY_RETURN_URL='http://127.0.0.1:8000/payment/result/'
-ALIPAY_NOTIFY_URL='http://127.0.0.1:8000/payment/result/'
+ALIPAY_RETURN_URL='http://176.215.66.101:8000/payment/result/'
+ALIPAY_NOTIFY_URL='http://176.215.66.101:8000/payment/result/'

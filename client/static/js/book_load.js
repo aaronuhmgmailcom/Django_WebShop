@@ -7,7 +7,7 @@ $(function(){
             var book2_list=result.data[1];
             var book3_list=result.data[2];
             var book4_list=result.data[3];
-            html=``
+            html=``;
             for(var i=0;i<book1_list.length;i++){
                 if(i%6==0){html+=`<br>`;}
                 html+=`<li class="yui3-u-1-6"><a href="" class="pic"><img src="`;

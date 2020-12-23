@@ -1,5 +1,8 @@
-http://127.0.0.1:8000/admin/login/?next=/admin/
+http://176.215.66.101:8000/admin/login/?next=/admin/
 登录账号 ppp 密码 123
 
 http://localhost:5000/index
 登录账号 tedu 密码 123
+
+alipay buyer:ftljjl6769@sandbox.com
+111111

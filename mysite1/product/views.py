@@ -59,7 +59,7 @@ def book_load(request):
     for book in book_all:
         item = {}
         item['id'] = book.id
-        item['img']="http://127.0.0.1:8000"+str(book.img)
+        item['img']="http://176.215.66.101:8000"+str(book.img)
         item['product_name']=book.product_name
         item['price']=book.price
         if book.class_ids == "1":
@@ -71,6 +71,7 @@ def book_load(request):
         if book.class_ids=="4":
             book4_list.append(item)
     data = [book1_list, book2_list, book3_list,book4_list]
+    print(data)
     result = {}
     result['code'] = 200
     result['data'] = data

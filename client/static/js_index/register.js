@@ -54,7 +54,7 @@ var countdown = 90;
         var post_data = { "phone": phone }
         // 同时想服务器发送跨域请求
         $.ajax({
-            url: "http://127.0.0.1:8000/users/sms",
+            url: "http://176.215.66.101:8000/users/sms",
             type: "POST",
             data: JSON.stringify(post_data),
             contentType: "application/json", // 发送数据类型
@@ -80,7 +80,7 @@ var countdown = 90;
             var password_2 = $("#password_2").val();
             var post_data = { "phone": phone, "sms_num": sms_num, "password_1": password_1, "password_2": password_2 }
             $.ajax({
-                url: "http://127.0.0.1:8000/users",
+                url: "http://176.215.66.101:8000/users",
                 type: "post",
                 data: JSON.stringify(post_data),
                 contentType: "application/json",

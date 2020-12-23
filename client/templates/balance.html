@@ -385,6 +385,27 @@
     	{
 		window.location.href = 'info'
     	}
+        function chongzhi()
+    	{
+    	    token = window.localStorage.getItem("dnblog_token");
+            nickname = window.localStorage.getItem("dnblog_user_nick");
+            var post_data={"money":1000 };
+            $.ajax({
+                type:"POST",
+                data:JSON.stringify(post_data),
+                url:"http://176.215.66.101:8000/payment/jump/",
+                contentType:'application/json',
+			    dataType:'json',
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                success:function(result){
+                    alert('success')
+                }
+            })
+    	}
+
+
         $(function(){
             token = window.localStorage.getItem("dnblog_token");
             nickname = window.localStorage.getItem("dnblog_user_nick");
@@ -404,7 +425,7 @@
                         <dt>我的可用余额</dt>
                         <dd>
                             <em>${result.available}</em>
-                            <a href="/payment/jump">充值</a>
+                            <a onclick=chongzhi()>充值</a>
                         </dd>
                     </dl>
                     <ul>

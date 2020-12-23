@@ -27,7 +27,7 @@
             // dataType
             dataType:"json",
             // url
-            url:"http://127.0.0.1:8000/v1/users/weibo/token?code="+code,
+            url:"http://176.215.66.101:8000/v1/users/weibo/token?code="+code,
             // result 为请求的返回结果对象
             success:function (result) {
                 console.log(result)
@@ -36,10 +36,10 @@
                 window.localStorage.setItem('dnblog_token', result.data.token)
                 window.localStorage.setItem('dnblog_user', result.username)
                 alert("登录成功 您已绑定过用户，现在将跳转到您的个人主页")
-                    window.location =  'http://127.0.0.1:5000/' + result.username + '/topics';
+                    window.location =  'http://176.215.66.101:5000/' + result.username + '/topics';
                 }else if (222 == result.code) {
                     var wuid = result.uid
-                    window.location = 'http://127.0.0.1:5000/register?wuid=' + wuid
+                    window.location = 'http://176.215.66.101:5000/register?wuid=' + wuid
                 }else{
                     alert(result.error)
                 }

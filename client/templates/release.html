@@ -30,7 +30,7 @@
       // 请求方式
       type:"get",
       // url
-      url:"http://127.0.0.1:8000/users/"+ username,
+      url:"http://176.215.66.101:8000/users/"+ username,
       async: false,
       beforeSend: function(request) {
           request.setRequestHeader("Authorization", token);
@@ -114,8 +114,8 @@
                   // dataType
                   dataType:"json",
                   // url
-                  url:"http://127.0.0.1:8000/topics/" + username,
-                  //url:"http://127.0.0.1:7000/topics/" + username,
+                  url:"http://176.215.66.101:8000/topics/" + username,
+                  //url:"http://176.215.66.101:7000/topics/" + username,
                   // 把JS的对象或数组序列化一个json 字符串
                   data:JSON.stringify(post_data),
                   // result 为请求的返回结果对象

@@ -584,7 +584,7 @@ function next(){
 		var phone=$('.phone').val();
 		var post_data={"phone":phone };
 		$.ajax({
-			url:'http://127.0.0.1:8000/users/sms',
+			url:'http://176.215.66.101:8000/users/sms',
 			type:'POST',
 			data:JSON.stringify(post_data),
 			contentType:'application/json',
