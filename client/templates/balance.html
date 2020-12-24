@@ -393,7 +393,7 @@
             $.ajax({
                 type:"POST",
                 data:JSON.stringify(post_data),
-                url:"http://176.215.66.101:8000/payment/jump/",
+                url:"http://47.94.174.118:8000/payment/jump/",
                 contentType:'application/json',
 			    dataType:'json',
                 beforeSend:function(request){
@@ -412,10 +412,10 @@
             avatar = window.localStorage.getItem("dnblog_user_img");
             // 设置用户名
             $(".person-name").text(nickname);
-            $("#person-photo-img").attr("src","http://176.215.66.101:8000/media/"+avatar);
+            $("#person-photo-img").attr("src","http://47.94.174.118:8000/media/"+avatar);
             $.ajax({
                 type:"get",
-                url:"http://176.215.66.101:8000/users/balance",
+                url:"http://47.94.174.118:8000/users/balance",
                 beforeSend:function(request){
                     request.setRequestHeader("Authorization",token);
                 },

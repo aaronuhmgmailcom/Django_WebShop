@@ -1,7 +1,7 @@
 $(function(){
     $.ajax({
         type:"get",
-        url:"http://176.215.66.101:8000/product/book_load",
+        url:"http://47.94.174.118:8000/product/book_load",
         success:function (result) {
             var book1_list=result.data[0];
             var book2_list=result.data[1];

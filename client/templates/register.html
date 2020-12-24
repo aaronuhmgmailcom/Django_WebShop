@@ -346,7 +346,7 @@
     		var post_data={"username":username,"email":email,"password1":password1,"password2":password2,"phone":phone,"code":code,"nickname":nickname}
     		console.log(post_data)
     		$.ajax({
-    			url:'http://176.215.66.101:8000/users/',
+    			url:'http://47.94.174.118:8000/users/',
     			type:'POST',
     			//响应格式,不是请求格式(contentType)
     			dataType:'json',
@@ -406,7 +406,7 @@ if($.trim(prevLink)==''){
 		var phone=$('.phone').val();
 		var post_data={"phone":phone };
 		$.ajax({
-			url:'http://176.215.66.101:8000/users/sms',
+			url:'http://47.94.174.118:8000/users/sms',
 			type:'POST',
 			data:JSON.stringify(post_data),
 			contentType:'application/json',

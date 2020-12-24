@@ -33,7 +33,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
     //当前访问的博客博主
     var blog_username = arrUrl[1].split('/')[1];
     var t_id = arrUrl[1].split('/')[4]
-    var get_url = "http://176.215.66.101:8000/topics/" + blog_username + '?t_id=' + t_id
+    var get_url = "http://47.94.174.118:8000/topics/" + blog_username + '?t_id=' + t_id
 
     console.log('get_url')
     console.log(get_url)
@@ -112,7 +112,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                     html_body += '</span>';
                     html_body += '</div>';
 
-                    avatar_url = 'http://176.215.66.101:8000/media/' + messages_list[message].publisher_avatar
+                    avatar_url = 'http://47.94.174.118:8000/media/' + messages_list[message].publisher_avatar
                     html_body  += '<div><img alt="" src="' + avatar_url + '" class="commentAvatar avatar-32 commentPhoto" height="32" width="32" /></div>';
                     html_body += '<div class="body">';
                     html_body += messages_list[message].content;
@@ -134,7 +134,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                         html_body += '@ <a href="#" title="">' + reply_list[rm].created_time + '</a>';
                         html_body += '</span>';
                         html_body += '</div>';
-                        var r_avatar_url = 'http://176.215.66.101:8000/media/' + reply_list[rm].publisher_avatar;
+                        var r_avatar_url = 'http://47.94.174.118:8000/media/' + reply_list[rm].publisher_avatar;
                         html_body += '<div><img alt="" src=" ' + r_avatar_url +'" class="commentAvatar avatar-32 commentPhoto" height="32" width="32"></div>';
                         html_body += '<div class="body">' + reply_list[rm].content  + '</div>';
                         html_body += '</div>';
@@ -173,7 +173,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                     // dataType
                     dataType:"json",
                     // url
-                    url:"http://176.215.66.101:8000/messages/" + t_id ,
+                    url:"http://47.94.174.118:8000/messages/" + t_id ,
                     // 把JS的对象或数组序列化一个json 字符串
                     data:JSON.stringify(post_data),
                     // result 为请求的返回结果对象
@@ -205,7 +205,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                     onOk:function(reply){
                         //console.log(reply);
                         var post_data = {'content': reply, 'parent_id': m_id};
-                        var reply_url =  "http://176.215.66.101:8000/messages/" + t_id
+                        var reply_url =  "http://47.94.174.118:8000/messages/" + t_id
                         $.ajax({
                         // 请求方式
                         type:"post",

@@ -1,7 +1,7 @@
 $(function(){
     $.ajax({
         type:"get",
-        url:"http://176.215.66.101:8000/rotations/load",
+        url:"http://47.94.174.118:8000/rotations/load",
         success:function (result) {
             var mycarousel_list=result.data[0];
             var floorcarousel_list=result.data[1];

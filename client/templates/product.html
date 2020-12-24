@@ -220,7 +220,7 @@
        // 请求方式
        type:"get",
        // url
-       url:"http://176.215.66.101:8000/product/"+ pid,
+       url:"http://47.94.174.118:8000/product/"+ pid,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -231,11 +231,11 @@
             	resultouter=result;
                         var productname = result.productname;
                         var class_ids = result.class_ids;
-                        var img = "http://176.215.66.101:5000" + result.img;
-                        var img2 = "http://176.215.66.101:5000" +result.img2;
-                        var img3 = "http://176.215.66.101:5000" +result.img3;
-						var img4 = "http://176.215.66.101:5000" +result.img4;
-						var img5 = "http://176.215.66.101:5000" +result.img5;
+                        var img = "http://47.94.174.118:5000" + result.img;
+                        var img2 = "http://47.94.174.118:5000" +result.img2;
+                        var img3 = "http://47.94.174.118:5000" +result.img3;
+						var img4 = "http://47.94.174.118:5000" +result.img4;
+						var img5 = "http://47.94.174.118:5000" +result.img5;
 						var description=result.description;
 						var price = result.price;
 						var discount = result.discount;
@@ -290,7 +290,7 @@
        // 请求方式
        type:"get",
        // url
-       url:"http://176.215.66.101:8000/product/"+ pid,
+       url:"http://47.94.174.118:8000/product/"+ pid,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -848,7 +848,7 @@ function addToCart(){
         contentType:'application/json',
 		dataType:'json',
        // url
-       url:"http://176.215.66.101:8000/cart/"+ username,
+       url:"http://47.94.174.118:8000/cart/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },

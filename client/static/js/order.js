@@ -3,9 +3,9 @@ username = window.localStorage.getItem("dnblog_user");
 var url = window.location.toString();
 var query_array = url.split("?");
 if (query_array.length > 1) {
-    var get_url = "http://176.215.66.101:8000/order/search" + "?" + query_array[1];
+    var get_url = "http://47.94.174.118:8000/order/search" + "?" + query_array[1];
 } else {
-    var get_url = "http://176.215.66.101:8000/order/search";
+    var get_url = "http://47.94.174.118:8000/order/search";
 }
 // console.log(get_url)
 

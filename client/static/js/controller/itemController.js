@@ -66,11 +66,11 @@ app.controller("itemController",function($scope,$http){
 	$scope.addToCart=function(){
 		//alert('SKUID:'+$scope.sku.id );		
 		
-		$http.get('http://176.215.66.101:5000/cart/addGoodsToCartList.do?itemId='
+		$http.get('http://47.94.174.118:5000/cart/addGoodsToCartList.do?itemId='
 				+$scope.sku.id+'&num='+$scope.num ,{'withCredentials':true} ).success(
 					function(response){
 						if(response.success){
-							location.href='http://176.215.66.101:5000/cart';
+							location.href='http://47.94.174.118:5000/cart';
 						}else{
 							alert(response.message);
 						}					

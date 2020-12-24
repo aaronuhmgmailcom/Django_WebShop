@@ -12,7 +12,7 @@ def load(request):
     floorcarousell_list=[]
     for carousel in carousel_all:
         item = {}
-        item['src'] = "http://176.215.66.101:8000/media/"+str(carousel.img_path)
+        item['src'] = "http://47.94.174.118:8000/media/"+str(carousel.img_path)
         item['href'] = carousel.link
         if carousel.type=="0":
             mycarousel_list.append(item)

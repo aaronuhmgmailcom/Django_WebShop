@@ -44,7 +44,7 @@ class MyAliPay(View):
             # 设定为测试环境
             debug=True,
             # 支付宝向返还支付情况的服务器路由
-            app_notify_url="http://176.215.66.101:8000/payment/result"
+            app_notify_url="http://47.94.174.118:8000/payment/result"
         )
 
     # 凑出ali返回支付页面的url:payurl
@@ -103,7 +103,7 @@ class JumpView(MyAliPay):
                 cart.save()
 
         # 获取到订单支付页面地址
-        result_url = "http://176.215.66.101:8000/payment/result?type=buy"
+        result_url = "http://47.94.174.118:8000/payment/result?type=buy"
         url = self.get_trade_url(order.id, int(amount), "商品购买", result_url)
         return JsonResponse({"code": 200, "pay_url": url})
 
@@ -117,7 +117,7 @@ class JumpView(MyAliPay):
         old_wallet = UserWallet.objects.filter(user_id=user.id).last()
         wallet = UserWallet.objects.create(user_id=user.id, recharge=amount, total_balance=float(old_wallet.total_balance) + float(amount),
                                            available_balance=float(old_wallet.available_balance)+float(amount))
-        result_url = "http://176.215.66.101:8000/payment/result?type=chongzhi"
+        result_url = "http://47.94.174.118:8000/payment/result?type=chongzhi"
         url = self.get_trade_url(wallet.id, amount, "余额充值", result_url)
         return JsonResponse({"code": 200, "pay_url": url})
 

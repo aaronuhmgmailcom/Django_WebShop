@@ -183,7 +183,7 @@ $(function(){
        // 请求方式
        type:"get",
        // url
-       url:"http://176.215.66.101:8000/users/"+ username,
+       url:"http://47.94.174.118:8000/users/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -191,7 +191,7 @@ $(function(){
        		console.log(result)
            if (200 == result.code){
              if (result.data.avatar) {
-                   var avatar_url = 'http://176.215.66.101:8000/media/'+ result.data.avatar;
+                   var avatar_url = 'http://47.94.174.118:8000/media/'+ result.data.avatar;
 
                    html_body += '  <div class="person-photo"><img id="person-photo-img" height="48px" width="48px" src="'+avatar_url+'" alt=""></div>';
                }else{

@@ -88,7 +88,7 @@
        // 请求方式
        type:"get",
        // url
-       url:"http://176.215.66.101:8000/cart/"+ username,
+       url:"http://47.94.174.118:8000/cart/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },
@@ -362,7 +362,7 @@ html_body += '<li class="yui3-u-1-8"><span class="sum">'+product_price+'</span><
         data:JSON.stringify(post_data),
         contentType:'application/json',
 		dataType:'json',
-       url:"http://176.215.66.101:8000/cart/"+ username,
+       url:"http://47.94.174.118:8000/cart/"+ username,
        beforeSend: function(request) {
            request.setRequestHeader("Authorization", token);
        },

@@ -1,4 +1,4 @@
-http://176.215.66.101:8000/admin/login/?next=/admin/
+http://47.94.174.118:8000/admin/login/?next=/admin/
 登录账号 ppp 密码 123
 
 http://localhost:5000/index

@@ -38,9 +38,9 @@ A ny individuals and organizations and not for commercial use, professiona websi
     var blog_username = arrUrl[1].split('/')[1];
 
     if(query_set){
-        var get_url = "http://176.215.66.101:8000/topics/"+ blog_username + "?" + query_set;
+        var get_url = "http://47.94.174.118:8000/topics/"+ blog_username + "?" + query_set;
     }else{
-        var get_url = "http://176.215.66.101:8000/topics/"+ blog_username;
+        var get_url = "http://47.94.174.118:8000/topics/"+ blog_username;
 
     }
 
@@ -130,7 +130,7 @@ A ny individuals and organizations and not for commercial use, professiona websi
                 //添加删除事件
                 $('.delete').on('click', function(){
                     var delete_id = $(this).attr('data');
-                    var delete_url = "http://176.215.66.101:8000/topics/"+ blog_username + "?" + 't_id=' + delete_id;
+                    var delete_url = "http://47.94.174.118:8000/topics/"+ blog_username + "?" + 't_id=' + delete_id;
                     $.ajax({
                         // 请求方式
                         type:"delete",

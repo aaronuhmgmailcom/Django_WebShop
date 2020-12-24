@@ -59,7 +59,7 @@ def book_load(request):
     for book in book_all:
         item = {}
         item['id'] = book.id
-        item['img']="http://176.215.66.101:8000"+str(book.img)
+        item['img']="http://47.94.174.118:8000"+str(book.img)
         item['product_name']=book.product_name
         item['price']=book.price
         if book.class_ids == "1":
