@@ -129,7 +129,7 @@
 						html_body += '		</li>';
 html_body += '<li class="yui3-u-1-8"><span class="sum">'+product_price+'</span></li>';
 								html_body += '<li class="yui3-u-1-8">';
-								html_body += '	<a href="#none">删除</a><br />';
+								html_body += '	<a onclick= delcart('+ product_id + ')>删除</a><br />';
 								html_body += '	<a href="#none">移到我的关注</a>';
 							html_body += '	</li>';
 
@@ -350,6 +350,31 @@ html_body += '<li class="yui3-u-1-8"><span class="sum">'+product_price+'</span><
                 window.location.href= '/index';
             }
         }
+  function delcart(pid)
+  {
+    	username = window.localStorage.getItem('dnblog_user');
+		token = window.localStorage.getItem('dnblog_token');
+		 var post_data={"pid":pid};
+    $.ajax({
+       // 请求方式
+       type:"delete",
+       // url
+        data:JSON.stringify(post_data),
+        contentType:'application/json',
+		dataType:'json',
+       url:"http://176.215.66.101:8000/cart/"+ username,
+       beforeSend: function(request) {
+           request.setRequestHeader("Authorization", token);
+       },
+       success:function (result) {
+       		console.log(result)
+           if (200 == result.code){
+					window.location.href='/'+ username+ '/cart';
+
+           }
+           }
+           })
+   }
 $(function(){
 	$("#service").hover(function(){
 		$(".service").show();

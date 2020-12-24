@@ -82,3 +82,23 @@ class cartView(View):
 
         result = {'code': 200, 'username': topics.purchaser_name}
         return JsonResponse(result)
+
+    def delete(self, request, username=None):
+        # 获取用户提交数据
+        if request.method != 'DELETE':
+            result = {'code': 10106, 'error': '必须是DELETE'}
+            return JsonResponse(result)
+        # 从REQUEST.MYUSER获取要修改用户
+        json_str = request.body
+        json_obj = json.loads(json_str)
+        print(json_obj)
+        product_id = json_obj['pid']
+        purchaser_name = username
+        status = 1
+
+        topics = ShoppingCart.objects.filter(product_id=product_id,
+                                             purchaser_name=purchaser_name, status=status)[0]
+        topics.delete()
+
+        result = {'code': 200, 'username': topics.purchaser_name}
+        return JsonResponse(result)

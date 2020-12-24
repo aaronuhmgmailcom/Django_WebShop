@@ -115,8 +115,13 @@ class JumpView(MyAliPay):
         # 创建用户账单明细表
         amount = json_obj["money"]
         old_wallet = UserWallet.objects.filter(user_id=user.id).last()
-        wallet = UserWallet.objects.create(user_id=user.id, recharge=amount, total_balance=float(old_wallet.total_balance) + float(amount),
-                                           available_balance=float(old_wallet.available_balance)+float(amount))
+        if old_wallet:
+            wallet = UserWallet.objects.create(user_id=user.id, recharge=amount, total_balance=float(old_wallet.total_balance) + float(amount),
+                                               available_balance=float(old_wallet.available_balance)+float(amount))
+        else:
+            wallet = UserWallet.objects.create(user_id=user.id, recharge=amount,
+                                               total_balance= float(amount),
+                                               available_balance= float(amount))
         result_url = "http://176.215.66.101:8000/payment/result?type=chongzhi"
         url = self.get_trade_url(wallet.id, amount, "余额充值", result_url)
         return JsonResponse({"code": 200, "pay_url": url})
