@@ -12,11 +12,12 @@ from .models import Order
 class OrdersView(View):
     def __make_order_list(self, orders):
         order_list = []
+        order_item_list = []
         for order in orders:
             x = {}
             try:
-                order_item = OrderItem.objects.get(order_id=order.id)  # 查找到订单详情表
-                product = Product.objects.get(id=order_item.product_id)
+                order_item = OrderItem.objects.filter(order_id=order.id)  # 查找到订单详情表
+                product = Product.objects.get(id=order_item[0].product_id)
             except Exception as e:
                 print("---没有获取订单%s的商品详情信息---" % order.id)
             else:
@@ -25,7 +26,21 @@ class OrdersView(View):
                 x["price"] = order.order_amount
                 x["img"] = str(product.img)
                 x["sign"] = product.description
-                x["amount"] = order_item.amount
+                x["amount"] = order_item[0].amount
+                x["sub"]=[]
+                for item in order_item:
+                    product = Product.objects.get(id=item.product_id)
+                    xx = {}
+                    xx["created_time"] = order.create_date.strftime("%Y-%m-%d %H:%M:%S")
+                    xx["order_id"] = order.id
+                    xx["p_id"] = product.id
+                    xx["price"] = item.price
+                    xx["name"] = product.product_name
+                    xx["img"] = str(product.img)
+                    xx["sign"] = product.description
+                    xx["amount"] = item.amount
+
+                    x["sub"].append(xx)
                 order_list.append(x)
         return order_list
 

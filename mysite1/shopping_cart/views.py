@@ -50,7 +50,7 @@ class cartView(View):
         print(username)
         if username:
             try:
-                topics = ShoppingCart.objects.filter(purchaser_name=username)
+                topics = ShoppingCart.objects.filter(purchaser_name=username, status=1)
             except Exception as e:
                 print('-get ShoppingCart error is %s-' % e)
                 result = {'code': 10104, 'error': 'ShoppingCart not exist'}
@@ -62,3 +62,23 @@ class cartView(View):
             return JsonResponse(res)
 
         return HttpResponse('--users get--')
+
+    def put(self, request, username=None):
+        # 获取用户提交数据
+        if request.method != 'PUT':
+            result = {'code': 10106, 'error': '必须是PUT'}
+            return JsonResponse(result)
+        # 从REQUEST.MYUSER获取要修改用户
+        json_str = request.body
+        json_obj = json.loads(json_str)
+        print(json_obj)
+        product_id = json_obj['pid']
+        purchase_quantity = 1
+        purchaser_name = username
+        status = 1
+        cart_id =0
+
+        topics = ShoppingCart.objects.create(product_id=product_id,purchase_quantity=purchase_quantity,purchaser_name=purchaser_name,status=status,cart_id=cart_id)
+
+        result = {'code': 200, 'username': topics.purchaser_name}
+        return JsonResponse(result)

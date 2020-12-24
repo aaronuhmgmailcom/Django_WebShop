@@ -87,7 +87,7 @@ class JumpView(MyAliPay):
                 print("-----------")
 
             amount += (product.price * cart.purchase_quantity)
-        order = Order.objects.create(order_amount=amount, create_user_id=user.id, order_status=0,
+        order = Order.objects.create(order_amount=amount, create_user_id=user.id, order_status=5,
                                      receiver=user.username, receiver_address=user.Delivery_address1,
                                      receiver_tel=user.TELEPHONE)
         # 进行用户账户明细表的创建
@@ -97,6 +97,11 @@ class JumpView(MyAliPay):
             except:
                 print("------------------------")
             OrderItem.objects.create(order_id=order.id, product_id=cart.product_id, price=product.price,amount=cart.purchase_quantity)
+
+            for cart in carts_list:
+                cart.status=0
+                cart.save()
+
         # 获取到订单支付页面地址
         result_url = "http://176.215.66.101:8000/payment/result?type=buy"
         url = self.get_trade_url(order.id, int(amount), "商品购买", result_url)

@@ -28,27 +28,28 @@ $.ajax({
             var num2 = result.data.no_arr
             var num3 = result.data.no_mes
             var t_html = `<li>
-                                <a href="/my_order">全部订单</a>
+                                <a href="order">全部订单</a>
                                 <span class="nums"></span>
                             </li>
                             <li>
-                                <a href="/my_order?status=0">待付款</a>
+                                <a href="order?status=0">待付款</a>
                                 <span class="nums">${num1}</span>
                             </li>
                             <li>
-                                <a href="/my_order?status=3">待收货</a>
+                                <a href="order?status=3">待收货</a>
                                 <span class="nums">0</span>
                             </li>
                             <li>
-                                <a href="/my_order?status=1">待收货</a>
+                                <a href="order?status=1">待收货</a>
                                 <span class="nums">${num2}</span>
                             </li>
                             <li>
-                                <a href="/my_order?status=2">待评价</a>
+                                <a href="order?status=2">待评价</a>
                                 <span class="nums">${num3}</span>
                             </li>`
             $(".menu_list").append(t_html);
             var orders = result.data.orders
+
             if (orders.length == 0) {
                 html += `<div id="order">
                         <div class="my_order">
@@ -66,40 +67,30 @@ $.ajax({
                 for (var o in orders) {
                     // console.log(o)
                     html += `<tbody id="${orders[o].order_id}">
-                    <!-- 上个元素隔开区域 -->
-                    <tr class="emp_row">
-                        <td colspan="5"></td>
-                    </tr>
-                    <tr class="order_title">
-                        <td colspan="5">
-                            <span class="gap"></span>
-                            <span class="dealtime" title="订单创建时间">${orders[o].created_time}</span>
-                            <span class="number">
-                                订单号:<a href="#">${orders[o].order_id}</a>
-                            </span>
-                            <div class="order_shop">
-                                <span class="shop">
-                                    <a href="" class="shop_name">当当</a>
-                                    <a href="" class="shop_img"></a>
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="order_body">
+                    <tr class ="emp_row" ><td colspan = "5"></td>
+                    </tr><tr class ="order_title" ><td colspan ="5">
+                    <span class ="gap"></span><span class ="dealtime" title="订单创建时间" > ${orders[o].created_time}</span>
+                    <span class ="number" >订单号: <a href = "#" >${orders[o].order_id}</a></span><div class ="order_shop" >
+                    <span class ="shop"><a href = "" class ="shop_name" >趣书</a><a href = "" class ="shop_img" ></a></span></div>
+                    </td></tr>`
+                     var sub = orders[o].sub
+
+                     for (var t in sub) {
+                     html += `<tr class="order_body">
                         <td>
                             <div class="goods_item">
                                 <div class="p_img">
-                                    <a href="#">
-                                        <img src="${orders[o].img}" width="60" height="60">
+                                    <a href="/product/${sub[t].p_id}">
+                                        <img src="${sub[t].img}" width="60" height="60">
                                     </a>
                                 </div>
                                 <div class="p_msg">
                                     <div class="p_name">
-                                        <a href="#">${orders[o].sign}</a>
+                                        <a href="/product/${sub[t].p_id}">${sub[t].name}</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="goods_nums">×${orders[o].amount}</div>
+                            <div class="goods_nums">×${sub[t].amount}</div>
                             <div class="goods_repair">
                                 <a href="#">申请售后</a>
                                 <br>
@@ -114,7 +105,7 @@ $.ajax({
                         </td>
                         <td rowspan="1">
                             <div class="amount">
-                                <span>${orders[o].price}</span>
+                                <span>${sub[t].price}</span>
                                 <br>
                                 <span class="pay">在线支付</span>
                             </div>
@@ -138,8 +129,9 @@ $.ajax({
                                 </a>
                             </div>
                         </td>
-                    </tr>
-                </tbody>`
+                    </tr>  `
+                    }
+                 html += `</tbody>`
                 }
             }
             $(".order_tab").append(html);

@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/pages-zoom.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/widget-cartPanelView.css" />
     
-<!--    <script type="text/javascript" src="/static/plugins/angularjs/angular.min.js"> </script>-->
-<!--    <script type="text/javascript" src="/static/js/base.js"> </script>-->
-<!--    <script type="text/javascript" src="/static/js/controller/itemController.js"> </script>-->
+    <script type="text/javascript" src="/static/plugins/angularjs/angular.min.js"> </script>
+    <script type="text/javascript" src="/static/js/base.js"> </script>
+    <script type="text/javascript" src="/static/js/controller/itemController.js"> </script>
     <script>
         var skuList=[
                      {
@@ -39,6 +39,14 @@
         ];
         
     </script>
+	<style>
+	.head_title_name{
+		    font-size: 16px;
+    line-height: 24px;
+		}
+
+	</style>
+
 </head>
 
 <body ng-app="pinyougou" >
@@ -189,24 +197,94 @@
 			<div class="crumb-wrap">
 				<ul class="sui-breadcrumb">
 					<li>
-						<a href="#">服饰内衣</a>
+						<a href="#">书籍</a>
 					</li>
 					<li>
-						<a href="#">女装</a>
+						<a href="#">专著</a>
 					</li>
 					<li>
-						<a href="#">半身裙</a>
+						<a href="#"></a>
 					</li>
 				</ul>
 			</div>
 			<!--product-info-->
 			<div class="product-info">
-				<div class="fl preview-wrap">
+				<div id="proinfo" class="fl preview-wrap">
 					<script>
 					token = window.localStorage.getItem('dnblog_token');
     username = window.localStorage.getItem('dnblog_user');
      var html_body = ''
      var pid =window.location.href.substring(window.location.href.lastIndexOf("/")+1);
+	var resultouter;
+    $.ajax({
+       // 请求方式
+       type:"get",
+       // url
+       url:"http://176.215.66.101:8000/product/"+ pid,
+       beforeSend: function(request) {
+           request.setRequestHeader("Authorization", token);
+       },
+       success:function (result) {
+       		console.log(result)
+
+           if (200 == result.code){
+            	resultouter=result;
+                        var productname = result.productname;
+                        var class_ids = result.class_ids;
+                        var img = "http://176.215.66.101:5000" + result.img;
+                        var img2 = "http://176.215.66.101:5000" +result.img2;
+                        var img3 = "http://176.215.66.101:5000" +result.img3;
+						var img4 = "http://176.215.66.101:5000" +result.img4;
+						var img5 = "http://176.215.66.101:5000" +result.img5;
+						var description=result.description;
+						var price = result.price;
+						var discount = result.discount;
+						var amount = result.amount;
+						var productor = result.productor;
+						var author = result.author;
+						var status = result.status;
+
+
+			html_body += '		<div class="zoom">';
+
+			html_body += '			<div id="preview" class="spec-preview">';
+			html_body += '				<span class="jqzoom">';
+			html_body += '				     <img jqimg="'+img+'" src="'+img+'" width="400px" height="400px" />';
+			html_body += '				</span>';
+			html_body += '			</div>';
+
+			html_body += '			<div class="spec-scroll">';
+			html_body += '				<a class="prev">&lt;</a>';
+
+			html_body += '				<div class="items">';
+			html_body += '					<ul>';
+			html_body += '						  <li><img src="'+img2+'" bimg="'+img2+'" onmousemove="preview(this)" /></li>';
+			html_body += '						  <li><img src="'+img3+'" bimg="'+img3+'" onmousemove="preview(this)" /></li>';
+			html_body += '						  <li><img src="'+img4+'" bimg="'+img4+'" onmousemove="preview(this)" /></li>';
+
+			html_body += '					</ul>';
+			html_body += '				</div>';
+			html_body += '				<a class="next">&gt;</a>';
+			html_body += '			</div>';
+			html_body += '		</div>';
+
+
+
+
+   $('#proinfo').html(html_body);
+
+    		}
+    	}
+})
+
+    </script>
+
+
+
+
+				</div>
+				<div id="prodetail" class="fr itemInfo-wrap">
+							<script>
 
     $.ajax({
        // 请求方式
@@ -219,7 +297,130 @@
        success:function (result) {
        		console.log(result)
            if (200 == result.code){
-            	console.log(result)
+
+                        var productname = result.productname;
+                        var class_ids = result.class_ids;
+
+						var description=result.description;
+						var price = result.price;
+						var discount = result.discount;
+						var amount = result.amount;
+						var productor = result.productor;
+						var author = result.author;
+						var status = result.status;
+
+   		var html_body = ''
+		html_body += '	<div class="sku-name">';
+		html_body += '				<h4>'+productname+'</h4>';
+
+		html_body += ' <span class="head_title_name" title="'+description+'">';
+    	html_body += '   	'+description+'</span>';
+    	html_body += '<span class="hot" title="">';
+    	html_body += '	        </span>';
+		html_body += '			</div>';
+		html_body += '			<div class="news"><span>打折促销 '+ discount+' 折</span></div>';
+		html_body += '			<div class="summary">';
+		html_body += '				<div class="summary-wrap">';
+		html_body += '					<div class="fl title">';
+		html_body += '						<i>价　　格</i>';
+		html_body += '					</div>';
+		html_body += '					<div class="fl price">';
+		html_body += '						<i>¥</i>';
+		html_body += '						<em>'+price+'</em>';
+		html_body += '						<span>降价通知</span>';
+		html_body += '					</div>';
+		html_body += '					<div class="fr remark">';
+		html_body += '						<i>累计评价</i><em>612188</em>';
+		html_body += '					</div>';
+		html_body += '				</div>';
+		html_body += '				<div class="summary-wrap">';
+		html_body += '					<div class="fl title">';
+		html_body += '						<i>促　　销</i>';
+		html_body += '					</div>';
+		html_body += '					<div class="fl fix-width">';
+		html_body += '						<i class="red-bg">加价购</i>';
+		html_body += '						<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品</em>';
+		html_body += '					</div>';
+		html_body += '							</div>';
+		html_body += '						</div>';
+
+		html_body += '			<div class="support">';
+		html_body += '				<div class="summary-wrap">';
+		html_body += '					<div class="fl title">';
+		html_body += '						<i>支　　持</i>';
+		html_body += '					</div>';
+
+		html_body += '					<div class="fl fix-width">';
+		html_body += '						<em class="t-gray">由“趣书”发货，并提供售后服务。 23:55前完成下单，预计明天(12月25日)可送达</em>';
+		html_body += '					</div>';
+		html_body += '				</div>';
+		html_body += '				<div class="summary-wrap">';
+		html_body += '					<div class="fl title">';
+		html_body += '						<i>配 送 至</i>';
+		html_body += '					</div>';
+		html_body += '					<div class="fl fix-width">';
+		html_body += '						<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品</em>';
+		html_body += '					</div>';
+		html_body += '				</div>';
+		html_body += '			</div>';
+		html_body += '			<div class="clearfix choose">';
+		html_body += '				<div id="specification" class="summary-wrap clearfix">';
+
+		html_body += '					  <dl>';
+		html_body += '						<dt>';
+		html_body += '							<div class="fl title">';
+		html_body += '							<i>关联商品</i>';
+		html_body += '						</div>';
+		html_body += '						</dt>';
+
+		html_body += '						  <dd><a >浮生自在 徒步人海 活在这珍贵的人间 人间逍遥客';
+		html_body += '						        <span title="点击取消选择">&nbsp;</span>';
+		html_body += '						        </a></dd>';
+		html_body += '						  <dd><a >此生须尽兴';
+		html_body += '						        <span title="点击取消选择">&nbsp;</span>';
+		html_body += '						        </a></dd>';
+		html_body += '					  </dl>';
+
+		html_body += '					  <dl>';
+		html_body += '						<dt>';
+		html_body += '							<div class="fl title">';
+		html_body += '							<i>电子书加价购</i>';
+		html_body += '						</div>';
+		html_body += '						</dt>';
+
+		html_body += '						  <dd><a>    +7.4元换购《时光太瘦，指缝太宽》';
+		html_body += '						        <span title="点击取消选择">&nbsp;</span>';
+		html_body += '						        </a></dd>';
+		html_body += '						  <dd><a >作者1：丰子恺 等';
+		html_body += '						        <span title="点击取消选择">&nbsp;</span>';
+		html_body += '						        </a></dd>';
+		html_body += '					  </dl>';
+		html_body += '				</div>';
+		html_body += '				<div class="summary-wrap">';
+		html_body += '					<div class="fl title">';
+		html_body += '						<div class="control-group">';
+		html_body += '							<div class="controls">';
+		html_body += '								<input autocomplete="off" ng-model="num" type="text" value="1" minnum="1" class="itxt" />';
+		html_body += '								<a href="javascript:void(0)" class="increment plus" ng-click="addNum(1)">+</a>';
+		html_body += '								<a href="javascript:void(0)" class="increment mins" ng-click="addNum(-1)">-</a>';
+		html_body += '							</div>';
+		html_body += '						</div>';
+		html_body += '					</div>';
+		html_body += '					<div class="fl">';
+		html_body += '						<ul class="btn-choose unstyled">';
+		html_body += '							<li>';
+		html_body += '								<a  class="sui-btn  btn-danger addshopcar" onclick="addToCart()">加入购物车</a>';
+		html_body += '							</li>';
+		html_body += '						</ul>';
+		html_body += '					</div>';
+		html_body += '				</div>';
+		html_body += '			</div>';
+
+
+
+
+   $('#prodetail').html(html_body);
+
     		}
     	}
 })
@@ -228,139 +429,8 @@
 
 
 
-					<!--放大镜效果-->
-<!--					<div class="zoom">-->
-<!--						&lt;!&ndash;默认第一个预览&ndash;&gt;-->
-<!--						<div id="preview" class="spec-preview">-->
-<!--							<span class="jqzoom">-->
-<!--							     <img jqimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" width="400px" height="400px" />-->
-<!--							</span>-->
-<!--						</div>-->
-<!--						&lt;!&ndash;下方的缩略图&ndash;&gt;-->
-<!--						<div class="spec-scroll">-->
-<!--							<a class="prev">&lt;</a>-->
-<!--							&lt;!&ndash;左右按钮&ndash;&gt;-->
-<!--							<div class="items">-->
-<!--								<ul>-->
-<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnGbYuAO6AHAAjlKdWCzvg253.jpg" onmousemove="preview(this)" /></li>-->
-<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX4yAbCC0AAFa4hmtWek406.jpg" onmousemove="preview(this)" /></li>-->
-<!--									  <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVnKX5WAOsqXAAETwD7A1Is409.jpg" onmousemove="preview(this)" /></li>-->
-<!--								</ul>-->
-<!--							</div>-->
-<!--							<a class="next">&gt;</a>-->
-<!--						</div>-->
-<!--					</div>-->
-				</div>
-				<div class="fr itemInfo-wrap">
-					<div class="sku-name">
-						<h4>{{sku.title}}</h4>
-					</div>
-					<div class="news"><span>打折促销 </span></div>
-					<div class="summary">
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>价　　格</i>
-							</div>
-							<div class="fl price">
-								<i>¥</i>
-								<em>{{sku.price}}</em>
-								<span>降价通知</span>
-							</div>
-							<div class="fr remark">
-								<i>累计评价</i><em>612188</em>
-							</div>
-						</div>
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>促　　销</i>
-							</div>
-							<div class="fl fix-width">
-								<i class="red-bg">加价购</i>
-								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换
-购热销商品</em>
-							</div>
-						</div>
-					</div>
-					<div class="support">
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>支　　持</i>
-							</div>
-							<div class="fl fix-width">
-								<em class="t-gray">以旧换新，闲置手机回收  4G套餐超值抢  礼品购</em>
-							</div>
-						</div>
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>配 送 至</i>
-							</div>
-							<div class="fl fix-width">
-								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品</em>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix choose">
-						<div id="specification" class="summary-wrap clearfix">
-							
-							  <dl>
-								<dt>
-									<div class="fl title">
-									<i>网络</i>
-								</div>
-								</dt>
-								
-								  <dd><a href="javascript:;" 
-								        class="{{isSelected('网络','移动3G')?'selected':''}}" 
-								        ng-click="selectSpecification('网络','移动3G')">移动3G
-								        <span title="点击取消选择">&nbsp;</span>
-								        </a></dd>
-								  <dd><a href="javascript:;" 
-								        class="{{isSelected('网络','移动4G')?'selected':''}}" 
-								        ng-click="selectSpecification('网络','移动4G')">移动4G
-								        <span title="点击取消选择">&nbsp;</span>
-								        </a></dd>
-							  </dl>
-							
-							  <dl>
-								<dt>
-									<div class="fl title">
-									<i>机身内存</i>
-								</div>
-								</dt>
-								
-								  <dd><a href="javascript:;" 
-								        class="{{isSelected('机身内存','16G')?'selected':''}}" 
-								        ng-click="selectSpecification('机身内存','16G')">16G
-								        <span title="点击取消选择">&nbsp;</span>
-								        </a></dd>
-								  <dd><a href="javascript:;" 
-								        class="{{isSelected('机身内存','32G')?'selected':''}}" 
-								        ng-click="selectSpecification('机身内存','32G')">32G
-								        <span title="点击取消选择">&nbsp;</span>
-								        </a></dd>
-							  </dl>
-							
-						</div>
-					
-						<div class="summary-wrap">
-							<div class="fl title">
-								<div class="control-group">
-									<div class="controls">
-										<input autocomplete="off" ng-model="num" type="text" value="1" minnum="1" class="itxt" />
-										<a href="javascript:void(0)" class="increment plus" ng-click="addNum(1)">+</a>
-										<a href="javascript:void(0)" class="increment mins" ng-click="addNum(-1)">-</a>
-									</div>
-								</div>
-							</div>
-							<div class="fl">
-								<ul class="btn-choose unstyled">
-									<li>
-										<a  class="sui-btn  btn-danger addshopcar" ng-click="addToCart()">加入购物车</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+
+
 				</div>
 			</div>
 			<!--product-detail-->
@@ -993,11 +1063,38 @@
 		</div>
 	</div>
 </script>
-
-	
-
 <script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
+function addToCart(){
+		username = window.localStorage.getItem('dnblog_user');
+		token = window.localStorage.getItem('dnblog_token');
+		 var pid =window.location.href.substring(window.location.href.lastIndexOf("/")+1);
+		var post_data={"pid":pid };
+			if(username=="" || username==null)
+            {
+            	 window.location.href= '/login';
+            }
+
+    $.ajax({
+       // 请求方式
+       type:"put",
+        data:JSON.stringify(post_data),
+        contentType:'application/json',
+		dataType:'json',
+       // url
+       url:"http://176.215.66.101:8000/cart/"+ username,
+       beforeSend: function(request) {
+           request.setRequestHeader("Authorization", token);
+       },
+       success:function (result) {
+       		console.log(result)
+           if (200 == result.code){
+
+
+    	}
+    	}
+})
+}
  function logout(){
 
             if(confirm("确定登出吗？")){
@@ -1020,24 +1117,16 @@ $(function(){
 		$("#shopcarlist").hide();
 	});
 
-
     nickname=window.localStorage.getItem('dnblog_user_nick');
-
      var html_body = ''
-
  			if(nickname!="" && nickname!= null)
             {
             	html_body += '<a href="change_info" >'+nickname+'</a>　<span onclick=logout() ><a href="/index" >退出</a></span>';
             }
             else{
-
             	html_body += '请<a href="/login" >登录</a>　<span><a href="/register" >免费注册</a></span>';
-
     		}
-
   $('#loginuser').html(html_body);
-
-
 })
 </script>
 <script type="text/javascript" src="/static/js/model/cartModel.js"></script>
